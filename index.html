@@ -491,9 +491,10 @@ body.nm #s-photo.np-pr{display:none!important}
 .stk-b{height:56px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg,#fff);color:inherit;font:800 28px var(--f-body);cursor:pointer}.stk-b:active{transform:scale(.95)}
 .md-search{width:100%;box-sizing:border-box;min-height:46px;font-size:16px;padding:0 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:inherit;margin-bottom:8px}
 .md-hl{display:grid;gap:6px}.md-hrow{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 12px}.md-hrow span{grid-row:1/3;font:800 17px var(--f-body);align-self:center}.md-hrow .in{color:#1E7A3E}.md-hrow .out{color:#C62828}.md-hrow small{color:var(--muted);font-size:13px}
+a.btn.gsearch{text-decoration:none;justify-self:start;display:inline-flex!important;align-items:center;gap:6px;width:auto!important;white-space:nowrap;flex-wrap:nowrap}a.btn.gsearch small{font-weight:500;opacity:.75;white-space:nowrap}a.btn.gsearch[aria-disabled="true"]{opacity:.5}.cl-act a.btn{text-decoration:none}
+#opts .opt input[type="checkbox"][data-o="on"]{width:24px;height:24px;flex:none;accent-color:var(--accent)}
+.d-opts{margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:0 12px}.d-opts>summary{list-style:none;cursor:pointer;font-weight:700;font-size:18px;padding:14px 2px;min-height:48px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.d-opts>summary::-webkit-details-marker{display:none}.d-opts>summary small{font-weight:400;color:var(--muted);font-size:13px}.d-arr{display:inline-block;transition:transform .15s}.d-opts[open] .d-arr{transform:rotate(90deg)}.d-opts[open]{padding-bottom:12px}#d-opts-more .rg-sec{margin-top:16px}#d-opts-more .rg-h{font-size:19px;margin:6px 0}
 </style>
-</head>
-<body>
 
 <header class="top">
   <div class="wrap" style="padding-block:0">
@@ -589,6 +590,7 @@ body.nm #s-photo.np-pr{display:none!important}
   <label class="f cl-rs"><span class="cl-rsl">Raison sociale</span><input id="nc-raison" data-nc="raison" autocomplete="organization"></label>
   <input id="nc-nom" data-nc="nom" type="hidden">
   <label class="f">Téléphone<input id="nc-tel" data-nc="tel" inputmode="tel" autocomplete="tel"></label>
+  <a class="btn gsearch" id="nc-gs" target="_blank" rel="noopener" href="https://www.google.com/" aria-disabled="true">🔍 Chercher sur Google <small>(téléphone, adresse)</small></a>
   <label class="f">Adresse du client<input id="nc-adresse" data-nc="adresse" autocomplete="street-address"></label>
   <label class="f">Adresse du chantier<input id="nc-chantier" data-nc="chantier" placeholder="Si différente"></label>
   <label class="f">E-mail<input id="nc-email" data-nc="email" inputmode="email" autocomplete="email"></label>
@@ -964,7 +966,7 @@ body.nm #s-photo.np-pr{display:none!important}
   <div class="panel">
     <h2 style="margin:0">⚙️ Réglages</h2>
     <p class="hint" style="margin:0">Tout ce qui se règle une fois pour toutes. Les autres onglets ne servent plus qu'au chantier.</p>
-    <div class="rg-nav"><a href="#rg-app">🧭 Assistant</a><a href="#rg-pose">✂️ Coupe et finition</a><a href="#rg-prix">💶 Prix</a><a href="#rg-films">🎞️ Films</a><a href="#rg-ent">🏢 Entreprise</a><a href="#rg-photo">📷 Photos et cotes</a><a href="#rg-save">💾 Sauvegarde</a><a href="#rg-mods">🧩 Modules</a></div>
+    <div class="rg-nav"><a href="#rg-app">🧭 Assistant</a><a href="#rg-pose">✂️ Coupe et finition</a><a href="#rg-prix">💶 Prix</a><a href="#rg-films">🎞️ Films</a><a href="#rg-ent">🏢 Entreprise</a><a href="#rg-photo">📷 Photos et cotes</a><a href="#rg-save">💾 Sauvegarde</a><a href="#rg-mods">🧩 Modules</a><a href="#rg-tiime">🔗 Tiime</a></div>
   </div>
   <div class="rg-sec" id="rg-app"><h2 class="rg-h">🧭 Assistant et affichage</h2><div class="panel" style="display:grid;gap:10px">
     <p class="hint" style="margin:0">Questions posées pour chaque vitrage (le lieu, la largeur et la hauteur sont toujours demandés) :</p>
@@ -984,6 +986,11 @@ body.nm #s-photo.np-pr{display:none!important}
     <div id="rg-gab-dims" style="display:grid;gap:8px"><div class="row" style="gap:6px;align-items:end"><label class="f" style="width:90px">Largeur (cm)<input id="rg-gab-w" type="number" inputmode="decimal" step="0.1"></label><label class="f" style="width:90px">Hauteur (cm)<input id="rg-gab-h" type="number" inputmode="decimal" step="0.1"></label><button class="btn ghost" type="button" data-rgab="29.7x21">A4</button><button class="btn ghost" type="button" data-rgab="42x29.7">A3</button></div>
       <label class="f" style="max-width:220px">Couleur<select id="rg-gab-col"><option value="orange">Orange</option><option value="rouge">Rouge</option><option value="jaune">Jaune</option><option value="vert">Vert</option><option value="bleu">Bleu</option><option value="rose">Rose</option></select></label>
       <p class="hint">Conseils : couleur vive qu'on ne trouve pas ailleurs sur la façade, feuille bien à plat, photo prise de face. Plus le gabarit est grand sur la photo, plus les cotes sont justes (A3 pour une façade).</p></div><button class="btn ghost" type="button" id="prec-link" style="justify-self:start">📏 Précision des cotes : à quoi s'attendre</button></div></div>
+  <div class="rg-sec" id="rg-tiime"><h2 class="rg-h">🔗 Envoi des devis vers Tiime</h2><div class="panel" style="display:grid;gap:10px">
+    <p class="hint" style="margin:0">Collez ici l'adresse de réception de votre scénario Make (commence par https://hook.). Le bouton « Envoyer à Tiime » apparaît alors dans l'onglet Devis : rien ne part sans que vous appuyiez dessus et confirmiez. Fonctionne dans l'appli installée (GitHub), pas dans l'aperçu claude.ai.</p>
+    <label class="f">Adresse Make (webhook)<input id="rg-mk-url" type="url" inputmode="url" autocomplete="off" placeholder="https://hook.eu2.make.com/…"></label>
+    <div class="row" style="gap:6px"><button class="btn" type="button" id="rg-mk-test">Tester la liaison</button></div><p class="hint" id="rg-mk-info" style="margin:0"></p>
+  </div></div>
   <div class="rg-sec" id="rg-mods"><h2 class="rg-h">🧩 Modules optionnels</h2><div class="panel" style="display:grid;gap:12px">
     <p class="hint" style="margin:0">Éteints, ils n'apparaissent nulle part. Les données saisies sont gardées si vous les éteignez.</p>
     <label class="md-sw"><input type="checkbox" id="rg-sd-on" role="switch"><span class="md-tg" aria-hidden="true"></span><span><b>Activer le suivi des devis</b><small>Relances clients, statuts, rappels Google Agenda</small></span></label>
@@ -1063,22 +1070,33 @@ body.nm #s-photo.np-pr{display:none!important}
       <label class="f">Validité (jours)<input id="d-val" type="number" min="1" data-k="devis.validite" data-num></label>
       <label class="f">TVA
         <select id="d-tva" data-k="devis.tva" data-num>
-          <option value="20">20 %</option><option value="10">10 % (rénovation logement + 2 ans)</option><option value="5.5">5,5 %</option>
+          <option value="20">20 %</option><option value="10">10 % (rénovation logement + 2 ans)</option><option value="5.5">5,5 %</option><option value="0">0 % (TVA non applicable, art. 293 B du CGI)</option>
         </select></label>
       <label class="f">Remise (%)<input id="d-remise" type="number" min="0" max="100" step="0.5" data-k="devis.remise" data-num></label>
       <label class="f">Acompte à la commande (%)<input id="d-acompte" type="number" min="0" max="100" data-k="devis.acompte" data-num></label>
     </div>
-    <h3>Options</h3>
+    <details class="d-opts" id="d-opts"><summary><span class="d-arr" aria-hidden="true">▸</span> Options <small>(dépose, suppléments, prix de pose, films et tarifs…)</small></summary>
+    <h3>Options du chantier</h3>
     <div class="opts" id="opts">
       <div class="opt" data-opt="depose">
         <label class="row" style="gap:10px;flex-wrap:nowrap" for="opt-depose"><input type="checkbox" id="opt-depose" data-o="on"> <span><b>Dépose</b> : enlèvement du film existant</span></label>
-        <div class="row opt-body" style="gap:10px"><label class="f" style="flex:0 0 150px">Prix €/m² HT<input id="opt-depose-prix" data-o="prix" type="number" inputmode="decimal" min="0" step="0.5" placeholder="à renseigner"></label><div class="zchk" data-zones></div></div>
+        <div class="row opt-body" style="gap:10px"><label class="f" style="flex:0 0 200px">Difficulté<select id="opt-depose-niv" data-o="niv"><option value="1">1/3 – facile (9 €/m²)</option><option value="2">2/3 – moyenne (14 €/m²)</option><option value="3">3/3 – difficile (19 €/m²)</option></select></label><label class="f" style="flex:0 0 150px">Prix €/m² HT<input id="opt-depose-prix" data-o="prix" type="number" inputmode="decimal" min="0" step="0.5" placeholder="à renseigner"></label><div class="zchk" data-zones></div></div>
+      </div>
+      <div class="opt" data-opt="sansf">
+        <label class="row" style="gap:10px;flex-wrap:nowrap" for="opt-sansf"><input type="checkbox" id="opt-sansf" data-o="on"> <span><b>Pose sans fourniture</b> : film fourni par le client (pas de ligne film ; film sécurité : 30 €/m²)</span></label>
+        <div class="row opt-body" style="gap:10px"><label class="f" style="flex:0 0 150px">Pose €/m² HT<input id="opt-sansf-prix" data-o="prix" type="number" inputmode="decimal" min="0" step="0.5"></label><div class="zchk" data-zones></div></div>
+      </div>
+      <div class="opt" data-opt="ext">
+        <label class="row" style="gap:10px;flex-wrap:nowrap" for="opt-ext"><input type="checkbox" id="opt-ext" data-o="on"> <span><b>Supplément pose extérieure</b> (zones en pose extérieure seulement)</span></label>
+        <div class="row opt-body" style="gap:10px"><label class="f" style="flex:0 0 150px">Prix €/m² HT<input id="opt-ext-prix" data-o="prix" type="number" inputmode="decimal" min="0" step="0.5" placeholder="à renseigner"></label><div class="zchk" data-zones></div></div>
       </div>
       <div class="opt" data-opt="nettoyage">
         <label class="row" style="gap:10px;flex-wrap:nowrap" for="opt-nettoyage"><input type="checkbox" id="opt-nettoyage" data-o="on"> <span><b>Nettoyage</b> des vitrages avant pose</span></label>
         <div class="row opt-body" style="gap:10px"><label class="f" style="flex:0 0 150px">Prix €/m² HT<input id="opt-nettoyage-prix" data-o="prix" type="number" inputmode="decimal" min="0" step="0.5" placeholder="à renseigner"></label><div class="zchk" data-zones></div></div>
       </div>
     </div>
+    <div id="d-opts-more"></div>
+    </details>
     <h3>Lignes complémentaires</h3>
     <div class="tablewrap"><table class="ext-t">
       <thead><tr><th>Désignation</th><th class="r">Qté</th><th class="r">PU HT</th><th></th></tr></thead>
@@ -1105,6 +1123,8 @@ body.nm #s-photo.np-pr{display:none!important}
     <button class="btn" id="save-devis">Enregistrer dans l'historique</button>
     <button class="btn" id="exp-devis">Exporter le devis (page imprimable / PDF)</button>
     <button class="btn" id="exp-devis-xlsx">Exporter le devis (Excel)</button>
+    <button class="btn" id="exp-tiime">📤 Exporter vers Tiime</button>
+    <button class="btn primary" id="send-tiime" hidden>🚀 Envoyer à Tiime</button>
     <label class="btn" for="imp-devis-file">Importer un devis (PDF, Excel, photo, scan)</label><input type="file" id="imp-devis-file" accept=".pdf,.xlsx,.xls,.csv,.ods,.txt,image/*,application/pdf" hidden>
     <button class="btn ghost" id="new-devis">Nouveau devis</button>
   </div>
@@ -1594,20 +1614,37 @@ function defaults(){
   return{zones:[z1,z2],zoneId:z1.id,
   client:{nom:'',tel:'',adresse:'',chantier:'',email:''},
   company:{nom:'Votre entreprise',siret:'',adresse:'',tel:'',email:''},
-  pose:{mode:'surplace',jeu:3,surplus:15,prixUsine:22,prixSurPlace:28,supExt:6,supInt:0,base:'film',min:0.5},
+  pose:{mode:'surplace',jeu:3,surplus:15,prixUsine:20,prixSurPlace:20,supExt:0,supInt:0,base:'film',min:0.5},
   roll:{sens:'auto',rec:0,gap:10},
   films:[
-    {id:'f1',nom:'Solaire argent 20 ext.',type:'Solaire réfléchissant',laize:152,long:30,prix:27},
-    {id:'f2',nom:'Solaire neutre 35',type:'Solaire neutre',laize:152,long:30,prix:31},
-    {id:'f3',nom:'Sécurité 100 µ',type:'Sécurité',laize:152,long:30,prix:19},
-    {id:'f4',nom:'Dépoli intimité',type:'Occultant / décor',laize:122,long:30,prix:17},
-    {id:'f5',nom:'Anti-UV clair',type:'Anti-UV',laize:183,long:30,prix:22}],
+    {id:'f1',nom:'Solar Gard Silver 20',type:'Solaire réfléchissant (ext.)',laize:152,long:30,prix:26,tiime:'Silver 20',desc:'Sentinel Plus Silver 20, film foncé, pose extérieure. Rejet chaleur 86 %, éblouissement −82 %, UV −99 %. Certifié CSTB, garantie 10 ans.'},
+    {id:'f2',nom:'Solar Gard Silver 35',type:'Solaire réfléchissant (ext.)',laize:152,long:30,prix:29,tiime:'Silver 35',desc:'Sentinel Plus Silver 35, film moyennement foncé, pose extérieure. Rejet chaleur 72 %, éblouissement −62 %, UV −99 %. Certifié CSTB, garantie 10 ans.'},
+    {id:'f3',nom:'Solar Gard Sentinel Plus SX 80',type:'Solaire clair (ext.)',laize:152,long:30,prix:32,tiime:'SX50',desc:'Sentinel Plus SX 80, film totalement transparent, pose extérieure. Rejet chaleur 59 %, TLV 80 %, UV −99 %. Certifié CSTB, garantie 10 ans.'},
+    {id:'f4',nom:'Solar Gard QXN 75 OSW',type:'Solaire clair (ext.)',laize:152,long:30,prix:72,tiime:'QXN70',desc:'Sentinel Plus QXN 75 OSW, film très clair et lumineux. Rejet chaleur 65 %, éblouissement −29 %, UV −99 %.'},
+    {id:'f5',nom:'Solar Gard AG50',type:'Solaire neutre (int.)',laize:152,long:30,prix:26,tiime:'AG50',desc:'AG50, film légèrement teinté, pose intérieure. Rejet chaleur jusqu\'à 58 %, TLV 51 %, UV −99 %, g=0,50. Certifié CSTB, garantie 10 ans.'},
+    {id:'f6',nom:'Solar Gard Ecolux 70 Low-E',type:'Isolant basse émissivité (int.)',laize:152,long:30,prix:109,tiime:'Ecolux',desc:'Ecolux 70 Low-E, film très légèrement teinté, pose intérieure. Rejet chaleur jusqu\'à 53 %, TLV 70 %, UV −99 %, perte de chaleur en hiver −41 %. Certifié CSTB, garantie 10 ans.'},
+    {id:'f7',nom:'Solar Gard Clear Frost RA 50',type:'Dépoli / intimité',laize:152,long:30,prix:15.5,tiime:'Sablé',desc:'Clear Frost RA 50, film dépoli très clair, pose intérieure ou extérieure. Rejet chaleur 43 %, TLV 50 %, UV −72 %. Garantie 10 ans en intérieur, 2 ans en extérieur.'}],
   filmId:'f1',
-  devis:{opts:defaultOpts(),num:'',date:today(),validite:30,tva:20,remise:0,acompte:30,notes:'Accès aux vitrages dégagé par le client.',extras:[{id:uid(),lib:'Déplacement et installation de chantier',qte:1,pu:80},{id:uid(),lib:'Location nacelle (journée)',qte:0,pu:290}]},
+  devis:{opts:defaultOpts(),num:'',date:today(),validite:30,tva:20,remise:0,acompte:30,notes:'Accès aux vitrages dégagé par le client.',extras:tiimeExtras()},tiimeCat:1,
   history:[],tab:'client'}}
+const TIIME_FILMS=[
+    {id:'f1',nom:'Solar Gard Silver 20',type:'Solaire réfléchissant (ext.)',laize:152,long:30,prix:26,tiime:'Silver 20',desc:'Sentinel Plus Silver 20, film foncé, pose extérieure. Rejet chaleur 86 %, éblouissement −82 %, UV −99 %. Certifié CSTB, garantie 10 ans.'},
+    {id:'f2',nom:'Solar Gard Silver 35',type:'Solaire réfléchissant (ext.)',laize:152,long:30,prix:29,tiime:'Silver 35',desc:'Sentinel Plus Silver 35, film moyennement foncé, pose extérieure. Rejet chaleur 72 %, éblouissement −62 %, UV −99 %. Certifié CSTB, garantie 10 ans.'},
+    {id:'f3',nom:'Solar Gard Sentinel Plus SX 80',type:'Solaire clair (ext.)',laize:152,long:30,prix:32,tiime:'SX50',desc:'Sentinel Plus SX 80, film totalement transparent, pose extérieure. Rejet chaleur 59 %, TLV 80 %, UV −99 %. Certifié CSTB, garantie 10 ans.'},
+    {id:'f4',nom:'Solar Gard QXN 75 OSW',type:'Solaire clair (ext.)',laize:152,long:30,prix:72,tiime:'QXN70',desc:'Sentinel Plus QXN 75 OSW, film très clair et lumineux. Rejet chaleur 65 %, éblouissement −29 %, UV −99 %.'},
+    {id:'f5',nom:'Solar Gard AG50',type:'Solaire neutre (int.)',laize:152,long:30,prix:26,tiime:'AG50',desc:'AG50, film légèrement teinté, pose intérieure. Rejet chaleur jusqu\'à 58 %, TLV 51 %, UV −99 %, g=0,50. Certifié CSTB, garantie 10 ans.'},
+    {id:'f6',nom:'Solar Gard Ecolux 70 Low-E',type:'Isolant basse émissivité (int.)',laize:152,long:30,prix:109,tiime:'Ecolux',desc:'Ecolux 70 Low-E, film très légèrement teinté, pose intérieure. Rejet chaleur jusqu\'à 53 %, TLV 70 %, UV −99 %, perte de chaleur en hiver −41 %. Certifié CSTB, garantie 10 ans.'},
+    {id:'f7',nom:'Solar Gard Clear Frost RA 50',type:'Dépoli / intimité',laize:152,long:30,prix:15.5,tiime:'Sablé',desc:'Clear Frost RA 50, film dépoli très clair, pose intérieure ou extérieure. Rejet chaleur 43 %, TLV 50 %, UV −72 %. Garantie 10 ans en intérieur, 2 ans en extérieur.'}];
+const TIIME_EXTRAS=[['Déplacement','Déplacement (consommables et carburant)',0,'forfait'],['Nacelle','Nacelle 2 personnes (livraison, utilisation, carburant)',500,'forfait'],['livraison nacelle','Transport nacelle',300,'forfait'],['échafaudage','Échafaudage roulant (fourniture et mise en place)',100,'forfait'],['Pose en Hauteur','Pose en hauteur : accès et matériel sécurisé',0,'forfait'],['Cordiste','Main d\'œuvre cordiste (installation, sécurité, désinstallation)',0,'forfait'],['décrassage','Décrassage des verrières et nettoyage au grattoir avant pose',500,'forfait'],['joint scellement','Joint de scellement en périphérie des vitrages (fourniture et pose)',2.98,'ml'],['cote solar gard','Prise de cotes par vitrage pour découpe',55,'u'],['Découpe Solargard','Préparation et découpe en atelier, sur mesure',0,'u'],['recyclage','Recyclage des vitrages',10.75,'forfait'],['Connex','Produits connexes',13.25,'forfait'],['mo','Main d\'œuvre',59,'h']];
+const tiimeExtras=()=>TIIME_EXTRAS.map(([tc,lib,pu,u])=>({id:uid(),lib,qte:0,pu,u,tc}));
+const DEPOSE_NIV={1:9,2:14,3:19};
 function migrate(o){if(o&&o.windows&&!o.zones){const z={...newZone('Façade','ext',o.filmId||'f1'),photo:o.photo||null,sampleKind:o.sample?'facade':null,scale:o.scale||null,calib:o.calib||null,windows:o.windows};o.zones=[z];o.zoneId=z.id;delete o.windows;delete o.photo;delete o.scale;delete o.calib;delete o.sample}
-  if(o&&o.pose){o.pose.supExt??=6;o.pose.supInt??=0}if(o&&o.devis&&!o.devis.opts)o.devis.opts=defaultOpts();return o}
-function defaultOpts(){return{depose:{on:false,prix:'',zones:null},nettoyage:{on:false,prix:'',zones:null}}}
+  if(o&&o.pose){o.pose.supExt??=6;o.pose.supInt??=0}if(o&&o.devis&&!o.devis.opts)o.devis.opts=defaultOpts();
+  if(o&&o.devis&&o.devis.opts){const d=defaultOpts();for(const k in d)o.devis.opts[k]??=d[k];o.devis.opts.depose.niv??=2}
+  if(o&&!o.tiimeCat&&o.pose&&o.devis){o.films=JSON.parse(JSON.stringify(TIIME_FILMS));if(!o.films.some(f=>f.id===o.filmId))o.filmId='f1';(o.zones||[]).forEach(z=>{if(!o.films.some(f=>f.id===z.filmId))z.filmId=o.filmId});
+    Object.assign(o.pose,{prixUsine:20,prixSurPlace:20,supExt:0,supInt:0});o.devis.extras=tiimeExtras();o.devis.tva=20;o.devis.opts.depose.prix=o.devis.opts.depose.prix||14;o.tiimeCat=1}
+  return o}
+function defaultOpts(){return{depose:{on:false,prix:14,niv:2,zones:null},nettoyage:{on:false,prix:'',zones:null},ext:{on:false,prix:'',zones:null},sansf:{on:false,prix:23,zones:null}}}
 function load(){try{const s=JSON.parse(localStorage.getItem(KEY));return s&&(s.zones||s.windows)?migrate(s):null}catch(e){return null}}
 let S=load()||defaults();
 (function cleanExample(){let ch=false;if(/\(exemple\)/.test(S.client.nom||'')){S.client={nom:'',tel:'',adresse:'',chantier:'',email:''};ch=true}
@@ -1692,12 +1729,15 @@ function totals(){const lays=layouts();const ratio={};lays.forEach(l=>ratio[l.f.
   for(const z of S.zones){const wins=zSel(z);if(!wins.length)continue;const s=surf(wins),f=filmOf(z);
     const base=S.pose.base==='vitrage'?s.vitF:S.pose.base==='rouleau'?s.fil*(ratio[f.id]||1):s.filF;
     const pp=(S.pose.mode==='usine'?+S.pose.prixUsine:+S.pose.prixSurPlace)+(z.type==='ext'?+S.pose.supExt||0:+S.pose.supInt||0);
-    const lines=[{lib:`Fourniture film ${f.nom} – ${f.type}`,qte:base,u:'m²',pu:+f.prix},
-      {lib:`Pose ${z.type==='ext'?'côté extérieur':'côté intérieur'}, ${S.pose.mode==='usine'?'coupe usine (jeu '+fmt(S.pose.jeu,1)+' mm/côté)':'coupe sur place, finition au plus près'}`,qte:s.vitF,u:'m²',pu:pp}];
-    for(const[k,lib]of[['depose','Dépose du film existant'],['nettoyage','Nettoyage des vitrages']]){const o=S.devis.opts&&S.devis.opts[k];if(o&&o.on&&(!o.zones||o.zones.includes(z.id)))lines.push({lib,qte:s.vitF,u:'m²',pu:+o.prix||0,opt:k})}
+    const OP=S.devis.opts||{},onZ=k=>{const o=OP[k];return o&&o.on&&(!o.zones||o.zones.includes(z.id))},secu=/s[ée]curit/i.test(f.type+' '+f.nom),sf=onZ('sansf');
+    const poseLib=`Pose ${z.type==='ext'?'côté extérieur':'côté intérieur'}, ${S.pose.mode==='usine'?'coupe usine (jeu '+fmt(S.pose.jeu,1)+' mm/côté)':'coupe sur place, finition au plus près'}`;
+    const lines=sf?[{lib:`Pose de film ${secu?'de sécurité':'solaire'} fourni par le client (${f.nom}) – ${poseLib.replace(/^Pose /,'')}`,qte:s.vitF,u:'m²',pu:secu?30:(+OP.sansf.prix||23),tc:secu?'Pose Sécu Bat sans fourniture':'Pose Solaire sans fourniture',opt:'sansf'}]
+      :[{lib:`Fourniture film ${f.nom} – ${f.type}`,qte:base,u:'m²',pu:+f.prix,tc:f.tiime||''},{lib:poseLib,qte:s.vitF,u:'m²',pu:pp,tc:'Pose Solaire avec fourniture'}];
+    if(z.type==='ext'&&onZ('ext'))lines.push({lib:'Supplément pose extérieure',qte:s.vitF,u:'m²',pu:+OP.ext.prix||0,opt:'ext'});
+    for(const[k,lib]of[['depose','Dépose du film existant'],['nettoyage','Nettoyage des vitrages']]){const o=OP[k];if(onZ(k)){const nv=k==='depose'?(+o.niv||2):0;lines.push({lib:nv?`${lib} (difficulté ${nv}/3)`:lib,qte:s.vitF,u:'m²',pu:+o.prix||0,opt:k,tc:nv?`Dépose${nv} Bat`:''})}}
     lines.forEach(l=>l.tot=Math.round(l.qte*l.pu*100)/100);groups.push({z,s,lines,wins});
     for(const k of ['vit','fil','n','vitF','filF'])all[k]+=s[k];all.base+=base}
-  const extras=S.devis.extras.filter(e=>+e.qte>0).map(e=>({lib:e.lib,qte:+e.qte,u:'u',pu:+e.pu,tot:Math.round(e.qte*e.pu*100)/100}));
+  const extras=S.devis.extras.filter(e=>+e.qte>0).map(e=>({lib:e.lib,qte:+e.qte,u:e.u||'u',pu:+e.pu,tc:e.tc||'',tot:Math.round(e.qte*e.pu*100)/100}));
   const sous=groups.flatMap(g=>g.lines).concat(extras).reduce((a,l)=>a+l.tot,0),rem=sous*(+S.devis.remise||0)/100,ht=sous-rem,tva=ht*(+S.devis.tva)/100,ttc=ht+tva,ac=ttc*(+S.devis.acompte||0)/100;
   return{groups,extras,sous,rem,ht,tva,ttc,ac,all,lays}}
 
@@ -3336,7 +3376,7 @@ function renderDoc(T){const D=S.devis,C=S.client,E=S.company;const miss=T.groups
    <div class="tablewrap"><table><thead><tr><th>Désignation</th><th class="r">Qté</th><th class="r">PU HT</th><th class="r">Total HT</th></tr></thead><tbody>
    ${T.groups.map(g=>`<tr class="grp"><td colspan="4"><span class="tag ${g.z.type}">${TYPE[g.z.type]}</span> ${esc(g.z.nom)} · ${g.s.n} vitrage(s)${matTxt(null,g.z)?' · '+esc(matTxt(null,g.z)):''}</td></tr>`+g.lines.map(lineRow).join('')).join('')}
    ${T.extras.length?'<tr class="grp"><td colspan="4">Prestations complémentaires</td></tr>'+T.extras.map(lineRow).join(''):''}</tbody></table></div>
-   <div class="tot">${tr2('Sous-total HT',eur(T.sous))}${T.rem?tr2(`Remise ${fmt(D.remise,1)} %`,'− '+eur(T.rem)):''}${tr2('Total HT',eur(T.ht))}${tr2(`TVA ${fmt(+D.tva,1)} %`,eur(T.tva))}${tr2('Total TTC',eur(T.ttc),'big')}${T.ac?tr2(`Acompte ${D.acompte} %`,eur(T.ac)):''}</div>
+   <div class="tot">${tr2('Sous-total HT',eur(T.sous))}${T.rem?tr2(`Remise ${fmt(D.remise,1)} %`,'− '+eur(T.rem)):''}${tr2('Total HT',eur(T.ht))}${+D.tva?tr2(`TVA ${fmt(+D.tva,1)} %`,eur(T.tva)):tr2('TVA non applicable, art. 293 B du CGI','0,00 €')}${tr2('Total TTC',eur(T.ttc),'big')}${T.ac?tr2(`Acompte ${D.acompte} %`,eur(T.ac)):''}</div>
    <details><summary>Détail des vitrages (${T.all.n})</summary><div class="tablewrap" style="margin-top:8px"><table><thead><tr><th>Repère</th><th class="r">Cote vitrage</th><th class="r">Film</th><th class="r">Qté</th></tr></thead><tbody>
    ${T.groups.map(g=>`<tr class="grp"><td colspan="4">${esc(g.z.nom)}</td></tr>`+g.wins.map(w=>{const d=filmDims(w);const mo=(w.menui&&w.menui!==g.z.menui)||(w.joint&&w.joint!==g.z.joint)?` <small>(${esc(matTxt(w,g.z))})</small>`:'';const P=vtPieces(w);return`<tr><td>${esc(w.label)}${mo}</td><td class="r num">${fmt(w.wcm,1)} × ${fmt(w.hcm,1)}</td><td class="r num">${P.length>1?'':(d=>fmt(d.w,1)+' × '+fmt(d.h,1))(filmDims(P[0]))}</td><td class="r num">${w.qty}</td></tr>`+(P.length>1?P.map(pc=>{const pd=filmDims(pc);return`<tr class="vt-row"><td class="vt-lab">↳ ${esc(pc.lab)}</td><td class="r num">${fmt(pc.wcm,1)} × ${fmt(pc.hcm,1)}</td><td class="r num">${fmt(pd.w,1)} × ${fmt(pd.h,1)}</td><td class="r num">${w.qty}</td></tr>`}).join(''):'')}).join('')).join('')}</tbody></table></div></details>
    ${D.notes?`<p class="meta" style="margin:0;white-space:pre-line">${esc(D.notes)}</p>`:''}`}
@@ -3345,7 +3385,7 @@ function devisText(){const T=totals(),D=S.devis,C=S.client,E=S.company;const L=[
   T.groups.forEach(g=>{L.push('',`${g.z.nom.toUpperCase()} (${TYPE[g.z.type]}) – ${g.s.n} vitrage(s)${matTxt(null,g.z)?' – '+matTxt(null,g.z):''}`);g.lines.forEach(l=>L.push(ln(l)))});
   if(T.extras.length){L.push('','PRESTATIONS COMPLÉMENTAIRES');T.extras.forEach(l=>L.push(ln(l)))}
   L.push('',`Sous-total HT : ${eur(T.sous)}`);if(T.rem)L.push(`Remise ${fmt(D.remise,1)} % : − ${eur(T.rem)}`);
-  L.push(`Total HT : ${eur(T.ht)}`,`TVA ${fmt(+D.tva,1)} % : ${eur(T.tva)}`,`TOTAL TTC : ${eur(T.ttc)}`);if(T.ac)L.push(`Acompte ${D.acompte} % à la commande : ${eur(T.ac)}`);
+  L.push(`Total HT : ${eur(T.ht)}`,(+D.tva?`TVA ${fmt(+D.tva,1)} % : ${eur(T.tva)}`:'TVA non applicable, art. 293 B du CGI'),`TOTAL TTC : ${eur(T.ttc)}`);if(T.ac)L.push(`Acompte ${D.acompte} % à la commande : ${eur(T.ac)}`);
   L.push('','Vitrages (largeur × hauteur, cm) :');T.groups.forEach(g=>{L.push(`  ${g.z.nom} :`);g.wins.forEach(w=>L.push(`    ${w.label} : ${fmt(w.wcm,1)} × ${fmt(w.hcm,1)} ×${w.qty}${(w.vt||1)>1?` (${w.vt} vantaux)`:''}`))});
   if(D.notes)L.push('',D.notes);return L.filter(x=>x!=null&&x!==false&&x!=='undefined').join('\n')}
 $('#copy').onclick=()=>{const t=devisText();const fb=()=>{const a=$('#copy-fallback');a.value=t;a.hidden=false;a.select();toast('Sélectionnez le texte ci-dessous pour le copier')};
@@ -3570,7 +3610,7 @@ $('#exp-hist').onclick=()=>{const items=histItems();if(!items.length){toast('Auc
     for(const z of d.zones||[])for(const w of z.windows||[])if(w.sel&&w.wcm>0&&w.hcm>0){const q2=w.qty||1;nv+=q2;sv+=w.wcm*w.hcm/1e4*(w.pts?(w.ratio||1):1)*q2}
     rows.push([q(d.devis.num),q(frDate(d.devis.date)),q(d.client.nom),q(d.client.chantier),nv,n(sv),n(d.ttc)].join(';'))}
   saveFile(`Historique-devis-${new Date().toISOString().slice(0,10)}.csv`,'﻿'+rows.join('\r\n'),'text/csv')};
-$('#new-devis').onclick=()=>{const keep={};for(const k of['company','films','history','pose','roll','filmId','std','stdList','stock','supplier','ui','hiRes','gabarit','detMerge','detEnh','recal','tab','defVt','qcfg','snake','askPhoto','clients','clHidden','drvV','sdOn','sdList','sdDelay','stkOn','stkItems','stkMoves','pcAuth','pcHost','pcEmail','pcAuto','pcLast','nm','tts','phAuto','drvUrl','drvAuto','drvKey','drvLast','bkDate','detMergeV2','stdVer'])if(S[k]!==undefined)keep[k]=S[k];S=Object.assign(defaults(),keep);
+$('#new-devis').onclick=()=>{const keep={};for(const k of['company','films','history','pose','roll','filmId','std','stdList','stock','supplier','ui','hiRes','gabarit','detMerge','detEnh','recal','tab','defVt','qcfg','snake','askPhoto','clients','clHidden','drvV','tiimeCat','mkUrl','sdOn','sdList','sdDelay','stkOn','stkItems','stkMoves','pcAuth','pcHost','pcEmail','pcAuto','pcLast','nm','tts','phAuto','drvUrl','drvAuto','drvKey','drvLast','bkDate','detMergeV2','stdVer'])if(S[k]!==undefined)keep[k]=S[k];S=Object.assign(defaults(),keep);
   S.zoneId=S.zones[0].id;
   S.client={nom:'',tel:'',adresse:'',chantier:'',email:''};S.devis.num=nextNum();changed('all');setTab('client');toast('Nouveau devis prêt')};
 NEWDEV=$('#new-devis').onclick;$('#new-devis').onclick=()=>{setTab('client');$('#new-client').click()};
@@ -3636,9 +3676,13 @@ applyUI();
   const P=$('#rg-photo-p');{const h=$('#hi-res');if(h)mv(h.closest('label'),P)}{const v=$('#def-vt');if(v)mv(v.closest('label'),P)}
   {const d=$('.det-set');if(d){d.classList.remove('x-only');d.open=true;mv(d,P)}}{const sb=$('#std-box');if(sb)mv(sb,P)}
   $$('nav.tabs [data-tab="pose"],nav.tabs [data-tab="films"]').forEach(b=>b.remove())})();
+/* Paramètres de prix : dans l'onglet Devis (Options ▸), plus dans les Réglages */
+(function(){const box=$('#d-opts-more');if(!box)return;['#rg-pose','#rg-prix','#rg-films'].forEach(id=>{const e=$(id);if(e){box.appendChild(e);const a=$(`.rg-nav a[href="${id}"]`);a&&a.remove()}});
+  const rp=$('#rg-pose .rg-h');if(rp)rp.textContent='✂️ Mode et prix de pose';
+  const d=$('#d-opts');try{d.open=localStorage.getItem('mf-dopts')==='1'}catch(_){}d.addEventListener('toggle',()=>{try{localStorage.setItem('mf-dopts',d.open?'1':'0')}catch(_){}})})();
 $$('.rg-nav a').forEach(a=>a.onclick=e=>{e.preventDefault();const t=$(a.getAttribute('href'));t&&t.scrollIntoView({block:'start',behavior:'smooth'})});
 function renderCoupeSum(){const el=$('#coupe-sum');if(!el)return;const p=S.pose;el.innerHTML=p.mode==='usine'?`<b>Coupe usine</b> : film ${fmt(p.jeu,1)} mm plus court par côté · pose ${fmt(p.prixUsine,2)} €/m² HT`:`<b>Coupe sur place – finition</b> : surplus ${fmt(p.surplus,1)} mm par côté · pose ${fmt(p.prixSurPlace,2)} €/m² HT`}
-{const o=setTab;setTab=function(t){if(t==='pose'||t==='films'){o('reglages');setTimeout(()=>{const e=$(t==='films'?'#rg-films':'#rg-prix');e&&e.scrollIntoView({block:'start'})},60);return}o(t);if(S.tab==='coupe')renderCoupeSum()}}
+{const o=setTab;setTab=function(t){if(t==='pose'||t==='films'){o('devis');const d=$('#d-opts');if(d)d.open=true;setTimeout(()=>{const e=$(t==='films'?'#rg-films':'#rg-pose');e&&e.scrollIntoView({block:'start'})},60);return}o(t);if(S.tab==='coupe')renderCoupeSum()}}
 /* Disquette du bandeau */
 function placeSavePop(){const r=$('#save-btn').getBoundingClientRect(),p=$('#save-pop');p.style.top=(r.bottom+6)+'px'}
 $('#save-btn').onclick=e=>{e.stopPropagation();const p=$('#save-pop');p.hidden=!p.hidden;$('#save-btn').setAttribute('aria-expanded',!p.hidden);if(!p.hidden)placeSavePop()};
@@ -4177,6 +4221,76 @@ $('#pm-list').addEventListener('click',e=>{if(e.target.closest('#pml-next')){pus
     window.scrollTo({top:0,behavior:'smooth'});setTimeout(()=>{const m=$('#np-mic');if(m&&!m.hidden)m.focus();else $('#np-free').focus()},350);return}
   if(e.target.closest('#pml-end')){pushUndo();pmlValidate();activeId=null;setTab('bilan');toast('Cotes validées')}});
 {const o=renderPM;renderPM=function(){const r=o.apply(this,arguments);try{renderPMList()}catch(_){}return r}}
+/* ---------- bouton « Chercher sur Google » (fiche client) ---------- */
+function gsUrl(nom,adr){const n=String(nom||'').trim();let v=String(adr||'').trim();const m=v.match(/\b\d{5}\s+([^,]+)/);if(m)v=m[1];else if(v.includes(','))v=v.split(',').pop();return'https://www.google.com/search?q='+encodeURIComponent((n+' '+v.trim()).trim())}
+function gsSet(a,nom,adr){if(!a)return;const ok=!!String(nom||'').trim();a.href=ok?gsUrl(nom,adr):'https://www.google.com/';a.setAttribute('aria-disabled',String(!ok));a.title=ok?'Ouvre Google avec le nom et la ville : copiez le téléphone puis revenez dans l\'appli':'Saisissez d\'abord le nom'}
+function ncGs(){const C=S.client||{};gsSet($('#nc-gs'),clDisp(C)||C.nom,C.chantier||C.adresse)}
+function cfGs(){const f=$('#cl-form');if(!f)return;const g=k=>{const i=f.querySelector(`[data-cf="${k}"]`);return i?i.value:''};const t=(f.querySelector('input[name="cft"]:checked')||{}).value||'part';
+  const nom=t==='part'?[g('prenom'),g('nomFam')].filter(Boolean).join(' '):g('raison');gsSet($('#cf-gs'),nom,g('chantier')||g('adresse'))}
+$('#n-csheet').addEventListener('input',ncGs);$('#n-csheet').addEventListener('change',ncGs);
+{const o=openClient;openClient=function(){const r=o.apply(this,arguments);ncGs();return r}}
+$('#cl-form').addEventListener('input',cfGs);$('#cl-form').addEventListener('change',cfGs);
+{const o=clForm;clForm=function(){const r=o.apply(this,arguments);cfGs();return r}}
+document.addEventListener('click',e=>{const a=e.target.closest('a.gsearch, a[href^="https://www.google.com/search"]');if(!a||a.id==='gs-link')return;e.preventDefault();e.stopPropagation();
+  if(a.getAttribute('aria-disabled')==='true'){toast('Saisissez d\'abord le nom du client');return}const url=a.href,q=decodeURIComponent((url.split('q=')[1]||'').replace(/\+/g,' '));let w=null;
+  try{w=window.open(url,'_blank')}catch(_){w=null}if(w){try{w.opener=null}catch(_){}setTimeout(()=>{try{if(w.closed)gsFallback(q,url)}catch(_){}},800);return}gsFallback(q,url)},true);
+function gsFallback(q,url){let d=$('#gs-sheet');if(!d){d=document.createElement('div');d.id='gs-sheet';d.className='n-sheet';d.innerHTML=`<div role="dialog" aria-modal="true" aria-labelledby="gs-t"><div class="row" style="justify-content:space-between;align-items:center"><h2 id="gs-t" style="margin:0;font-size:21px">🔍 Recherche Google</h2><button class="n-ibtn" type="button" id="gs-x" aria-label="Fermer">✕</button></div>
+    <p class="hint" style="margin:0">Google ne peut pas s'ouvrir depuis l'aperçu claude.ai. Copiez la recherche, collez-la dans Google ou Safari, puis revenez coller le téléphone dans la fiche.</p>
+    <input id="gs-q" readonly style="font-size:18px;font-weight:700;min-height:52px"><div class="row" style="gap:6px"><button class="btn primary" type="button" id="gs-copy">📋 Copier la recherche</button><a class="btn" id="gs-link" target="_top" rel="noopener" style="text-decoration:none">Essayer d'ouvrir Google</a></div></div>`;document.body.appendChild(d);
+    d.addEventListener('click',e=>{if(e.target===d||e.target.closest('#gs-x')){d.hidden=true;return}if(e.target.closest('#gs-copy')){const i=$('#gs-q');const done=()=>toast('✓ Recherche copiée : collez-la dans Google');
+      (navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(i.value):Promise.reject()).then(done).catch(()=>{try{i.focus();i.select();i.setSelectionRange(0,i.value.length);if(document.execCommand('copy'))done();else toast('Restez appuyé sur le texte pour le copier')}catch(_){toast('Restez appuyé sur le texte pour le copier')}})}})}
+  $('#gs-q').value=q;$('#gs-link').href=url;d.hidden=false}
+/* ---------- options du devis : niveau de dépose ---------- */
+$('#opts').addEventListener('change',e=>{if(e.target.dataset.o!=='niv')return;const o=S.devis.opts.depose;o.niv=+e.target.value;o.prix=DEPOSE_NIV[o.niv];const p=$('#opt-depose-prix');if(p)p.value=o.prix;changed('soft')});
+{const o=renderOpts;renderOpts=function(){const r=o.apply(this,arguments);const n=$('#opt-depose-niv');if(n)n.value=String((S.devis.opts.depose||{}).niv||2);return r}}
+/* ---------- export vers Tiime ---------- */
+function tiimeExport(){const T=totals(),D=S.devis,C=S.client||{},n2=v=>fmt(v,2);const typ={part:'Particulier',ent:'Entreprise',coll:'Collectivité'}[C.type]||'Particulier';
+  const L=[];T.groups.forEach(g=>g.lines.forEach(l=>{if(l.qte>0)L.push({code:l.tc||'',lib:l.lib+(g.z?` – ${letter(g.z)} · ${g.z.nom}`:''),qte:Math.round(l.qte*100)/100,u:l.u,pu:l.pu})}));T.extras.forEach(l=>L.push({code:l.tc||'',lib:l.lib,qte:l.qte,u:l.u,pu:l.pu}));
+  const t=['DEVIS À CRÉER EN BROUILLON DANS TIIME (ne pas envoyer)','',`Client : ${C.nom||'—'} (${typ})`,C.adresse?`Adresse : ${C.adresse}`:'',C.chantier&&C.chantier!==C.adresse?`Chantier : ${C.chantier}`:'',C.tel?`Téléphone : ${C.tel}`:'',C.email?`E-mail : ${C.email}`:'',
+    `Date : ${D.date||''} · validité ${D.validite||30} jours · ${+D.tva?'TVA '+fmt(+D.tva,1)+' %':'TVA non applicable, art. 293 B du CGI'}${+D.remise?' · remise '+fmt(D.remise,1)+' %':''}${+D.acompte?' · acompte '+D.acompte+' %':''}`,'',
+    'Lignes (code prestation Tiime | désignation | quantité | unité | PU HT) :',...L.map(l=>`- ${l.code||'(ligne libre)'} | ${l.lib} | ${n2(l.qte)} | ${l.u} | ${n2(l.pu)} €`),'',
+    `Total HT : ${eur(T.ht)} · ${+D.tva?'TVA : '+eur(T.tva)+' · ':''}Total TTC : ${eur(T.ttc)}`,D.notes?`Notes : ${D.notes}`:''].filter(x=>x!=='').join('\n').replace(/\n(?=Lignes|Total HT|Date)/g,'\n\n');
+  const json={client:{nom:C.nom||'',type:C.type||'part',adresse:C.adresse||'',chantier:C.chantier||'',tel:C.tel||'',email:C.email||''},date:D.date,validite:+D.validite||30,tva:+D.tva,remise:+D.remise||0,acompte:+D.acompte||0,lignes:L,totalHT:+T.ht.toFixed(2),totalTTC:+T.ttc.toFixed(2),notes:D.notes||''};
+  return{t,json}}
+function tiimeSheet(){const{t,json}=tiimeExport();let d=$('#ti-sheet');if(!d){d=document.createElement('div');d.id='ti-sheet';d.className='n-sheet';d.innerHTML=`<div role="dialog" aria-modal="true" aria-labelledby="ti-t"><div class="row" style="justify-content:space-between;align-items:center"><h2 id="ti-t" style="margin:0;font-size:21px">📤 Exporter vers Tiime</h2><button class="n-ibtn" type="button" id="ti-x" aria-label="Fermer">✕</button></div>
+    <p class="hint" style="margin:0">Copiez ce texte et collez-le dans une conversation avec Claude en disant « crée ce devis en brouillon dans Tiime » : Claude le saisit dans Tiime ouvert dans Chrome, sans l'envoyer. Les codes sont ceux de vos prestations types Tiime.</p>
+    <textarea id="ti-txt" readonly rows="12" style="width:100%;box-sizing:border-box;font:14px/1.4 ui-monospace,monospace"></textarea>
+    <div class="row" style="gap:6px"><button class="btn primary" type="button" id="ti-copy">📋 Copier</button><button class="btn" type="button" id="ti-share">Partager…</button><button class="btn ghost" type="button" id="ti-json">Fichier .json</button></div></div>`;document.body.appendChild(d);
+    d.addEventListener('click',async e=>{if(e.target===d||e.target.closest('#ti-x')){d.hidden=true;return}const tx=$('#ti-txt').value;
+      if(e.target.closest('#ti-copy')){const done=()=>toast('✓ Copié : collez-le dans Claude');(navigator.clipboard&&navigator.clipboard.writeText?navigator.clipboard.writeText(tx):Promise.reject()).then(done).catch(()=>{const a=$('#ti-txt');a.focus();a.select();try{document.execCommand('copy')?done():toast('Sélectionnez le texte pour le copier')}catch(_){toast('Sélectionnez le texte pour le copier')}})}
+      if(e.target.closest('#ti-share')){if(navigator.share){try{await navigator.share({title:'Devis pour Tiime',text:tx})}catch(_){}}else toast('Partage indisponible ici : utilisez Copier')}
+      if(e.target.closest('#ti-json')){const b=new Blob([JSON.stringify(d._json,null,2)],{type:'application/json'});saveFile(`devis-tiime-${(S.devis.num||todayISO())}.json`,b,'application/json')}})}
+  $('#ti-txt').value=t;d._json=json;d.hidden=false}
+$('#exp-tiime').onclick=()=>{try{const T=totals();if(!T.groups.length&&!T.extras.length){toast('Le devis est vide');return}tiimeSheet()}catch(e){toast('Export impossible : '+e.message)}};
+/* ---------- envoi à Tiime via Make (uniquement sur appui) ---------- */
+function mkOk(){return /^https:\/\/hook\.[a-z0-9.]*make\.com\/\S+$/i.test(S.mkUrl||'')}
+function mkUI(){const b=$('#send-tiime');if(b)b.hidden=!mkOk();const i=$('#rg-mk-url');if(i&&document.activeElement!==i)i.value=S.mkUrl||''}
+$('#rg-mk-url').addEventListener('change',e=>{const v=e.target.value.trim();S.mkUrl=v;save();mkUI();$('#rg-mk-info').textContent=v&&!mkOk()?'⚠ Adresse non reconnue : elle doit commencer par https://hook.….make.com/':v?'✓ Adresse enregistrée':''});
+async function mkPost(payload){const r=await fetch(S.mkUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const t=await r.text();let j=null;try{j=JSON.parse(t)}catch(_){}if(!r.ok)throw new Error((j&&(j.message||j.error))||t||('erreur '+r.status));return j||{message:t}}
+$('#rg-mk-test').onclick=async()=>{if(!mkOk()){toast('Collez d\'abord l\'adresse Make');return}$('#rg-mk-info').textContent='Test en cours…';try{const j=await mkPost({test:true,app:'metre-film',date:new Date().toISOString()});$('#rg-mk-info').textContent='✓ Make a bien reçu le test'+(j&&j.message&&j.message!=='Accepted'?' : '+j.message:'')+'.'}catch(e){$('#rg-mk-info').textContent='Échec : '+(/fetch|network|load/i.test(e.message)?'Make injoignable ici (utilisez l\'appli installée, pas l\'aperçu claude.ai)':e.message)}};
+function mkUnit(u){u=String(u||'').toLowerCase().replace(/\s/g,'');if(/m²|m2|sqft/.test(u))return'sqft';if(/^ml$|^m$|mètre|metre|meter/.test(u))return'meter';if(/^h$|heure|hour/.test(u))return'hour';if(/forfait|package|^f$/.test(u))return'package';return'unit'}
+function mkPayload(json){const r=+json.remise||0,tv=+json.tva||0,rate=String(Math.round(tv*10)/1000),k=r>0?1-r/100:1;
+  const iso=v=>{const m=String(v||'').match(/^(\d{4})-(\d{2})-(\d{2})/);if(m)return m[0];const f=String(v||'').match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);return f?`${f[3]}-${f[2].padStart(2,'0')}-${f[1].padStart(2,'0')}`:todayISO()};
+  const d=iso(json.date),dt=new Date(d+'T12:00:00');dt.setDate(dt.getDate()+(+json.validite||30));
+  const ad=String(json.client.adresse||json.client.chantier||''),m=ad.match(/(\d{5})\s+([^,\n]+?)\s*$/);
+  const client={...json.client,cp:m?m[1]:'',ville:m?m[2].trim():'',adresse:m?ad.slice(0,m.index).replace(/[,\s]+$/,''):ad};
+  const lignes=json.lignes.map(l=>({quote_quantity:String(Math.round((+l.qte||0)*100)/100),quote_quantity_unit_of_measure_code:mkUnit(l.u),quote_line_allowances:{},
+    line_vat_information:{quoted_item_vat_rate:tv?rate:'0',quoted_item_vat_category_code:tv?'S':'O'},
+    price_details:{item_net_price:String(Math.round((+l.pu||0)*k*100)/100)},
+    item_information:{item_name:String((l.code&&!l.lib.toLowerCase().startsWith(l.code.toLowerCase())?l.code+' – ':'')+l.lib+(r>0?` (remise ${fmt(r,1)} % incluse)`:'')).slice(0,255),item_attributes:[{item_attribute_name:'type',item_attribute_value:'benefit'}]}}));
+  return{...json,client,date:d,dateFin:dt.toISOString().slice(0,10),motifLibre:tv?'':'TVA non applicable, art. 293 B du CGI',lignesApp:json.lignes,lignes}}
+function mkSheet(){const{json}=tiimeExport();const C=json.client;let d=$('#mk-sheet');if(!d){d=document.createElement('div');d.id='mk-sheet';d.className='n-sheet';document.body.appendChild(d);
+    d.addEventListener('click',async e=>{if(e.target===d||e.target.closest('#mk-x')){d.hidden=true;return}if(!e.target.closest('#mk-go'))return;const b=$('#mk-go');b.disabled=true;b.textContent='Envoi en cours…';
+      try{const j=await mkPost({app:'metre-film',action:'creer_devis_brouillon',numero:S.devis.num||'',...mkPayload(d._json)});S.devis.tiime={date:new Date().toISOString(),rep:j&&(j.url||j.message)||''};save();
+        $('#mk-body').innerHTML=`<p style="margin:0;font-size:17px">✓ Devis créé en brouillon dans Tiime${j&&j.devisId?' (n° interne '+esc(String(j.devisId))+')':''}.</p><p class="hint" style="margin:0">Vérifiez-le dans Tiime (Facturation → Devis) avant de l'envoyer au client.</p>${j&&j.url?`<a class="btn" target="_blank" rel="noopener" href="${esc(j.url)}">Ouvrir dans Tiime</a>`:''}`;toast('✓ Devis envoyé à Tiime')}
+      catch(err){b.disabled=false;b.textContent='Réessayer';toast('Envoi impossible : '+(/fetch|network|load/i.test(err.message)?'Make injoignable (appli installée requise)':err.message))}})}
+  d._json=json;const prev=S.devis.tiime;d.innerHTML=`<div role="dialog" aria-modal="true" aria-labelledby="mk-t"><div class="row" style="justify-content:space-between;align-items:center"><h2 id="mk-t" style="margin:0;font-size:21px">🚀 Envoyer à Tiime</h2><button class="n-ibtn" type="button" id="mk-x" aria-label="Fermer">✕</button></div>
+    <div id="mk-body" style="display:grid;gap:10px"><div class="n-card" style="margin:0"><b style="font-size:18px">${esc(C.nom||'Client sans nom')}</b><div class="hint">${json.lignes.length} ligne(s) · ${eur(json.totalHT)} HT · ${json.tva?'TVA '+fmt(json.tva,1)+' %':'TVA non applicable'} · ${eur(json.totalTTC)} TTC</div></div>
+    ${prev?`<p class="hint" style="margin:0;color:#B26A00">⚠ Ce devis a déjà été envoyé le ${new Date(prev.date).toLocaleString('fr-FR')}. Un nouvel envoi créera un deuxième devis dans Tiime.</p>`:''}
+    <p class="hint" style="margin:0">Le devis sera créé dans Tiime (client créé s'il n'existe pas). Il ne sera pas envoyé au client : vous le vérifiez et l'envoyez depuis Tiime.</p>
+    <button class="btn primary" type="button" id="mk-go" style="min-height:54px;font-size:17px">Confirmer l'envoi à Tiime</button></div></div>`;d.hidden=false}
+$('#send-tiime').onclick=()=>{if(!mkOk()){toast('Réglez d\'abord l\'adresse Make (Réglages → Tiime)');return}const T=totals();if(!T.groups.length&&!T.extras.length){toast('Le devis est vide');return}if(!(S.client&&S.client.nom)){toast('Renseignez d\'abord le client');return}mkSheet()};
+mkUI();{const o=setTab;setTab=function(t){o(t);if(S.tab==='devis'||S.tab==='reglages')mkUI()}}
 /* ---------- clients ---------- */
 const CLK=['nom','tel','adresse','chantier','email','type','nomFam','prenom','raison'];
 const CLT={part:'Particulier',ent:'Entreprise',coll:'Collectivité'};
@@ -4195,7 +4309,7 @@ let CL_EDIT=null;
 function clForm(c){const isNew=!c;c=c||{};CL_EDIT=isNew?'new':c.id;const TYPES_CF=`<div class="cl-types" role="radiogroup" aria-label="Type de client">    <label><input type="radio" name="cft" value="part"> Particulier</label><label><input type="radio" name="cft" value="ent"> Entreprise</label><label><input type="radio" name="cft" value="coll"> Collectivité</label></div>`;$('#cl-form').innerHTML=`<div class="cl-f"><b>${isNew?'Nouveau client':'Modifier '+esc(c.nom)}</b>
   ${TYPES_CF}
   <div class="cl-pp grid2"><label>Nom<input data-cf="nomFam" value="${esc(c.nomFam||(clType(c)==='part'&&!c.prenom?c.nom||'':''))}" autocomplete="family-name"></label><label>Prénom<input data-cf="prenom" value="${esc(c.prenom||'')}" autocomplete="given-name"></label></div>
-  <label class="cl-rs"><span class="cl-rsl">Raison sociale</span><input data-cf="raison" value="${esc(c.raison||(clType(c)!=='part'?c.nom||'':''))}" autocomplete="organization"></label><label>Téléphone<input data-cf="tel" inputmode="tel" value="${esc(c.tel||'')}"></label>
+  <label class="cl-rs"><span class="cl-rsl">Raison sociale</span><input data-cf="raison" value="${esc(c.raison||(clType(c)!=='part'?c.nom||'':''))}" autocomplete="organization"></label><label>Téléphone<input data-cf="tel" inputmode="tel" value="${esc(c.tel||'')}"></label><a class="btn gsearch" id="cf-gs" target="_blank" rel="noopener" href="https://www.google.com/" aria-disabled="true">🔍 Chercher sur Google <small>(téléphone, adresse)</small></a>
   <label>Adresse du client<input data-cf="adresse" value="${esc(c.adresse||'')}"></label><label>Adresse du chantier<input data-cf="chantier" placeholder="Si différente" value="${esc(c.chantier||'')}"></label>
   <label>E-mail<input data-cf="email" inputmode="email" value="${esc(c.email||'')}"></label><label>Notes<textarea data-cf="notes" rows="2" placeholder="Code portail, étage, préférences…">${esc(c.notes||'')}</textarea></label>
   <div class="row" style="gap:6px"><button class="btn primary" type="button" id="cl-save">Enregistrer</button><button class="btn ghost" type="button" id="cl-cancel">Annuler</button></div></div>`;
@@ -4206,7 +4320,7 @@ function renderClients(){clSeed();const q=clNorm($('#cl-q').value),cur=S.client&
   $('#cl-list').innerHTML=L.length?L.map(c=>{const D=clDevis(c),tot=D.reduce((a,h)=>a+(+h.ttc||0),0),isCur=clNorm(c.nom)===cur,tel=String(c.tel||'').replace(/[^\d+]/g,''),adr=c.chantier||c.adresse;
     return`<div class="cl-card ${isCur?'cur':''}" data-cid="${c.id}"><div class="cl-h"><div><b>${esc(clType(c)==='part'&&c.nomFam?(c.nomFam.toUpperCase()+(c.prenom?' '+c.prenom:'')):c.nom)}</b><span class="cl-badge">${CLT[clType(c)]}</span>${isCur?' <span class="cl-badge" style="background:var(--accent);color:#fff">chantier ouvert</span>':''}</div><small>${D.length} devis${D.length?' · '+eur(tot):''}</small></div>
     <div class="cl-info">${c.tel?'📞 '+esc(c.tel)+'<br>':''}${c.email?'✉️ '+esc(c.email)+'<br>':''}${adr?'📍 '+esc(adr):''}${c.notes?'<br>📝 '+esc(c.notes):''}</div>
-    <div class="cl-act"><button class="btn primary" type="button" data-cla="metre">📐 ${isCur?'Reprendre le métré':'Nouveau métré'}</button>${tel?`<a class="btn" href="tel:${esc(tel)}">📞</a>`:''}${c.email?`<a class="btn" href="mailto:${esc(c.email)}">✉️</a>`:''}${adr?`<a class="btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=${encodeURIComponent(adr)}">📍</a>`:''}<button class="btn" type="button" data-cla="edit">✏️ Modifier</button><button class="btn ghost danger" type="button" data-cla="del" aria-label="Supprimer ${esc(c.nom)}">🗑</button></div>
+    <div class="cl-act"><button class="btn primary" type="button" data-cla="metre">📐 ${isCur?'Reprendre le métré':'Nouveau métré'}</button>${tel?`<a class="btn" href="tel:${esc(tel)}">📞</a>`:''}${c.email?`<a class="btn" href="mailto:${esc(c.email)}">✉️</a>`:''}${adr?`<a class="btn" target="_blank" rel="noopener" href="https://maps.google.com/?q=${encodeURIComponent(adr)}">📍</a>`:''}<a class="btn" target="_blank" rel="noopener" href="${esc(gsUrl(c.nom,c.chantier||c.adresse))}" aria-label="Chercher ${esc(c.nom)} sur Google">🔍</a><button class="btn" type="button" data-cla="edit">✏️ Modifier</button><button class="btn ghost danger" type="button" data-cla="del" aria-label="Supprimer ${esc(c.nom)}">🗑</button></div>
     ${D.length?`<div class="cl-dv">${D.map(h=>`<button type="button" data-cldv="${esc(h.num)}"><span>🧾 ${esc(h.num)} <small class="hint">${esc(h.date||'')}</small></span><b>${eur(h.ttc)}</b></button>`).join('')}</div>`:''}<div class="cl-msg"></div></div>`}).join(''):`<p class="hint">${q?'Aucun client trouvé.':'Aucun client pour l\'instant. Touchez « ＋ Nouveau client ».'}</p>`}
 $('#cl-q').addEventListener('input',renderClients);
 $('#cl-filt').addEventListener('click',e=>{if(e.target.closest('#cl-xls'))return xlsAll();const b=e.target.closest('[data-clt]');if(!b)return;CL_FILT=b.dataset.clt;$$('#cl-filt [data-clt]').forEach(x=>x.setAttribute('aria-pressed',x===b));renderClients()});
@@ -4412,4 +4526,5 @@ mdRgSync();mdTiles();setTimeout(()=>{try{const n=sdDue().length,m=stkLow().lengt
 changed('all');setMode('main');setTab(S.nm===false?'accueil':'menu');hydratePhotos();
 document.fonts?.ready.then(draw);
 </script>
+
 <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));</script></body></html>
