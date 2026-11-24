@@ -991,6 +991,12 @@ a.btn.gsearch{text-decoration:none;justify-self:start;display:inline-flex!import
     <label class="f">Adresse Make (webhook)<input id="rg-mk-url" type="url" inputmode="url" autocomplete="off" placeholder="https://hook.eu2.make.com/…"></label>
     <div class="row" style="gap:6px"><button class="btn" type="button" id="rg-mk-test">Tester la liaison</button></div><p class="hint" id="rg-mk-info" style="margin:0"></p>
   </div></div>
+  <div class="rg-sec" id="rg-cockpit"><h2 class="rg-h">🧭 Envoi des devis vers Cockpit</h2><div class="panel" style="display:grid;gap:10px">
+    <p class="hint" style="margin:0">Cockpit est votre logiciel de gestion. Collez ici la clé Métré fournie par Cockpit : le bouton « Envoyer à Cockpit » apparaît alors dans l'onglet Devis. Rien ne part sans que vous appuyiez dessus et confirmiez. Chaque devis enregistré devient un devis, un client et un chantier dans Cockpit (chiffre d'affaires, suivi, clients). Renvoyer un devis déjà envoyé le met simplement à jour.</p>
+    <label class="f">Clé Métré (fournie par Cockpit)<input id="rg-ck-key" type="password" autocomplete="off" placeholder="mk_…"></label>
+    <label class="f" style="max-width:260px">Société dans Cockpit<select id="rg-ck-co"><option value="solar-bat">Solar-Bat</option><option value="atelier-surface">Atelier Surface</option></select></label>
+    <p class="hint" id="rg-ck-info" style="margin:0"></p>
+  </div></div>
   <div class="rg-sec" id="rg-mods"><h2 class="rg-h">🧩 Modules optionnels</h2><div class="panel" style="display:grid;gap:12px">
     <p class="hint" style="margin:0">Éteints, ils n'apparaissent nulle part. Les données saisies sont gardées si vous les éteignez.</p>
     <label class="md-sw"><input type="checkbox" id="rg-sd-on" role="switch"><span class="md-tg" aria-hidden="true"></span><span><b>Activer le suivi des devis</b><small>Relances clients, statuts, rappels Google Agenda</small></span></label>
@@ -1125,6 +1131,7 @@ a.btn.gsearch{text-decoration:none;justify-self:start;display:inline-flex!import
     <button class="btn" id="exp-devis-xlsx">Exporter le devis (Excel)</button>
     <button class="btn" id="exp-tiime">📤 Exporter vers Tiime</button>
     <button class="btn primary" id="send-tiime" hidden>🚀 Envoyer à Tiime</button>
+    <button class="btn primary" id="send-cockpit" hidden>🧭 Envoyer à Cockpit</button>
     <label class="btn" for="imp-devis-file">Importer un devis (PDF, Excel, photo, scan)</label><input type="file" id="imp-devis-file" accept=".pdf,.xlsx,.xls,.csv,.ods,.txt,image/*,application/pdf" hidden>
     <button class="btn ghost" id="new-devis">Nouveau devis</button>
   </div>
@@ -3610,7 +3617,7 @@ $('#exp-hist').onclick=()=>{const items=histItems();if(!items.length){toast('Auc
     for(const z of d.zones||[])for(const w of z.windows||[])if(w.sel&&w.wcm>0&&w.hcm>0){const q2=w.qty||1;nv+=q2;sv+=w.wcm*w.hcm/1e4*(w.pts?(w.ratio||1):1)*q2}
     rows.push([q(d.devis.num),q(frDate(d.devis.date)),q(d.client.nom),q(d.client.chantier),nv,n(sv),n(d.ttc)].join(';'))}
   saveFile(`Historique-devis-${new Date().toISOString().slice(0,10)}.csv`,'﻿'+rows.join('\r\n'),'text/csv')};
-$('#new-devis').onclick=()=>{const keep={};for(const k of['company','films','history','pose','roll','filmId','std','stdList','stock','supplier','ui','hiRes','gabarit','detMerge','detEnh','recal','tab','defVt','qcfg','snake','askPhoto','clients','clHidden','drvV','tiimeCat','mkUrl','sdOn','sdList','sdDelay','stkOn','stkItems','stkMoves','pcAuth','pcHost','pcEmail','pcAuto','pcLast','nm','tts','phAuto','drvUrl','drvAuto','drvKey','drvLast','bkDate','detMergeV2','stdVer'])if(S[k]!==undefined)keep[k]=S[k];S=Object.assign(defaults(),keep);
+$('#new-devis').onclick=()=>{const keep={};for(const k of['company','films','history','pose','roll','filmId','std','stdList','stock','supplier','ui','hiRes','gabarit','detMerge','detEnh','recal','tab','defVt','qcfg','snake','askPhoto','clients','clHidden','drvV','tiimeCat','mkUrl','ckKey','ckCo','sdOn','sdList','sdDelay','stkOn','stkItems','stkMoves','pcAuth','pcHost','pcEmail','pcAuto','pcLast','nm','tts','phAuto','drvUrl','drvAuto','drvKey','drvLast','bkDate','detMergeV2','stdVer'])if(S[k]!==undefined)keep[k]=S[k];S=Object.assign(defaults(),keep);
   S.zoneId=S.zones[0].id;
   S.client={nom:'',tel:'',adresse:'',chantier:'',email:''};S.devis.num=nextNum();changed('all');setTab('client');toast('Nouveau devis prêt')};
 NEWDEV=$('#new-devis').onclick;$('#new-devis').onclick=()=>{setTab('client');$('#new-client').click()};
@@ -4290,7 +4297,37 @@ function mkSheet(){const{json}=tiimeExport();const C=json.client;let d=$('#mk-sh
     <p class="hint" style="margin:0">Le devis sera créé dans Tiime (client créé s'il n'existe pas). Il ne sera pas envoyé au client : vous le vérifiez et l'envoyez depuis Tiime.</p>
     <button class="btn primary" type="button" id="mk-go" style="min-height:54px;font-size:17px">Confirmer l'envoi à Tiime</button></div></div>`;d.hidden=false}
 $('#send-tiime').onclick=()=>{if(!mkOk()){toast('Réglez d\'abord l\'adresse Make (Réglages → Tiime)');return}const T=totals();if(!T.groups.length&&!T.extras.length){toast('Le devis est vide');return}if(!(S.client&&S.client.nom)){toast('Renseignez d\'abord le client');return}mkSheet()};
-mkUI();{const o=setTab;setTab=function(t){o(t);if(S.tab==='devis'||S.tab==='reglages')mkUI()}}
+/* ---------- Envoi vers Cockpit (uniquement sur appui + confirmation) ---------- */
+const CK_URL='https://xagdgnsjxbklyprfxpio.supabase.co/functions/v1/recevoir-metre';
+function ckUI(){const b=$('#send-cockpit');if(b)b.hidden=!(S.ckKey&&S.ckKey.length>10);const k=$('#rg-ck-key');if(k&&document.activeElement!==k)k.value=S.ckKey||'';const c=$('#rg-ck-co');if(c)c.value=S.ckCo||'solar-bat'}
+$('#rg-ck-key').addEventListener('change',e=>{S.ckKey=e.target.value.trim();save();ckUI();$('#rg-ck-info').textContent=S.ckKey?'✓ Clé enregistrée. Le bouton « Envoyer à Cockpit » est dans l\'onglet Devis.':''});
+$('#rg-ck-co').addEventListener('change',e=>{S.ckCo=e.target.value;save()});
+/* Calcule le devis d'un chantier enregistré avec le moteur de Métré (même calcul que l'écran Devis) */
+function ckItem(h){const bak={zones:S.zones,pose:S.pose,roll:S.roll,devis:S.devis};
+  try{S.zones=h.zones;if(h.pose)S.pose=h.pose;if(h.roll)S.roll=h.roll;S.devis=h.devis;
+    const T=totals(),D=h.devis,C=h.client||{},L=[],r2=v=>Math.round(v*100)/100;
+    T.groups.forEach(g=>g.lines.forEach(l=>{if(l.qte>0)L.push({label:l.lib+(g.z?` – ${letter(g.z)} · ${g.z.nom}`:''),qty:r2(l.qte),unit:l.u,unit_price:r2(l.pu),code:l.tc||''})}));
+    T.extras.forEach(l=>L.push({label:l.lib,qty:l.qte,unit:l.u,unit_price:l.pu,code:l.tc||''}));
+    const zones=h.zones.map(z=>{const ws=zSel(z);return{nom:z.nom,type:z.type==='int'?'Intérieur':'Extérieur',film:filmOf(z).nom,fenetres:ws.reduce((a,w)=>a+(w.qty||1),0),m2:r2(ws.reduce((a,w)=>a+w.wcm*w.hcm/1e4*(w.qty||1),0))}});
+    const st=h.status||{};
+    return{ref:String(D.num),client:String(C.nom||'').trim(),tel:String(C.tel||'').trim(),email:String(C.email||'').trim(),chantier:String(C.chantier||C.adresse||'').trim(),tva:+D.tva||0,remise:+D.remise||0,acompte:+D.acompte||0,
+      ht:r2(T.ht),ttc:r2(T.ttc),status:st.pose?'decoupe':st.valid?'valide':'devis',devis_date:D.date||'',surface_m2:r2(zones.reduce((a,z)=>a+z.m2,0)),windows:zones.reduce((a,z)=>a+z.fenetres,0),
+      source_updated_at:h.updatedAt?new Date(h.updatedAt).toISOString():null,zones,lines:L}}
+  finally{Object.assign(S,bak)}}
+$('#send-cockpit').onclick=async()=>{
+  const hs=histItems().map(x=>x.local||x.remote).filter(h=>h&&h.devis&&h.devis.num);
+  if(!hs.length){toast('Aucun devis enregistré à envoyer : enregistrez d\'abord un devis');return}
+  if(!confirm(`Envoyer ${hs.length} devis enregistré${hs.length>1?'s':''} à Cockpit ?\n\nChaque devis devient un devis, un client et un chantier dans Cockpit (un devis déjà envoyé est mis à jour).`))return;
+  const b=$('#send-cockpit');b.disabled=true;const t0=b.textContent;b.textContent='Envoi en cours…';
+  try{const items=[],bad=[];for(const h of hs){try{items.push(ckItem(h))}catch(e){bad.push(h.devis.num)}}
+    if(!items.length)throw new Error('Calcul impossible pour '+bad.join(', '));
+    const r=await fetch(CK_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({key:S.ckKey,company:S.ckCo||'solar-bat',items})});
+    let j=null;try{j=await r.json()}catch(_){}
+    if(!r.ok||!j||!j.ok)throw new Error(j&&j.error==='cle'?'clé refusée : recopiez la clé fournie par Cockpit':(j&&(j.detail||j.error))||('erreur '+r.status));
+    toast(`✓ ${j.importes} devis envoyé${j.importes>1?'s':''} à Cockpit`+(bad.length?` (${bad.length} ignoré${bad.length>1?'s':''} : ${bad.join(', ')})`:''))}
+  catch(e){toast('Envoi à Cockpit impossible : '+(/fetch|network|load/i.test(e.message)?'Cockpit injoignable (réseau)':e.message))}
+  b.disabled=false;b.textContent=t0};
+mkUI();ckUI();{const o=setTab;setTab=function(t){o(t);if(S.tab==='devis'||S.tab==='reglages'){mkUI();ckUI()}}}
 /* ---------- clients ---------- */
 const CLK=['nom','tel','adresse','chantier','email','type','nomFam','prenom','raison'];
 const CLT={part:'Particulier',ent:'Entreprise',coll:'Collectivité'};
