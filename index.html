@@ -1054,7 +1054,7 @@ input,select,textarea{border-radius:10px}
       <p class="hint" style="margin:0">Dans l'appli installée (GitHub), l'iPhone ouvre le menu de partage : choisissez « Enregistrer les images ». Dans claude.ai, les photos vont dans l'app Fichiers.</p>
     </div>
   </div>
-<p class="muted" id="app-ver" style="text-align:center;margin:18px 0 6px;font-size:13px">Métré Film · version 119</p>
+<p class="muted" id="app-ver" style="text-align:center;margin:18px 0 6px;font-size:13px">Métré Film · version 120</p>
 </section>
 
 <section class="tab" id="t-films" hidden>
@@ -1746,6 +1746,12 @@ function layout(f,items){
   let y=0;shelves.forEach((s,i)=>{s.y=y;y+=s.len+(i<shelves.length-1?gap:0)});
   const ml=y/100,rollM2=ml*L/100,useful=strips.reduce((a,s)=>a+s.across*s.len,0)/1e4;
   return{f,L,ml,rollM2,useful,waste:rollM2?1-useful/rollM2:0,rolls:ml/f.long,shelves,pieces}}
+// Chute selon le sens des bandes (vertical / horizontal) pour un film : aide à choisir le sens de coupe.
+function chuteSens(l){const items=[];for(const z of S.zones)for(const w of zSel(z)){if(filmOf(z).id===l.f.id)items.push({w,z})}
+  const old=S.roll.sens,out={};try{for(const sn of['vertical','horizontal']){S.roll.sens=sn;const r=layout(l.f,items);out[sn]={waste:r.waste*100,ml:r.ml}}}finally{S.roll.sens=old}
+  out.best=Math.abs(out.vertical.waste-out.horizontal.waste)<0.05?'':out.vertical.waste<out.horizontal.waste?'vertical':'horizontal';return out}
+function chuteBox(l){const c=chuteSens(l),f=x=>fmt(x.waste,1)+' % ('+fmt(x.ml,2)+' ml)';
+  return`<p class="hint" style="margin:8px 0 0"><b>Chute selon le sens :</b> bandes verticales ${f(c.vertical)} · bandes horizontales ${f(c.horizontal)}${c.best?' → moins de chute en bandes <b>'+(c.best==='vertical'?'verticales':'horizontales')+'</b>':' → même chute dans les deux sens'}${S.roll.sens==='auto'?' (le sens « auto » prend déjà le meilleur)':''}.</p>`}
 function layouts(){const g=new Map();for(const z of S.zones)for(const w of zSel(z)){const f=filmOf(z);if(!g.has(f.id))g.set(f.id,[]);g.get(f.id).push({w,z})}
   return[...g.entries()].map(([id,items])=>layout(filmById(id),items))}
 function totals(){const lays=layouts();const ratio={};lays.forEach(l=>ratio[l.f.id]=l.useful?l.rollM2/l.useful:1);
@@ -3385,7 +3391,7 @@ function renderRoll(T){let tot=0,done=0;
     return`<div class="panel"><h3>${esc(l.f.nom)} <span class="hint">· laize ${l.L} cm · rouleau ${fmt(l.f.long,0)} m</span></h3>
   <p class="hint" style="margin:0 0 6px">Touchez une pièce sur le schéma quand elle est découpée (elle passe en gris ✓), ou cochez-la dans la liste dessous.</p>
   <div class="roll">${rollSvg(l,l)}</div>
-  <div class="kpis" style="margin-top:10px">${kpi(nd+' / '+items.length,'pièces découpées')+kpi(fmt(l.ml)+' ml','métrage linéaire')+kpi(fmt(l.rollM2)+' m²','film déroulé')+kpi(fmt(l.waste*100,1)+' %','chute')}</div>
+  <div class="kpis" style="margin-top:10px">${kpi(nd+' / '+items.length,'pièces découpées')+kpi(fmt(l.ml)+' ml','métrage linéaire')+kpi(fmt(l.rollM2)+' m²','film déroulé')+kpi(fmt(l.waste*100,1)+' %','chute')}</div>${chuteBox(l)}
   <h4 style="margin:12px 0 6px">Liste de coupe</h4>
   <div class="tablewrap"><table class="cut-t"><thead><tr><th>Fait</th><th>Pièce · position</th><th class="r">Laize × déroulé</th></tr></thead><tbody>
   ${items.map(it=>{const k=cutKey(l,it),c=isCut(l,it);return`<tr class="${c?'cut-done':''}"><td><input type="checkbox" data-cutk="${esc(k)}" ${c?'checked':''} aria-label="Pièce ${esc(it.lab)} découpée" style="width:24px;height:24px"></td><td><span style="display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px;background:hsl(${pieceHue(it.lab)},65%,55%)"></span><b>${esc(it.lab)}</b><div class="hint" style="font-size:12px;margin:2px 0 0">✂ ${fmt(it.cutAt/100,2)} m${it.x>0?` · à ${fmt(it.x,1)} cm du bord`:' · contre le bord'}</div></td><td class="r num" style="white-space:nowrap">${fmt(it.across,1)} × ${fmt(it.len,1)}</td></tr>`}).join('')}</tbody></table></div>
