@@ -13,25 +13,25 @@
 <title>Métré Film Vitrage</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 /* Layout : outil de chantier, onglets collants en haut, une colonne sur mobile, contenu max 980px */
 :root{
-  --bg:#EDF1F0; --surface:#FFFFFF; --sunk:#E3E9E8; --ink:#14232A; --muted:#5A6B70; --line:#CFD9D7;
-  --accent:#0C7480; --accent-ink:#FFFFFF; --accent-soft:#D3ECEE; --mark:#C98A00; --warn:#B4461B; --int:#6B5BA8; --int-soft:#E6E1F4;
-  --paper:#FFFFFF; --paper-ink:#14232A; --viewer:#0B1114;
-  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
-  --f-body:"Atkinson Hyperlegible","IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --bg:#F5F3EF; --surface:#FFFFFF; --sunk:#EFECE6; --ink:#1A1B2E; --muted:#63657A; --line:#E7E4DD;
+  --accent:#D84A1F; --accent-ink:#FFFFFF; --accent-soft:#FFE4D4; --accent2:#F0763F; --shadow:rgba(26,27,46,.24); --mark:#C98A00; --warn:#B4461B; --int:#6B5BA8; --int-soft:#E6E1F4;
+  --paper:#FFFFFF; --paper-ink:#1A1B2E; --viewer:#0B1114;
+  --f-display:"Sora",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0E161A; --surface:#162227; --sunk:#111B1F; --ink:#E2EBEB; --muted:#8FA3A7; --line:#283A40;
-  --accent:#3DBFCA; --accent-ink:#04252A; --accent-soft:#163B40; --mark:#F0B429; --warn:#F07B4F; --int:#A897E6; --int-soft:#2A2545;
-  --paper:#1B2A30; --paper-ink:#E2EBEB; color-scheme:dark}}
+  --bg:#0F111A; --surface:#181B28; --sunk:#202435; --ink:#ECEDF6; --muted:#9A9DB4; --line:#272B3D;
+  --accent:#FF8A5C; --accent-ink:#1A0B04; --accent-soft:#2E2030; --accent2:#FFB07A; --shadow:rgba(0,0,0,.6); --mark:#F0B429; --warn:#F07B4F; --int:#A897E6; --int-soft:#2A2545;
+  --paper:#181B28; --paper-ink:#ECEDF6; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0E161A; --surface:#162227; --sunk:#111B1F; --ink:#E2EBEB; --muted:#8FA3A7; --line:#283A40;
-  --accent:#3DBFCA; --accent-ink:#04252A; --accent-soft:#163B40; --mark:#F0B429; --warn:#F07B4F; --int:#A897E6; --int-soft:#2A2545;
-  --paper:#1B2A30; --paper-ink:#E2EBEB; color-scheme:dark}
+  --bg:#0F111A; --surface:#181B28; --sunk:#202435; --ink:#ECEDF6; --muted:#9A9DB4; --line:#272B3D;
+  --accent:#FF8A5C; --accent-ink:#1A0B04; --accent-soft:#2E2030; --accent2:#FFB07A; --shadow:rgba(0,0,0,.6); --mark:#F0B429; --warn:#F07B4F; --int:#A897E6; --int-soft:#2A2545;
+  --paper:#181B28; --paper-ink:#ECEDF6; color-scheme:dark}
 html,body{background:var(--bg);color:var(--ink)}
 body{font:15px/1.5 var(--f-body);margin:0}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
@@ -379,7 +379,7 @@ body.nm .n-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;ba
 .n-sheet>div{background:var(--surface);width:100%;max-width:560px;border-radius:22px 22px 0 0;padding:18px max(16px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:grid;gap:12px;max-height:92vh;overflow:auto;box-sizing:border-box}
 .n-sheet input{font-size:17px;min-height:48px}
 @media (min-width:700px){.n-sheet{align-items:center}.n-sheet>div{border-radius:22px}}
-#pm-panel{gap:10px;padding:10px}#pm-top{display:grid;gap:8px}#pm-top .s-photo{margin:0;gap:6px}#pm-top .btn{min-height:42px;padding:6px 10px;font-size:14px}#pm-top .np-row{margin:0}
+#pm-panel{gap:10px;padding:10px}#pm-top{display:grid;gap:8px}#pm-top .s-photo{margin:0;gap:6px}#pm-top .btn{min-height:42px;padding:6px 10px;font-size:14px}#pm-top .np-row{margin:0}#pm-top .s-gab{margin:0}
 .pm-legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;font-weight:700}.pm-legend i,.pm-t i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
 #pm-card{display:grid;gap:8px}.pm-t{font-size:20px}.pm-t small{font-size:13px;color:var(--muted);font-weight:600}
 .pm-v{display:grid;grid-template-columns:auto 1fr auto 1fr auto;gap:6px;align-items:center}.pm-v input{font:600 22px var(--f-mono);text-align:center;min-height:54px;min-width:0}
@@ -459,7 +459,7 @@ body.nm #s-photo.np-pr{display:none!important}
 #pm-list:not([hidden]){display:block!important}#pm-list .pml{display:grid;gap:8px}
 .pml-w{border:1.5px solid var(--line);border-radius:14px;padding:8px 10px;display:grid;gap:6px;background:var(--surface)}
 .pml-w.cur{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
-.pml-h{display:flex;align-items:center;gap:8px}.pml-lab{color:#fff;font-weight:800;border-radius:8px;padding:3px 9px;font-size:16px}.pml-h small{color:var(--muted);font-size:14px}
+.pml-h{display:flex;align-items:center;gap:8px}.pml-del{margin-left:auto;min-width:44px;min-height:40px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--muted);font-size:17px;font-weight:700;cursor:pointer;padding:0 10px}.pml-del.arm{background:#C0392B;border-color:#C0392B;color:#fff;font-size:14px}.pml-lab{color:#fff;font-weight:800;border-radius:8px;padding:3px 9px;font-size:16px}.pml-h small{color:var(--muted);font-size:14px}
 .pml-v{display:grid;grid-template-columns:34px minmax(0,1fr) 16px minmax(0,1fr);align-items:center;gap:6px}.pml-v span{text-align:center;color:var(--muted)}
 .pml-v input{min-height:46px;font-size:20px;font-weight:700;text-align:center;border-radius:10px;border:1.5px solid var(--line);background:var(--bg,#fff);color:inherit;width:100%;min-width:0;box-sizing:border-box}
 .pml-v input.est{border-color:#F2A01C;color:#9a5d00}
@@ -494,6 +494,27 @@ body.nm #s-photo.np-pr{display:none!important}
 a.btn.gsearch{text-decoration:none;justify-self:start;display:inline-flex!important;align-items:center;gap:6px;width:auto!important;white-space:nowrap;flex-wrap:nowrap}a.btn.gsearch small{font-weight:500;opacity:.75;white-space:nowrap}a.btn.gsearch[aria-disabled="true"]{opacity:.5}.cl-act a.btn{text-decoration:none}
 #opts .opt input[type="checkbox"][data-o="on"]{width:24px;height:24px;flex:none;accent-color:var(--accent)}
 .d-opts{margin:14px 0;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:0 12px}.d-opts>summary{list-style:none;cursor:pointer;font-weight:700;font-size:18px;padding:14px 2px;min-height:48px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.d-opts>summary::-webkit-details-marker{display:none}.d-opts>summary small{font-weight:400;color:var(--muted);font-size:13px}.d-arr{display:inline-block;transition:transform .15s}.d-opts[open] .d-arr{transform:rotate(90deg)}.d-opts[open]{padding-bottom:12px}#d-opts-more .rg-sec{margin-top:16px}#d-opts-more .rg-h{font-size:19px;margin:6px 0}
+.s-gab{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 10px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.s-gab .md-sw{flex:1;min-width:0}.s-gab .btn{flex:none}.s-gab-tap{width:100%;min-height:48px;font-size:16px;margin:0 0 10px}.s-gab-tap.miss{border-color:#C98A00;background:#FFF4DC}.s-gab-tap.on{background:var(--accent);color:var(--accent-ink)}
+/* la photo ne doit jamais être écrasée par le panneau du vitrage */.ed:not(.full) .ed-canvas{flex:1 0 auto;min-height:min(45vh,340px);min-height:min(45dvh,340px)}.ed:not(.full)>.ed-panel{flex:0 1 auto;min-height:0;overflow:auto}body.nm .ed:not(.full){height:auto;min-height:0}body.nm .ed:not(.full) .ed-canvas{flex:0 0 auto;height:min(58vh,480px);height:min(58dvh,480px)}body.nm .ed:not(.full)>.ed-panel{overflow:visible}.ed.full .ed-canvas{flex:1 0 auto;min-height:45%}.ed.full>.ed-panel{flex:0 1 auto;min-height:0;overflow:auto}
+.nc-pre{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:12px;background:var(--sunk);font-size:14px;cursor:pointer}.nc-pre input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--accent)}.nc-pre small{display:block;color:var(--muted);font-weight:400}
+.brand h1{font:700 24px/1.05 var(--f-display);letter-spacing:-.02em;text-transform:none}
+h2,.sec-t,.n-q{font-family:var(--f-display);letter-spacing:-.01em}
+.panel,.n-card{border-radius:20px;box-shadow:0 1px 2px rgba(26,27,46,.05),0 18px 36px -22px var(--shadow)}
+.btn{border-radius:12px;min-height:44px}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));border-color:transparent;box-shadow:0 10px 22px -12px var(--accent);color:var(--accent-ink)}
+input,select,textarea{border-radius:10px}
+.n-tiles{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (min-width:700px){.n-tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.n-tile{border-radius:20px;box-shadow:0 14px 26px -20px var(--shadow);padding:10px 8px;gap:8px;position:relative;min-width:0}
+.n-tile .ti{width:54px;height:54px;border-radius:16px;background:var(--accent-soft);display:grid;place-items:center;font-size:30px;line-height:1}
+.n-tile b{font-size:15px;font-weight:600;overflow-wrap:anywhere}.n-tile small{font-size:12px}
+.n-tile.big{grid-column:span 2;aspect-ratio:auto;min-height:0;background:linear-gradient(135deg,var(--accent),var(--accent2));color:var(--accent-ink);box-shadow:0 18px 30px -18px var(--accent)}.n-tile.big small{color:inherit!important;opacity:.85}
+.n-tile.big .ti{background:rgba(255,255,255,.22);width:64px;height:64px;font-size:38px}.n-tile.big b{font-family:var(--f-display);font-size:22px}
+.n-no{position:absolute;top:7px;left:7px;width:22px;height:22px;border-radius:999px;background:var(--ink);color:var(--surface);font:700 12px/22px var(--f-display);text-align:center}.n-tile .ti{margin-top:6px}
+.n-tile.big .n-no{background:rgba(255,255,255,.95);color:var(--accent)}
+.n-tile.tool{background:var(--sunk);box-shadow:none}.n-tile.tool .ti{background:var(--surface)}
+.n-tsep{grid-column:1/-1;margin:8px 2px -2px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
 
 <header class="top">
@@ -594,6 +615,7 @@ a.btn.gsearch{text-decoration:none;justify-self:start;display:inline-flex!import
   <label class="f">Adresse du client<input id="nc-adresse" data-nc="adresse" autocomplete="street-address"></label>
   <label class="f">Adresse du chantier<input id="nc-chantier" data-nc="chantier" placeholder="Si différente"></label>
   <label class="f">E-mail<input id="nc-email" data-nc="email" inputmode="email" autocomplete="email"></label>
+  <label class="nc-pre" id="nc-pre-l"><input type="checkbox" id="nc-nopre"> <span><b>Aucun préréglage</b><small>Sinon, pour un particulier, chaque fenêtre est proposée en 2 vantaux battants</small></span></label>
   <div id="nc-warn" class="alert" hidden></div>
   <button class="btn primary n-next" type="button" id="nc-ok">Valider le client</button>
   <button class="btn ghost" type="button" id="nc-new">＋ Nouveau client (nouveau chantier)</button>
@@ -765,6 +787,7 @@ a.btn.gsearch{text-decoration:none;justify-self:start;display:inline-flex!import
       <div class="row"><button class="btn ghost" id="dict-close">Fermer</button></div>
     </div>
     <p class="banner warnbox" id="usine-warn" hidden></p>
+    <div class="s-only s-gab" id="s-gab"><label class="md-sw"><input type="checkbox" id="s-gab-on" role="switch"><span class="md-tg" aria-hidden="true"></span><span><b>Gabarit</b><small id="s-gab-info"></small></span></label><button type="button" class="btn ghost" id="s-gab-set">Modifier</button></div><button type="button" class="btn s-gab-tap" id="s-gab-tap" hidden>👆 Toucher le gabarit sur la photo</button>
     <div class="s-only s-photo" id="s-photo"><select id="s-zone" aria-label="Zone" style="width:auto;max-width:100%"></select><label class="btn" for="f-cam" id="s-cam-lab">📷 Photo de la façade</label><label class="btn ghost" for="f-imp">Importer</label><span class="hint" id="s-photo-txt">Facultatif : sert à compter les fenêtres et à faire le plan.</span></div>
     <div class="np-row"><button class="btn primary" id="np-open" type="button">＋ Pièce suivante · nouvelle photo</button></div>
     <div id="np-box" class="panel np-box" hidden>
@@ -991,12 +1014,6 @@ a.btn.gsearch{text-decoration:none;justify-self:start;display:inline-flex!import
     <label class="f">Adresse Make (webhook)<input id="rg-mk-url" type="url" inputmode="url" autocomplete="off" placeholder="https://hook.eu2.make.com/…"></label>
     <div class="row" style="gap:6px"><button class="btn" type="button" id="rg-mk-test">Tester la liaison</button></div><p class="hint" id="rg-mk-info" style="margin:0"></p>
   </div></div>
-  <div class="rg-sec" id="rg-cockpit"><h2 class="rg-h">🧭 Envoi des devis vers Cockpit</h2><div class="panel" style="display:grid;gap:10px">
-    <p class="hint" style="margin:0">Cockpit est votre logiciel de gestion. Collez ici la clé Métré fournie par Cockpit : le bouton « Envoyer à Cockpit » apparaît alors dans l'onglet Devis. Rien ne part sans que vous appuyiez dessus et confirmiez. Chaque devis enregistré devient un devis, un client et un chantier dans Cockpit (chiffre d'affaires, suivi, clients). Renvoyer un devis déjà envoyé le met simplement à jour.</p>
-    <label class="f">Clé Métré (fournie par Cockpit)<input id="rg-ck-key" type="password" autocomplete="off" placeholder="mk_…"></label>
-    <label class="f" style="max-width:260px">Société dans Cockpit<select id="rg-ck-co"><option value="solar-bat">Solar-Bat</option><option value="atelier-surface">Atelier Surface</option></select></label>
-    <p class="hint" id="rg-ck-info" style="margin:0"></p>
-  </div></div>
   <div class="rg-sec" id="rg-mods"><h2 class="rg-h">🧩 Modules optionnels</h2><div class="panel" style="display:grid;gap:12px">
     <p class="hint" style="margin:0">Éteints, ils n'apparaissent nulle part. Les données saisies sont gardées si vous les éteignez.</p>
     <label class="md-sw"><input type="checkbox" id="rg-sd-on" role="switch"><span class="md-tg" aria-hidden="true"></span><span><b>Activer le suivi des devis</b><small>Relances clients, statuts, rappels Google Agenda</small></span></label>
@@ -1037,6 +1054,7 @@ a.btn.gsearch{text-decoration:none;justify-self:start;display:inline-flex!import
       <p class="hint" style="margin:0">Dans l'appli installée (GitHub), l'iPhone ouvre le menu de partage : choisissez « Enregistrer les images ». Dans claude.ai, les photos vont dans l'app Fichiers.</p>
     </div>
   </div>
+<p class="muted" id="app-ver" style="text-align:center;margin:18px 0 6px;font-size:13px">Métré Film · version 119</p>
 </section>
 
 <section class="tab" id="t-films" hidden>
@@ -1131,7 +1149,6 @@ a.btn.gsearch{text-decoration:none;justify-self:start;display:inline-flex!import
     <button class="btn" id="exp-devis-xlsx">Exporter le devis (Excel)</button>
     <button class="btn" id="exp-tiime">📤 Exporter vers Tiime</button>
     <button class="btn primary" id="send-tiime" hidden>🚀 Envoyer à Tiime</button>
-    <button class="btn primary" id="send-cockpit" hidden>🧭 Envoyer à Cockpit</button>
     <label class="btn" for="imp-devis-file">Importer un devis (PDF, Excel, photo, scan)</label><input type="file" id="imp-devis-file" accept=".pdf,.xlsx,.xls,.csv,.ods,.txt,image/*,application/pdf" hidden>
     <button class="btn ghost" id="new-devis">Nouveau devis</button>
   </div>
@@ -2321,14 +2338,24 @@ $('#t-accueil').addEventListener('click',async e=>{if(e.target.closest('#home-ne
   if(hw){w.hidden=true;if(hw.dataset.hw==='save')await $('#save-devis').onclick();if(hw.dataset.hw!=='x')open();return}
   if(num===S.devis.num||!unsavedInfo()){open();return}
   w.hidden=false;w.innerHTML=`Le chantier ouvert${S.client.nom?' de <b>'+esc(S.client.nom)+'</b>':''} n'est pas enregistré.<div class="row" style="gap:6px;margin-top:8px"><button class="btn primary" data-hw="save" data-num="${esc(num)}">Enregistrer puis ouvrir</button><button class="btn danger" data-hw="drop" data-num="${esc(num)}">Ouvrir sans enregistrer</button><button class="btn ghost" data-hw="x" data-num="x">Annuler</button></div>`});
-$('#home-mic').onclick=()=>{const b=$('#home-mic'),lab=$('#home-mic-txt');if(homeRec){homeRec.stop();return}
+/* Écran allumé pendant la dictée */
+const WAKE={n:0,lock:null};
+async function wakeGet(){if(WAKE.lock||!WAKE.n)return;try{if(navigator.wakeLock&&navigator.wakeLock.request){WAKE.lock=await navigator.wakeLock.request('screen');WAKE.lock.addEventListener('release',()=>{WAKE.lock=null})}}catch(_){WAKE.lock=null}}
+function wakeOn(){WAKE.n++;wakeGet()}
+function wakeOff(){WAKE.n=Math.max(0,WAKE.n-1);if(!WAKE.n&&WAKE.lock){try{WAKE.lock.release()}catch(_){}WAKE.lock=null}}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&WAKE.n)wakeGet()});
+$('#home-mic').onclick=()=>{const b=$('#home-mic'),lab=$('#home-mic-txt');if(homeRec){homeRec._stop?homeRec._stop():homeRec.stop();return}
   if(!SRec||micOff){toast('Dictée directe indisponible ici : touchez la zone de texte puis le micro du clavier de votre téléphone');$('#home-txt').focus();return}
-  const r=new SRec();homeRec=r;r.lang='fr-FR';r.continuous=true;r.interimResults=true;const ta=$('#home-txt');let base=ta.value.trim();
-  r.onresult=e=>{let fin='',tmp='';for(let i=e.resultIndex;i<e.results.length;i++){const x=e.results[i][0].transcript;if(e.results[i].isFinal)fin+=x;else tmp+=x}
+  const ta=$('#home-txt');let base=ta.value.trim(),want=true,fails=0;wakeOn();
+  const begin=()=>{const r=new SRec();homeRec=r;r.lang='fr-FR';r.continuous=true;r.interimResults=true;r._stop=()=>{want=false;try{r.stop()}catch(_){}};
+  r.onresult=e=>{fails=0;let fin='',tmp='';for(let i=e.resultIndex;i<e.results.length;i++){const x=e.results[i][0].transcript;if(e.results[i].isFinal)fin+=x;else tmp+=x}
     if(fin){base=(base?base+(/[.!?]$/.test(base)?' ':'. '):'')+fin.trim();base=base.charAt(0).toUpperCase()+base.slice(1)}ta.value=base+(tmp?' '+tmp:'')};
-  r.onerror=e=>{if(e.error==='not-allowed'||e.error==='service-not-allowed'){micOff=true;toast('Micro non autorisé ici : utilisez le micro du clavier dans la zone de texte')}else if(e.error!=='no-speech'&&e.error!=='aborted')toast('Dictée interrompue ('+e.error+')')};
-  r.onend=()=>{homeRec=null;b.classList.remove('on');b.setAttribute('aria-label','Démarrer la dictée');lab.textContent='Touchez pour parler, retouchez pour arrêter';ta.value=base;if(base)$('#home-conv').focus()};
-  try{r.start();b.classList.add('on');b.setAttribute('aria-label','Arrêter la dictée');lab.textContent='J\'écoute… touchez pour arrêter'}catch(_){homeRec=null}};
+  r.onerror=e=>{if(e.error==='not-allowed'||e.error==='service-not-allowed'){want=false;micOff=true;toast('Micro non autorisé ici : utilisez le micro du clavier dans la zone de texte')}else if(e.error!=='no-speech'&&e.error!=='aborted')fails++};
+  r.onend=()=>{const cur=ta.value.trim();if(cur.length>base.length)base=cur;ta.value=base;
+    if(want&&fails<4&&homeRec===r){lab.textContent='J\'écoute… (micro relancé) touchez pour arrêter';setTimeout(()=>{if(want&&homeRec===r)try{begin()}catch(_){end()}},250);return}end()};
+  try{r.start();b.classList.add('on');b.setAttribute('aria-label','Arrêter la dictée');lab.textContent='J\'écoute… touchez pour arrêter'}catch(_){end()}};
+  const end=()=>{want=false;homeRec=null;wakeOff();b.classList.remove('on');b.setAttribute('aria-label','Démarrer la dictée');lab.textContent='Touchez pour parler, retouchez pour arrêter';ta.value=base;if(base)$('#home-conv').focus()};
+  begin()};
 $('#home-clear').onclick=()=>{$('#home-txt').value='';$('#home-prev').hidden=true;HOME=null};
 $('#home-cancel').onclick=()=>{$('#home-prev').hidden=true;HOME=null};
 function showHome(o,t){const c=Object.assign(clientLocal(t),Object.fromEntries(Object.entries((o&&o.client)||{}).filter(([k,v])=>v)));
@@ -2337,7 +2364,7 @@ function showHome(o,t){const c=Object.assign(clientLocal(t),Object.fromEntries(O
   $('#home-body').innerHTML=L.map(c=>{const z=findZone(c.zone);return`<tr><td>${esc(c.zone?(z&&!$('#home-new').checked?z.nom:c.zone):'Zone A')}</td><td>${esc((c.repere||'auto')+(c.vtl?'v'+c.vtl:''))}</td><td class="r num" style="white-space:nowrap">${c.w&&c.h?fmt(c.w,0)+' × '+fmt(c.h,0):'<span style="color:var(--warn)">?</span>'}</td><td class="r num">${c.q}</td><td>${esc([c.vt>1?c.vt+' vantaux':'',c.type,c.m&&MENUI[c.m],c.j&&JOINTS[c.j],c.note].filter(Boolean).join(' · '))}</td></tr>`}).join('')
     +(HOME.B?`<tr><td colspan="5"><b>🏠 Bâtiment</b> : ${esc(bldgSummary(normBldg(HOME.B)))} — vue 3D dans l'onglet Pose</td></tr>`:'')||'<tr><td colspan="5" class="hint">Aucune cote ni bâtiment trouvé : seule la fiche client sera remplie.</td></tr>';
   $('#home-prev').hidden=false;$('#home-prev').scrollIntoView({block:'start',behavior:'smooth'})}
-$('#home-conv').onclick=async()=>{if(homeRec)homeRec.stop();const t=$('#home-txt').value.trim();if(!t){toast('Dictez ou tapez d\'abord');return}const btn=$('#home-conv');
+$('#home-conv').onclick=async()=>{if(homeRec)(homeRec._stop?homeRec._stop():homeRec.stop());const t=$('#home-txt').value.trim();if(!t){toast('Dictez ou tapez d\'abord');return}const btn=$('#home-conv');
   if(homeBusy){homeBusy.abort();return}
   if(TSAMPLE){homeBusy=new AbortController();btn.textContent='Claude analyse… (toucher pour arrêter)';
     try{const r=await TSAMPLE.json(homePrompt(t),{signal:homeBusy.signal,modelTier:'default'});const o=parseDictObj(r);if(o){showHome(o,t);return}toast('Réponse de Claude illisible : analyse locale')}
@@ -2731,6 +2758,7 @@ cv.addEventListener('pointerdown',e=>{try{const sel=getSelection();if(sel&&sel.r
   if(ptrs.size>=2){cancelGesture();dead=true;startPinch();return}
   if(dead)return;
   const p=pt(e),z=Z(),u=U();g={sx:e.clientX,sy:e.clientY,moved:false,p0:p,vx:V.x,vy:V.y,kind:'pan'};
+  if(sGabTap&&z.photo){sGabTap=false;gabTapSimple(z,p);g=null;return}
   if(mode==='main'){const a=z.windows.find(w=>w.id===activeId&&w.w!=null);
     if(a){let best=-1,bd=28*u;hdl(a,Math.min(a.w,a.h)/u<70).forEach(([x,y],i)=>{const d=Math.hypot(x-p.x,y-p.y);if(d<bd){bd=d;best=i}});if(best>=0){Object.assign(g,{kind:'size',w:a,h:best,orig:rectOf(a)});return}}
     const h=hitWin(z,p);if(h){if(h.id!==activeId){activeId=h.id;act0={id:h.id,...rectOf(h)}}Object.assign(g,{kind:'move',w:h,orig:rectOf(h)});draw();return}
@@ -2838,35 +2866,52 @@ const quadW=w=>w.pts||[[w.x,w.y],[w.x+w.w,w.y],[w.x+w.w,w.y+w.h],[w.x,w.y+w.h]];
 const qp=(Q,u,v)=>{const t=[Q[0][0]+(Q[1][0]-Q[0][0])*u,Q[0][1]+(Q[1][1]-Q[0][1])*u],b=[Q[3][0]+(Q[2][0]-Q[3][0])*u,Q[3][1]+(Q[2][1]-Q[3][1])*u];return[t[0]+(b[0]-t[0])*v,t[1]+(b[1]-t[1])*v]};
 // Recale chaque côté du cadre séparément à ses deux bouts : suit une fenêtre légèrement penchée (photo pas tout à fait droite)
 function refineQuad(z,w,frac){const Q=quadW(w),r=Math.max(4,Math.round(frac*Math.max(w.w,w.h))),G=grayCrop(z,w.x-r-3,w.y-r-3,w.w+2*r+6,w.h+2*r+6);if(!G)return false;
-  const side=(A,B,vert)=>{const pts=[];for(const u of[.25,.75]){const base=[A[0]+(B[0]-A[0])*u,A[1]+(B[1]-A[1])*u],len=Math.hypot(B[0]-A[0],B[1]-A[1]),half=len*.15;let best=0,bs=-1,cur=0;
+  const side=(A,B,vert)=>{const pts=[],RG=[];for(const u of[.25,.75]){const base=[A[0]+(B[0]-A[0])*u,A[1]+(B[1]-A[1])*u],len=Math.hypot(B[0]-A[0],B[1]-A[1]),half=len*.15;let best=0,bs=-1,cur=0;
       const raw={};for(let t=-r-1;t<=r+1;t++){let sc=0,n=0;for(let k=-half;k<=half;k+=1){const x=vert?base[0]+t:base[0]+k,y=vert?base[1]+k:base[1]+t;const a=vert?G.at(x+1,y):G.at(x,y+1),b=vert?G.at(x-1,y):G.at(x,y-1);if(!isNaN(a)&&!isNaN(b)){sc+=Math.abs(a-b);n++}}
         raw[t]=sc=n?sc/n:0;if(t<-r||t>r)continue;if(t===0)cur=sc;sc*=1-.25*Math.abs(t)/r;if(sc>bs){bs=sc;best=t}}
+      /* joint du vitrage : fin trait sombre qui borde la vitre ; s'il existe, c'est le vrai bord de la vitre (pas l'ombre de l'embrasure ni le dormant) */
+      {const rg=t=>{let s=0,n=0;for(let k=-half;k<=half;k+=1){const x=vert?base[0]+t:base[0]+k,y=vert?base[1]+k:base[1]+t;let c=vert?G.at(x,y):G.at(x,y);
+          if(isNaN(c))continue;let lo=1e9,hi1=-1,hi2=-1;for(const d of[2,3,4]){const a=vert?G.at(x-d,y):G.at(x,y-d),b=vert?G.at(x+d,y):G.at(x,y+d);if(isNaN(a)||isNaN(b))continue;hi1=Math.max(hi1,a);hi2=Math.max(hi2,b)}
+          const m=vert?Math.min(c,G.at(x-1,y),G.at(x+1,y)):Math.min(c,G.at(x,y-1),G.at(x,y+1));if(hi1<0||isNaN(m))continue;s+=Math.max(0,Math.min(hi1,hi2)-m);n++}return n?s/n:0};
+        let rb=-1,rt=0,rs=0;const ra={};for(let t=-r;t<=r;t++){const v=ra[t]=rg(t),sv=v*(1-.35*Math.abs(t)/r);if(sv>rs){rs=sv;rb=v;rt=t}}RG.push({ra,base});
+        if(rb>=14){pts.push([vert?base[0]+rt:base[0],vert?base[1]:base[1]+rt]);continue}}
       let off=best;{const m=raw[best-1],p=raw[best+1],c=raw[best],den=m-2*c+p;if(den<0)off=best+Math.max(-.5,Math.min(.5,.5*(m-p)/den))}
-      pts.push(bs>cur*1.1?[vert?base[0]+off:base[0],vert?base[1]:base[1]+off]:base)}return pts};
+      pts.push(bs>cur*1.1?[vert?base[0]+off:base[0],vert?base[1]:base[1]+off]:base)}
+    /* les deux moitiés d'un même côté ne peuvent pas diverger fortement : sinon on prend le joint commun le mieux marqué sur toute la longueur */
+    {const len=Math.hypot(B[0]-A[0],B[1]-A[1]),o=pts.map((p,i)=>vert?p[0]-RG[i].base[0]:p[1]-RG[i].base[1]);
+      if(RG.length===2&&Math.abs(o[0]-o[1])>Math.max(6,.03*len)){const lim=Math.max(4,Math.round(.035*len));let b0=null,b1=null,bv=0;
+        for(let t0=-r;t0<=r;t0++)for(let t1=Math.max(-r,t0-lim);t1<=Math.min(r,t0+lim);t1++){const v=(RG[0].ra[t0]+RG[1].ra[t1])*(1-.35*Math.abs(t0+t1)/(2*r));if(v>bv){bv=v;b0=t0;b1=t1}}
+        if(b0!=null&&bv/2>=10)[b0,b1].forEach((tt,i)=>{const g=RG[i];pts[i]=[vert?g.base[0]+tt:g.base[0],vert?g.base[1]:g.base[1]+tt]})}}
+    return pts};
   const T=side(Q[0],Q[1],false),Bt=side(Q[3],Q[2],false),Lf=side(Q[0],Q[3],true),Rt=side(Q[1],Q[2],true);
   const X=(p1,p2,p3,p4)=>{const d=(p1[0]-p2[0])*(p3[1]-p4[1])-(p1[1]-p2[1])*(p3[0]-p4[0]);if(Math.abs(d)<1e-6)return null;const a=p1[0]*p2[1]-p1[1]*p2[0],b=p3[0]*p4[1]-p3[1]*p4[0];return[(a*(p3[0]-p4[0])-(p1[0]-p2[0])*b)/d,(a*(p3[1]-p4[1])-(p1[1]-p2[1])*b)/d]};
   const N=[X(T[0],T[1],Lf[0],Lf[1]),X(T[0],T[1],Rt[0],Rt[1]),X(Bt[0],Bt[1],Rt[0],Rt[1]),X(Bt[0],Bt[1],Lf[0],Lf[1])];if(N.some(p=>!p))return false;
+  {const ang=(p,q)=>Math.atan2(q[1]-p[1],q[0]-p[0])*180/Math.PI,dh=Math.abs(ang(N[0],N[1])-ang(N[3],N[2])),dv=Math.abs(ang(N[0],N[3])-ang(N[1],N[2]));if(dh>4||dv>8)return false}
   const area=q=>Math.abs(q.reduce((a,p,i)=>{const n=q[(i+1)%4];return a+p[0]*n[1]-n[0]*p[1]},0))/2,a0=area(Q),a1=area(N);if(a1<a0*.8||a1>a0*1.25)return false;
   const X0=Math.min(...N.map(p=>p[0])),Y0=Math.min(...N.map(p=>p[1])),X1=Math.max(...N.map(p=>p[0])),Y1=Math.max(...N.map(p=>p[1]));const rectish=[[X0,Y0],[X1,Y0],[X1,Y1],[X0,Y1]].every((c,i)=>Math.hypot(c[0]-N[i][0],c[1]-N[i][1])<.8);
   if(rectish){delete w.pts;w.x=X0;w.y=Y0;w.w=X1-X0;w.h=Y1-Y0;w.ratio=undefined}else{w.pts=N;syncBox(w);w.tilt=true}if(!w.measured)estimate(w,z);return true}
 // Cherche les montants entre vantaux : deux bords verticaux proches (les deux côtés du montant) autour de chaque séparation attendue
-function findCuts(z,w){const n=Math.max(1,Math.min(6,parseInt(w.vt)||1));if(n<2){delete w.cuts;return false}const Q=quadW(w),G=grayCrop(z,w.x-2,w.y-2,w.w+4,w.h+4);if(!G)return false;
+function findCuts(z,w,prior){const n=Math.max(1,Math.min(6,parseInt(w.vt)||1));if(n<2){delete w.cuts;return false}const PR=Array.isArray(prior)&&prior.length===n?prior:null;const Q=quadW(w),G=grayCrop(z,w.x-2,w.y-2,w.w+4,w.h+4);if(!G)return false;
   const N=Math.max(60,Math.min(500,Math.round(w.w))),prof=new Float32Array(N+1),du=1/N;
   for(let i=1;i<N;i++){const u=i/N;let sc=0,c=0;for(let v=.12;v<=.88;v+=.02){const p=qp(Q,u+du,v),m=qp(Q,u-du,v);const a=G.at(p[0],p[1]),b=G.at(m[0],m[1]);if(!isNaN(a)&&!isNaN(b)){sc+=Math.abs(a-b);c++}}prof[i]=c?sc/c:0}
   const med=[...prof].sort((a,b)=>a-b)[N>>1]||1;const cuts=[];let prev=0;
-  for(let k=1;k<n;k++){const c=k/n;let best=null;for(let i=Math.max(2,Math.round((c-.16)*N));i<Math.min(N-2,Math.round((c+.16)*N));i++)for(let j=i+Math.max(1,Math.round(.006*N));j<=Math.min(N-2,i+Math.round(.2*N));j++){const sc=prof[i]+prof[j]-.4*Math.abs((i+j)/2/N-c)*N*med/10;if(!best||sc>best.sc)best={sc,i,j}}
-    if(!best||prof[best.i]<2*med||prof[best.j]<2*med){delete w.cuts;return false}cuts.push([prev,best.i/N]);prev=best.j/N}
+  for(let k=1;k<n;k++){const c=PR?(PR[k-1][1]+PR[k][0])/2:k/n,sp=PR?.07:.16;let best=null;for(let i=Math.max(2,Math.round((c-sp)*N));i<Math.min(N-2,Math.round((c+sp)*N));i++)for(let j=i+Math.max(1,Math.round(.006*N));j<=Math.min(N-2,i+Math.round(.2*N));j++){const sc=prof[i]+prof[j]-.4*Math.abs((i+j)/2/N-c)*N*med/10;if(!best||sc>best.sc)best={sc,i,j}}
+    if(!best||prof[best.i]<2*med||prof[best.j]<2*med){if(PR){w.cuts=PR;return false}delete w.cuts;return false}cuts.push([prev,best.i/N]);prev=best.j/N}
   cuts.push([prev,1]);w.cuts=cuts.map(([a,b])=>[Math.round(a*1000)/1000,Math.round(b*1000)/1000]);return true}
 function fitWins(z,list,frac,evidence){for(const w of list){if(w.w==null)continue;try{refineQuad(z,w,frac)}catch(_){}let ok=false;try{ok=findCuts(z,w)}catch(_){}if(evidence&&!ok&&!(w._nv>1))w.vt=1;delete w._nv}}
 // Vitres voisines de même hauteur séparées par un montant = vantaux d'une même fenêtre : on les regroupe (un cadre, plusieurs vantaux)
 function renumber(z,list){const L=list.filter(w=>z.windows.includes(w));if(!L.length)return;const nums=L.map(w=>parseInt(String(w.label).replace(/^\D+/,''))||0).filter(n=>n>0);if(!nums.length)return;let k=Math.min(...nums);
   const mh=L.map(w=>w.h).sort((a,b)=>a-b)[L.length>>1]||1;L.sort((a,b)=>Math.round(a.y/(mh*.6))-Math.round(b.y/(mh*.6))||a.x-b.x).forEach(w=>{w.label='F'+(k++)})}
-function mergeVantaux(z,list){if(!S.detMerge)return list;let L=list.filter(w=>w.w!=null);L.forEach(w=>{if(!w._pq)w._pq=[orderQuad(quadW(w))||quadW(w)]});let changed=true;
+function mergeVantaux(z,list,tol){if(!S.detMerge)return list;const TY=tol||.08,TH=tol?tol*1.5:.12;let L=list.filter(w=>w.w!=null);L.forEach(w=>{if(!w._pq)w._pq=[orderQuad(quadW(w))||quadW(w)]});let changed=true;
   while(changed){changed=false;L.sort((a,b)=>a.x-b.x);
     for(let i=0;i<L.length&&!changed;i++)for(let j=0;j<L.length&&!changed;j++){if(i===j)continue;const a=L[i],b=L[j];const gap=b.x-(a.x+a.w),mh=Math.min(a.h,b.h);
-      if(gap>-.02*mh&&gap<Math.min(.5*Math.min(a.w,b.w),.35*mh)&&Math.abs(a.y-b.y)<.08*mh&&Math.abs(a.y+a.h-b.y-b.h)<.08*mh&&Math.abs(a.h-b.h)<.12*mh){
+      if(gap>(tol?-.12*Math.min(a.w,b.w):-.02*mh)&&gap<Math.min(.5*Math.min(a.w,b.w),.35*mh)&&Math.abs(a.y-b.y)<TY*mh&&Math.abs(a.y+a.h-b.y-b.h)<TY*mh&&Math.abs(a.h-b.h)<TH*mh){
         a._pq=[...a._pq,...b._pq].sort((p,q)=>(p[0][0]+p[3][0])-(q[0][0]+q[3][0]));a._tilt=a._tilt||!!a.pts||!!b.pts;
-        const P=a._pq,F=P[0],Lq=P[P.length-1],Q=[F[0],Lq[1],Lq[2],F[3]];
+        const P=a._pq,F=P[0],Lq=P[P.length-1];let Q=[F[0],Lq[1],Lq[2],F[3]];
+        if(tol&&P.length>2){/* haut et bas ajustés sur TOUS les vantaux (moyenne), pas seulement le premier et le dernier */
+          const fit=pp=>{const n=pp.length,mx=pp.reduce((s,p)=>s+p[0],0)/n,my=pp.reduce((s,p)=>s+p[1],0)/n;let sxx=0,sxy=0;pp.forEach(p=>{sxx+=(p[0]-mx)**2;sxy+=(p[0]-mx)*(p[1]-my)});const k=sxx?sxy/sxx:0;return x=>my+k*(x-mx)};
+          const ft=fit(P.flatMap(p=>[p[0],p[1]])),fb=fit(P.flatMap(p=>[p[3],p[2]]));
+          const lx=t=>F[0][0]+(F[3][0]-F[0][0])*t,rx=t=>Lq[1][0]+(Lq[2][0]-Lq[1][0])*t;Q=[[F[0][0],ft(F[0][0])],[Lq[1][0],ft(Lq[1][0])],[Lq[2][0],fb(Lq[2][0])],[F[3][0],fb(F[3][0])]];a._tilt=true}
         if(a._tilt){a.pts=Q.map(p=>[p[0],p[1]]);syncBox(a);a.tilt=true}else{const x0=Math.min(F[0][0],F[3][0]),x1=Math.max(Lq[1][0],Lq[2][0]),y0=Math.min(...P.flatMap(p=>[p[0][1],p[1][1]])),y1=Math.max(...P.flatMap(p=>[p[2][1],p[3][1]]));delete a.pts;Object.assign(a,{x:x0,y:y0,w:x1-x0,h:y1-y0})}
         const QQ=quadW(a),pr=(p,e0,e1)=>{const dx=e1[0]-e0[0],dy=e1[1]-e0[1];return((p[0]-e0[0])*dx+(p[1]-e0[1])*dy)/(dx*dx+dy*dy)};
         const cl=v=>Math.max(0,Math.min(1,Math.round(v*1000)/1000));
@@ -3027,7 +3072,7 @@ function addAIWindows(list){const z=Z(),{W,H}=dims(),out=[];
     let gp=grps.find(g=>Math.abs(g.w-nw.w)<=g.w*.08&&Math.abs(g.h-nw.h)<=g.h*.08&&!!g.pts===!!nw.pts);if(!gp){gp={w:nw.w,h:nw.h,pts:nw.pts,id:uid(),n:0};grps.push(gp)}gp.n++;nw._g=gp;
     nw.vt=o.vt>1?Math.min(6,o.vt):1;estimate(nw,z);z.windows.push(nw)}
   for(const w of z.windows){if(w._g){if(w._g.n>1)w.grp=w._g.id;delete w._g}}
-  try{let nw=z.windows.slice(-out.length);const rect=nw.filter(w=>!w.pts);refineZone(z,rect);nw.filter(w=>w.pts).forEach(w=>{try{refineQuad(z,w,.06)}catch(_){}});nw=mergeVantaux(z,nw);const one=nw.filter(w=>!(w._nv>1));fitWins(z,one.filter(w=>w.vt>1),.06);one.filter(w=>!(w.vt>1)).forEach(w=>{w.vt=1;delete w.cuts});nw.forEach(w=>delete w._nv);renumber(z,nw)}catch(_){}
+  try{let nw=z.windows.slice(-out.length);const raw=nw.map(w=>({w,x:w.x,y:w.y,ww:w.w,h:w.h,pts:w.pts&&w.pts.map(p=>p.slice())}));nw=mergeVantaux(z,nw,.15);const single=nw.filter(w=>!(w._nv>1));raw.filter(r=>single.includes(r.w)).forEach(r=>{const w=r.w;if(w.pts)try{refineQuad(z,w,.025)}catch(_){}else refineZone(z,[w])});nw.filter(w=>w._nv>1).forEach(w=>{const pr=w.cuts&&w.cuts.map(c=>c.slice());try{refineQuad(z,w,.05)||refineQuad(z,w,.03)||refineQuad(z,w,.015)}catch(_){}try{findCuts(z,w,pr)}catch(_){}});const one=nw.filter(w=>!(w._nv>1));fitWins(z,one.filter(w=>w.vt>1),.06);one.filter(w=>!(w.vt>1)).forEach(w=>{w.vt=1;delete w.cuts});nw.forEach(w=>delete w._nv);renumber(z,nw)}catch(_){}
   activeId=null;changed('win');resetView();toast(`Claude a trouvé ${out.length} vitre(s). Vérifiez, enlevez celles en trop, corrigez avec les ronds blancs.`)}
 const AI_ERR={cancelled:'Analyse arrêtée',not_granted:'Claude n\'a pas été autorisé pour cette appli',sampling_disabled:'Claude n\'est pas disponible pour ce compte',
   rate_limited:'Limite d\'utilisation Claude atteinte : réessayez plus tard, ou utilisez la détection classique',session_expired:'Reconnectez-vous à Claude puis réessayez',
@@ -3160,7 +3205,7 @@ function onPhoto(file){if(!file)return;const url=URL.createObjectURL(file);const
   if(z.parent&&z.sector){const p=parentOf(z);if(p&&p.scale){z.scale=p.scale*c.width/z.sector.w;z.scaleFrom='parent'}}
   if(isSimple()){changed('win');setTab('vitrages');toast('Recherche des fenêtres…');whenLoaded(z,()=>{fitCanvas();const b0=parseInt(nextLabel(z).slice(1))||1,prev=new Set(z.windows);const gq=gabSimple(z),dum=gq?gabDummy(z,gq):null;
     const fin=n=>{if(dum)z.windows=z.windows.filter(w=>w!==dum);try{const NW=z.windows.filter(w=>!prev.has(w)&&w!==dum).sort((a,b)=>(parseInt(String(a.label).slice(1))||0)-(parseInt(String(b.label).slice(1))||0));NW.forEach((w,i)=>w.label='F'+(b0+i))}catch(_){}if(gq){reEstimate(z);changed('win')}const k=z.windows.filter(w=>w.w!=null).length;
-      toast(gq?(k?`Gabarit ${gq.gw} × ${gq.gh} cm trouvé : ${k} vitrage(s) coté(s) automatiquement (en orange). Mesurez-en un pour affiner.${gq.skew?' Photo prise de biais : cotes moins précises.':''}`:`Gabarit trouvé, mais aucune fenêtre repérée : touchez une vitre.`)
+      toast(gq?(k?`Gabarit ${gq.col?gq.col+' ':''}${gq.gw} × ${gq.gh} cm trouvé : ${k} vitrage(s) coté(s) automatiquement (en orange). Mesurez-en un pour affiner.${gq.skew?' Photo prise de biais : cotes moins précises.':''}`:`Gabarit trouvé, mais aucune fenêtre repérée : touchez une vitre.`)
         :(k?`${k} fenêtre(s) repérée(s). ${gabState().on?'Gabarit non trouvé sur la photo : ':''}Donnez les cotes : saisie rapide ou dictée.`:'Aucune fenêtre repérée automatiquement : saisissez ou dictez vos cotes.'))};
     if(SAMPLE){detectAI().then(()=>{if(!Z().windows.some(w=>w.w!=null&&w!==dum))detectAll(true,true);fin()});return}detectAll(true,true);fin()});return}
   changed('win');setTab('photo');setMode('rectify');if(innerWidth<760)setFull(true);toast('Photo chargée. Placez les 4 coins d\'un rectangle connu pour redresser.');if(S.gabarit&&S.gabarit.on)whenLoaded(z,()=>{fitCanvas();findGabarit(true)})};im.src=url}
@@ -3617,7 +3662,7 @@ $('#exp-hist').onclick=()=>{const items=histItems();if(!items.length){toast('Auc
     for(const z of d.zones||[])for(const w of z.windows||[])if(w.sel&&w.wcm>0&&w.hcm>0){const q2=w.qty||1;nv+=q2;sv+=w.wcm*w.hcm/1e4*(w.pts?(w.ratio||1):1)*q2}
     rows.push([q(d.devis.num),q(frDate(d.devis.date)),q(d.client.nom),q(d.client.chantier),nv,n(sv),n(d.ttc)].join(';'))}
   saveFile(`Historique-devis-${new Date().toISOString().slice(0,10)}.csv`,'﻿'+rows.join('\r\n'),'text/csv')};
-$('#new-devis').onclick=()=>{const keep={};for(const k of['company','films','history','pose','roll','filmId','std','stdList','stock','supplier','ui','hiRes','gabarit','detMerge','detEnh','recal','tab','defVt','qcfg','snake','askPhoto','clients','clHidden','drvV','tiimeCat','mkUrl','ckKey','ckCo','sdOn','sdList','sdDelay','stkOn','stkItems','stkMoves','pcAuth','pcHost','pcEmail','pcAuto','pcLast','nm','tts','phAuto','drvUrl','drvAuto','drvKey','drvLast','bkDate','detMergeV2','stdVer'])if(S[k]!==undefined)keep[k]=S[k];S=Object.assign(defaults(),keep);
+$('#new-devis').onclick=()=>{const keep={};for(const k of['company','films','history','pose','roll','filmId','std','stdList','stock','supplier','ui','hiRes','gabarit','detMerge','detEnh','recal','tab','defVt','qcfg','snake','askPhoto','clients','clHidden','drvV','tiimeCat','mkUrl','sdOn','sdList','sdDelay','stkOn','stkItems','stkMoves','pcAuth','pcHost','pcEmail','pcAuto','pcLast','nm','tts','phAuto','drvUrl','drvAuto','drvKey','drvLast','bkDate','detMergeV2','stdVer'])if(S[k]!==undefined)keep[k]=S[k];S=Object.assign(defaults(),keep);
   S.zoneId=S.zones[0].id;
   S.client={nom:'',tel:'',adresse:'',chantier:'',email:''};S.devis.num=nextNum();changed('all');setTab('client');toast('Nouveau devis prêt')};
 NEWDEV=$('#new-devis').onclick;$('#new-devis').onclick=()=>{setTab('client');$('#new-client').click()};
@@ -3637,7 +3682,12 @@ $('#opts').addEventListener('input',e=>{const el=e.target.closest('.opt');if(!el
   else if(e.target.dataset.o==='prix')o.prix=e.target.value===''?'':(parseFloat(String(e.target.value).replace(',','.'))||0);
   else if(e.target.dataset.oz){const ids=[...el.querySelectorAll('[data-oz]')].filter(c=>c.checked).map(c=>c.dataset.oz);o.zones=ids.length===S.zones.length?null:ids}
   changed('soft')});
-function changed(scope){
+/* Après une suppression, les numéros F1, F2… se suivent à nouveau (pas de trou, pas de « à la suite ») */
+let __winIds=null;
+function compactLabels(){const all=S.zones.flatMap(z=>z.windows||[]),ids=new Set(all.map(w=>w.id));
+  if(__winIds&&[...__winIds].some(i=>!ids.has(i))){S.zones.filter(z=>!parentOf(z)).forEach(top=>{const L=[top,...kids(top)].flatMap(z=>z.windows||[]).filter(w=>/^F\d+$/.test(String(w.label))).sort((a,b)=>parseInt(a.label.slice(1))-parseInt(b.label.slice(1)));L.forEach((w,i)=>{w.label='F'+(i+1)})})}
+  __winIds=ids}
+function changed(scope){try{compactLabels()}catch(_){}
   try{$('#ed').classList.toggle('nophoto',!Z().photo);$('#s-photo-txt').textContent=Z().photo?'Photo prise : les fenêtres repérées sont dans le tableau. Mesurez-en 2 pour que l\'appli estime les autres.':'Facultatif : sert à compter les fenêtres et à faire le plan.'}catch(_){}
   try{renderSubUI();renderCheck()}catch(_){}
   if(scope!=='soft')reEstimate();
@@ -3845,6 +3895,12 @@ function buildSteps(){const it=QS.items[QS.ii];if(!it)return null;const z=zById(
   if(QS.mode==='plan'&&!QS.zoneAsked[z.id]){QS.zoneAsked[z.id]=1;for(const[k]of qAttrs())if(!z[k]&&!(k==='menui'&&z.menui)&&!(k==='joint'&&z.joint))st.push({t:'zattr',k})}
   const n=w.vt||1;if(!winDimsOk(w))for(let i=0;i<n;i++)if(!dimsOk(w,i)){st.push({t:'w',i},{t:'h',i})}
   if(QS.mode==='fill')for(const[k]of qAttrs())if(!getAttr(w,z,k))st.push({t:'attr',k});return st}
+/* Composition d'une fenêtre : préréglage particulier, ou reprise de la fenêtre précédente du même chantier */
+const COMPK=['menui','joint','verre','ouv'];
+function compOf(w,z){if(!w)return null;const c={vt:Math.max(1,parseInt(w.vt)||1)};for(const k of COMPK){const v=getAttr(w,z,k);if(v)c[k]=v}return c}
+function compTxt(c){return[(c.vt||1)>1?c.vt+' vantaux':'1 vantail',c.ouv&&OUVS[c.ouv],c.menui&&MENUI[c.menui],c.joint&&JOINTS[c.joint],c.verre&&VERRES[c.verre]].filter(Boolean).join(' · ')}
+function compSuggest(){const Q=QS;if(Q.lastComp)return{src:'prev',c:Q.lastComp};if(clType(S.client)==='part'&&!S.client.noPreset)return{src:'preset',c:{vt:2,ouv:'battant'}};return null}
+function compNext(z,w){const Q=QS;if(w)Q.lastComp=compOf(w,z);Q.plan=null;Q.compAsked=false}
 function attrQ(k,set,cur){const a=ATTR.find(x=>x[0]===k);const opts=a[2]();const last=QS.last[k];const chips=last&&last!==cur?[[last,'Comme le précédent ('+ATN[k][last]+')']]:[];return{key:k,text:a[1],kind:'choice',opts,chips,skip:true,cur,set}}
 function nextQ(){const Q=QS;if(!Q)return null;
   if(Q.mode==='new'){const z=zById(Q.zid),w=wIn(z,Q.wid);
@@ -3859,11 +3915,14 @@ function nextQ(){const Q=QS;if(!Q)return null;
     if(Q.phase==='pose')return{key:'pose',text:`${Q.lieu} : film posé à l'intérieur ou à l'extérieur ?`,kind:'choice',opts:[['int','Intérieur'],['ext','Extérieur']],set:v=>{Q.pose=v;Q.phase=S.films.length>1?'film':'mkzone';if(S.films.length<=1)Q.film=S.filmId}};
     if(Q.phase==='film')return{key:'film',text:'Quel film pour ce lieu ?',sub:'Vous pourrez le changer vitrage par vitrage dans le bilan.',kind:'choice',opts:filmOpts(),chips:[[S.filmId,'Film habituel ('+filmById(S.filmId).nom+')']],set:v=>{Q.film=v;Q.phase='mkzone'}};
     if(Q.phase==='mkzone'){let zz=Q.blank&&zById(Q.blank);if(zz){zz.nom=Q.lieu;delete zz.unnamed;zz.type=Q.pose;zz.filmId=Q.film}else{zz=newZone(uniqueZoneName(Q.lieu),Q.pose,Q.film);S.zones.push(zz)}zz.base=Q.lieu;Q.zid=zz.id;Q.phase='w';changed('zone');return nextQ()}
+    if(Q.phase==='w'&&!w&&Q.vi===0&&!Q.compAsked){const sg=compSuggest();if(sg){const t=compTxt(sg.c);return{key:'comp',text:sg.src==='prev'?'Même composition que la fenêtre précédente ?':'Fenêtre à 2 vantaux battants ?',sub:`${z.nom} · ${nextLabel(z)} — ${t}`,say:sg.src==='prev'?'Même composition que la précédente : '+t+' ?':'Fenêtre à deux vantaux battants ?',kind:'choice',
+        opts:[['same',sg.src==='prev'?'Oui, pareil ('+t+')':'Oui, 2 vantaux battants'],['aucun','Aucun : toutes les options']],set:v=>{Q.compAsked=true;Q.plan=v==='same'?Object.assign({},sg.c):null}}}Q.compAsked=true}
     if(Q.phase==='w')return{key:'w',text:`Largeur${w||Q.vi?' du V'+(Q.vi+1):''} ?`,sub:`${z.nom} · ${w?w.label:nextLabel(z)} · V${Q.vi+1} — en cm (vous pouvez dire « 46 par 77 »)`,kind:'num',set:v=>{const p=parsePair(v);if(p){Q.cur={w:p[0],h:p[1]};return commitV()}const c=nCm(v);if(!c)return'Je n\'ai pas compris la largeur. Exemple : 46, 46 cm ou 1 m 20.';Q.cur.w=c;Q.phase='h'}};
     if(Q.phase==='h')return{key:'h',text:`Hauteur${w||Q.vi?' du V'+(Q.vi+1):''} ?`,sub:`${z.nom} · ${w?w.label:nextLabel(z)} · V${Q.vi+1} — largeur ${fmt(Q.cur.w,1)} cm`,kind:'num',set:v=>{const c=nCm(v);if(!c)return'Je n\'ai pas compris la hauteur. Exemple : 77 ou 1 m 35.';Q.cur.h=c;return commitV()}};
-    if(Q.phase==='attr'){const A=qAttrs();if(Q.ai>=A.length){Q.phase='next';return nextQ()}const k=A[Q.ai][0];return Object.assign(attrQ(k,v=>{if(v!=null){w[k]=v;Q.last[k]=v}Q.ai++},w[k]),{sub:`${z.nom} · ${w.label}`})}
+    if(Q.phase==='attr'){const A=qAttrs().filter(a=>!(Q.plan&&Q.plan[a[0]]));if(Q.ai>=A.length){Q.phase='next';return nextQ()}const k=A[Q.ai][0];return Object.assign(attrQ(k,v=>{if(v!=null){w[k]=v;Q.last[k]=v}Q.ai++},w[k]),{sub:`${z.nom} · ${w.label}`})}
+    if(Q.phase==='next'&&Q.plan&&Q.plan.vt>1&&!Q.planOff){if(Q.vi+1<Q.plan.vt){Q.vi++;Q.cur={};Q.phase='w';return nextQ()}}
     if(Q.phase==='next')return{key:'next',text:`Y a-t-il un V${Q.vi+2} sur cette fenêtre ?`,sub:`${z.nom} · ${w.label} : ${(w.vm||[]).filter(Boolean).map((m,i)=>'V'+(i+1)+' '+fmt(m.w,0)+'×'+fmt(m.h,0)).join(', ')}`,kind:'choice',opts:[['oui',`Oui, un V${Q.vi+2}`],['non','Non, vitrage suivant'],['fin','Terminer']],
-      set:v=>{if(v==='oui'){Q.vi++;Q.cur={};Q.phase='w'}else if(v==='non'){Q.lastZ=Q.zid;Q.wid=null;Q.vi=0;Q.cur={};Q.lieu=null;Q.photoDone=false;Q.phase='lieu'}else Q.phase='done'}};
+      set:v=>{if(v==='oui'){Q.vi++;Q.cur={};Q.phase='w'}else if(v==='non'){compNext(z,w);Q.lastZ=Q.zid;Q.wid=null;Q.vi=0;Q.cur={};Q.lieu=null;Q.photoDone=false;Q.phase='lieu'}else Q.phase='done'}};
     return null}
   // modes « plan » (vitrages de la photo) et « fill » (infos manquantes)
   if(!Q.steps||Q.si>=Q.steps.length){if(Q.steps)Q.ii++;Q.steps=buildSteps();Q.si=0;Q.cur={};if(!Q.steps)return null;if(!Q.steps.length)return nextQ()}
@@ -3878,7 +3937,7 @@ function nextQ(){const Q=QS;if(!Q)return null;
   return null}
 function commitV(){const Q=QS,z=zById(Q.zid);let w=wIn(z,Q.wid);
   if(!w){w={id:uid(),label:nextLabel(z),x:null,y:null,w:null,h:null,wcm:0,hcm:0,measured:true,qty:1,sel:true,vt:1,vm:[]};z.windows.push(w);Q.wid=w.id;Q.count++;if(Q.pend.length){w.snaps=(w.snaps||[]).concat(Q.pend);w.snap=w.snaps[0];Q.pend=[]}}
-  w.vm=Array.isArray(w.vm)?w.vm:[];w.vm[Q.vi]={w:Q.cur.w,h:Q.cur.h};w.vt=Math.max(parseInt(w.vt)||1,Q.vi+1);vtSync(w,z);Q.cur={};Q.ai=0;Q.phase=Q.vi===0?'attr':'next';changed('win')}
+  if(Q.plan&&Q.vi===0)for(const k of COMPK)if(Q.plan[k])w[k]=Q.plan[k];w.vm=Array.isArray(w.vm)?w.vm:[];w.vm[Q.vi]={w:Q.cur.w,h:Q.cur.h};w.vt=Math.max(parseInt(w.vt)||1,Q.vi+1);vtSync(w,z);Q.cur={};Q.ai=0;Q.phase=Q.vi===0?'attr':'next';changed('win')}
 function commitItem(z,w,i){w.vm=Array.isArray(w.vm)&&w.vmSum?w.vm:[];w.vm[i]={w:QS.cur.w,h:QS.cur.h};vtSync(w,z);try{reEstimate(z)}catch(_){}QS.cur={};changed('win')}
 function answerQ(raw,direct){if(!QS)return;const q=nextQ();if(!q)return finishQ();const txt=raw==null?'':String(raw).trim(),n=normTxt(txt);
   if(QUI==='chat'&&txt)userSay(direct&&q.opts?(q.opts.concat(q.chips||[]).find(o=>o[0]===raw)||[0,txt])[1]:txt);
@@ -3901,7 +3960,7 @@ function qRender(noAsk){const q=nextQ();if(!q)return finishQ();if(QUI==='chat'){
 /* chat */
 function botSay(t,cls,thumb){QS&&QS.log.push({who:'bot',t,cls:cls||'',thumb:thumb||null});renderChat()}
 function userSay(t){QS&&QS.log.push({who:'me',t});renderChat()}
-function renderChat(){if(!QS)return;const el=$('#n-chat');el.innerHTML=QS.log.map((m,i)=>`<div class="n-msg ${m.who} ${m.cls||''}">${esc(m.t).replace(/\n/g,'<br><small>')}${m.t.includes('\n')?'</small>':''}${m.thumb?`<canvas class="n-thumb" data-th="${i}"></canvas>`:''}</div>`).join('');
+function renderChat(){if(!QS)return;const el=$('#n-chat');let lt=-1;QS.log.forEach((m,i)=>{if(m.thumb)lt=i});el.innerHTML=QS.log.map((m,i)=>`<div class="n-msg ${m.who} ${m.cls||''}">${esc(m.t).replace(/\n/g,'<br><small>')}${m.t.includes('\n')?'</small>':''}${m.thumb&&i===lt?`<canvas class="n-thumb" data-th="${i}"></canvas>`:''}</div>`).join('');
   el.querySelectorAll('canvas[data-th]').forEach(c=>drawThumb(c,QS.log[+c.dataset.th].thumb));requestAnimationFrame(()=>{const last=el.lastElementChild;last&&last.scrollIntoView({block:'end',behavior:'smooth'})})}
 function renderChips(q){const ch=(q.chips||[]).concat(q.kind==='choice'?q.opts:[]);const extra=[];if(q.skip)extra.push(['__skip','Passer / je ne sais pas']);if(QS&&QS.hist.length)extra.push(['__back','↩ Retour']);
   $('#n-chips').innerHTML=ch.map(([v,l])=>v==='__cam'?`<label for="n-cam" class="n-camchip">${esc(l)}</label>`:`<button type="button" data-qv="${esc(v)}" class="${q.cur===v?'cur':''}">${esc(l)}</button>`).join('')+extra.map(([v,l])=>`<button type="button" class="ghost" data-qv="${v}">${esc(l)}</button>`).join('')}
@@ -3935,7 +3994,8 @@ function hfListen(){if(!HF.on||!QS||S.tab!=='chat')return;if(!SRec||micOff){hfFa
 HF.recOff=()=>{clearTimeout(HF.idleT);if(HF.rec){const o=HF.rec;HF.rec=null;try{o.abort()}catch(_){}}};
 function hfPause(msg){HF.on=false;try{HF.rec&&HF.rec.abort()}catch(_){}HF.rec=null;hfSet('pause',msg)}
 function hfFail(){HF.on=false;HF.rec=null;hfSet('off','L\'écoute automatique n\'est pas disponible ici (aperçu claude.ai). Ouvrez l\'appli installée sur l\'iPhone, ou répondez avec le micro du clavier. Les questions restent lues à voix haute.');S.tts=true}
-$('#n-hf').onclick=()=>{if(HF.on){hfPause('Écoute en pause. Touchez le micro pour reprendre.');try{speechSynthesis.cancel()}catch(_){}return}if(!SRec||micOff){hfFail();return}HF.on=true;HF.sil=0;const q=nextQ();if(q)hfSay(qSay(q));};
+setInterval(()=>{if(HF.on&&!HF.wake){HF.wake=1;wakeOn()}else if(!HF.on&&HF.wake){HF.wake=0;wakeOff()}},1000);
+$('#n-hf').onclick=()=>{if(HF.on){hfPause('Écoute en pause. Touchez le micro pour reprendre.');try{speechSynthesis.cancel()}catch(_){}return}if(!SRec||micOff){hfFail();return}HF.on=true;if(!HF.wake){HF.wake=1;wakeOn()}HF.sil=0;const q=nextQ();if(q)hfSay(qSay(q));};
 function qSay(q){let t=q.say||q.text;if(q.kind==='choice'&&q.opts&&q.opts.length<=6)t+=' '+q.opts.map(o=>o[1]).join(', ')+'.';if(QS&&QS.echo){t=QS.echo+'. '+t;QS.echo=null}if(QS&&QS.intro){t=QS.intro+' '+t;QS.intro=null}return t}
 function speak(t){if(!S.tts||!('speechSynthesis'in window))return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';const v=speechSynthesis.getVoices().find(v=>/^fr/i.test(v.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(_){}}
 $('#n-form').addEventListener('submit',e=>{e.preventDefault();const v=$('#n-in').value;if(!v.trim())return answerQ('');answerQ(v)});
@@ -3954,7 +4014,7 @@ function wizShow(q){const c=$('#w-card');const it=QS.items[QS.ii];const prog=QS.
     <p class="n-err" id="w-err" hidden></p>
     ${q.kind!=='choice'?'<button class="btn primary n-next" id="w-ok" type="button">Page suivante →</button>':''}
     ${q.skip?'<button class="btn ghost n-skip" id="w-skip" type="button">Passer / je ne sais pas</button>':''}`;
-  if(q.thumb){const t=$('#w-th');drawThumb(t,q.thumb)}const inp=$('#w-in');if(inp){setTimeout(()=>inp.focus(),60);inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();answerQ(inp.value)}})}}
+  if(q.thumb){const t=$('#w-th');drawThumb(t,q.thumb)}const inp=$('#w-in');if(inp){try{inp.focus({preventScroll:true})}catch(_){}setTimeout(()=>{if(document.activeElement!==inp)try{inp.focus({preventScroll:true})}catch(_){}},60);inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();answerQ(inp.value)}})}}
 $('#w-card').addEventListener('click',e=>{const b=e.target.closest('[data-wv]');if(b){const q=nextQ();if(q&&q.kind==='choice')answerQ(b.dataset.wv,true);else answerQ(b.dataset.wv);return}
   if(e.target.closest('#w-ok')){const i=$('#w-in');answerQ(i?i.value:'')}if(e.target.closest('#w-skip'))answerQ('passer')});
 $('#w-back').onclick=()=>{if(QS&&QS.hist.length)backQ();else setTab('home')};
@@ -3969,8 +4029,8 @@ $('#n-cam').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)retur
 /* ---------- client obligatoire ---------- */
 let CLI_CB=null;
 function ensureClient(cb){if(S.client.nom&&S.client.nom.trim()){cb&&cb();return}openClient(cb)}
-function openClient(cb){CLI_CB=cb||null;const C=S.client;for(const k of ['nom','tel','adresse','chantier','email'])$('#nc-'+k).value=C[k]||'';const t=clType(C);if(t==='part'&&!C.nomFam&&!C.prenom&&C.nom)C.nomFam=C.nom;if(t!=='part'&&!C.raison&&C.nom)C.raison=C.nom;$('#nc-nomfam').value=C.nomFam||'';$('#nc-prenom').value=C.prenom||'';$('#nc-raison').value=C.raison||'';clTypeUI($('#n-csheet'),'nct',t);$('#nc-warn').hidden=true;$('#n-csheet').hidden=false;setTimeout(()=>$('#nc-nom').focus(),80)}
-$('#n-csheet').addEventListener('change',e=>{if(e.target.name==='nct'){S.client.type=e.target.value;clTypeUI($('#n-csheet'),'nct',e.target.value);ncCompose();save()}});
+function openClient(cb){CLI_CB=cb||null;const C=S.client;try{$('#nc-nopre').checked=!!C.noPreset;$('#nc-pre-l').hidden=clType(C)!=='part'}catch(_){}for(const k of ['nom','tel','adresse','chantier','email'])$('#nc-'+k).value=C[k]||'';const t=clType(C);if(t==='part'&&!C.nomFam&&!C.prenom&&C.nom)C.nomFam=C.nom;if(t!=='part'&&!C.raison&&C.nom)C.raison=C.nom;$('#nc-nomfam').value=C.nomFam||'';$('#nc-prenom').value=C.prenom||'';$('#nc-raison').value=C.raison||'';clTypeUI($('#n-csheet'),'nct',t);$('#nc-warn').hidden=true;$('#n-csheet').hidden=false;setTimeout(()=>$('#nc-nom').focus(),80)}
+$('#n-csheet').addEventListener('change',e=>{if(e.target.id==='nc-nopre'){S.client.noPreset=e.target.checked;save();return}if(e.target.name==='nct'){try{$('#nc-pre-l').hidden=e.target.value!=='part'}catch(_){}S.client.type=e.target.value;clTypeUI($('#n-csheet'),'nct',e.target.value);ncCompose();save()}});
 function ncCompose(){const t=clType(S.client);if(t==='part')S.client.raison='';else{S.client.nomFam='';S.client.prenom=''}S.client.nom=clDisp(S.client);$('#nc-nom').value=S.client.nom;bindFields&&bindFields();renderClientBars()}
 $('#n-csheet').addEventListener('input',e=>{const k=e.target.dataset.nc;if(!k)return;S.client[k]=e.target.value;if(['nomFam','prenom','raison'].includes(k)){const t=clType(S.client);if(t==='part')S.client.nom=clDisp(S.client);else S.client.nom=clDisp(S.client)}bindFields&&bindFields();save();renderClientBars()});
 $('#nc-ok').onclick=()=>{S.client.type=clType(S.client);S.client.nom=clDisp(S.client);if(!S.client.nom||!S.client.nom.trim()){toast(clType(S.client)==='part'?'Le nom du client est nécessaire':'La raison sociale est nécessaire');($('#n-csheet .cl-pp:not([hidden]) input')||$('#nc-raison')).focus();return}if(!S.client.chantier&&S.client.adresse)S.client.chantier=S.client.adresse;$('#n-csheet').hidden=true;save();renderClientBars();if(S.tab==='home')renderNHome();const cb=CLI_CB;CLI_CB=null;cb&&cb()};
@@ -4079,7 +4139,7 @@ $$('section#t-stock,section#t-coupe,section#t-calepinage').forEach(s=>{const d=d
   if(S.tab==='home')renderNHome();if(S.tab==='bilan')renderBilan();if(S.tab==='voice'){try{renderHome()}catch(_){}$('#n-missing').innerHTML=''}if(S.tab==='vitrages'&&NM())setTimeout(renderPM,80);$('#n-tts').setAttribute('aria-pressed',!!S.tts)}}
 {const o=changed;changed=function(sc){o(sc);if(!NM())return;try{if(S.tab==='home'&&sc!=='soft')renderNHome();if(S.tab==='vitrages')renderPM();if(S.tab==='bilan'&&sc!=='soft')renderBilan();renderClientBars()}catch(_){}}}
 /* zone + appareil photo déplacés dans le panneau photo simplifié */
-const NM_MOVES=[['.home-dict','#n-dict-host'],['#s-photo','#pm-top'],['.np-row','#pm-top'],['#np-box','#pm-top']].map(([sel,to])=>{const el=$(sel);return el?{el,to,par:el.parentNode,next:el.nextSibling}:null}).filter(Boolean);
+const NM_MOVES=[['.home-dict','#n-dict-host'],['#s-gab','#pm-top'],['#s-gab-tap','#pm-top'],['#s-photo','#pm-top'],['.np-row','#pm-top'],['#np-box','#pm-top']].map(([sel,to])=>{const el=$(sel);return el?{el,to,par:el.parentNode,next:el.nextSibling}:null}).filter(Boolean);
 function placeNM(){const on=NM();for(const m of NM_MOVES){if(on)$(m.to).appendChild(m.el);else m.par.insertBefore(m.el,m.next&&m.next.parentNode===m.par?m.next:null)}const h=$('.home-dict h2');if(h)h.textContent=on?'Tout dicter d\'un coup':'Dicter tout le chantier'}
 placeNM();
 /* réglages : assistant et affichage */
@@ -4165,19 +4225,51 @@ async function drvRestore(){const u=S.drvUrl+(S.drvUrl.includes('?')?'&':'?')+'c
   if(!o||o.ok===false)throw new Error(o&&o.erreur==='vide'?'aucune sauvegarde sur Drive':'script Drive ancien : recopiez-le et redéployez');const f=new File([JSON.stringify(o)],'drive.json',{type:'application/json'});await $('#bk-imp').onchange({target:{files:[f],value:''}});$('#bk-box').scrollIntoView({block:'center',behavior:'smooth'})}
 /* ---------- gabarit en mode simple : échelle automatique => cotes automatiques ---------- */
 function gabSimple(z){const G=gabState();if(!G.on||!(+G.w>0&&+G.h>0))return null;let raw;try{raw=rawPix()}catch(_){return null}const{w,h,f,d}=raw,N=w*h,hue=new Float32Array(N);for(let i=0;i<N;i++){const j=i*4;hue[i]=hueOf(d[j],d[j+1],d[j+2])}
-  const pref=G.color||'orange',col=pref,gr=Math.max(+G.w,+G.h)/Math.min(+G.w,+G.h);const r=gabQuadStrict(hue,w,h,pref,gr);if(!r)return null;
-  const P=r.q.map(([x,y])=>({x:(x+.5)/f,y:(y+.5)/f})),L=(a,b)=>Math.hypot(b.x-a.x,b.y-a.y),top=L(P[0],P[1]),bot=L(P[3],P[2]),lef=L(P[0],P[3]),rig=L(P[1],P[2]),qw=(top+bot)/2,qh=(lef+rig)/2;
+  const pref=G.color||'orange',col=pref,gr=Math.max(+G.w,+G.h)/Math.min(+G.w,+G.h);let r=gabQuadStrict(hue,w,h,pref,gr),got=pref;if(!r)for(const c of['rouge','orange','rose','jaune','vert','bleu']){if(c===pref||!GAB_COLORS[c])continue;r=gabQuadStrict(hue,w,h,c,gr);if(r){got=c;break}}
+  if(!r){z.gabMiss=true;return null}z.gabMiss=false;if(got!==pref){G.color=got;save();try{syncRgGab();syncSGab()}catch(_){}}const res=gabApplyQ(z,r.q,f);if(res)res.col=got!==pref?got:null;return res}
+function gabApplyQ(z,q,f){const G=gabState();
+  const P=q.map(([x,y])=>({x:(x+.5)/f,y:(y+.5)/f})),L=(a,b)=>Math.hypot(b.x-a.x,b.y-a.y),top=L(P[0],P[1]),bot=L(P[3],P[2]),lef=L(P[0],P[3]),rig=L(P[1],P[2]),qw=(top+bot)/2,qh=(lef+rig)/2;
   let gw=+G.w,gh=+G.h;if((qw>qh)!==(gw>gh))[gw,gh]=[gh,gw];const sk=Math.max(Math.abs(top-bot)/qw,Math.abs(lef-rig)/qh);
   z.sxc=qw/gw;z.syc=qh/gh;z.scale=(z.sxc+z.syc)/2;z.scaleFrom='gab';z.calib=null;z.gabQ=P;
   const xs=P.map(p=>p.x),ys=P.map(p=>p.y);return{gw,gh,skew:sk>.12,box:{x:Math.min(...xs),y:Math.min(...ys),w:Math.max(...xs)-Math.min(...xs),h:Math.max(...ys)-Math.min(...ys)}}}
+/* Gabarit : côtés recalés par droites ajustées sur tout le contour de la feuille (plus précis que 4 pixels extrêmes) */
+function fitQuadEdges(idx,w,q){if(!q||idx.length<40)return q;const M=new Set(idx),B=[];for(const i of idx){const x=i%w,y=(i-x)/w;if(!M.has(i-1)||!M.has(i+1)||!M.has(i-w)||!M.has(i+w))B.push([x,y])}
+  const cx=q.reduce((s,p)=>s+p[0],0)/4,cy=q.reduce((s,p)=>s+p[1],0)/4,L=[];
+  for(let k=0;k<4;k++){const a=q[k],b=q[(k+1)%4],dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy);if(len<6)return q;const ux=dx/len,uy=dy/len,tol=Math.max(3,len*.08);
+    const P=B.filter(([x,y])=>{const t=((x-a[0])*ux+(y-a[1])*uy)/len,d=Math.abs((x-a[0])*uy-(y-a[1])*ux);return t>.12&&t<.88&&d<tol});if(P.length<8)return q;
+    const mx=P.reduce((s,p)=>s+p[0],0)/P.length,my=P.reduce((s,p)=>s+p[1],0)/P.length;let sxx=0,syy=0,sxy=0;P.forEach(([x,y])=>{sxx+=(x-mx)**2;syy+=(y-my)**2;sxy+=(x-mx)*(y-my)});
+    const th=.5*Math.atan2(2*sxy,sxx-syy);let vx=Math.cos(th),vy=Math.sin(th);let nx=-vy,ny=vx;if((cx-mx)*nx+(cy-my)*ny>0){nx=-nx;ny=-ny}
+    L.push({x:mx+nx*.5,y:my+ny*.5,vx,vy})}
+  const X=(A,C)=>{const d=A.vx*C.vy-A.vy*C.vx;if(Math.abs(d)<1e-6)return null;const t=((C.x-A.x)*C.vy-(C.y-A.y)*C.vx)/d;return[A.x+A.vx*t,A.y+A.vy*t]};
+  const N=[X(L[3],L[0]),X(L[0],L[1]),X(L[1],L[2]),X(L[2],L[3])];if(N.some(p=>!p))return q;
+  const sz=Math.max(Math.hypot(q[1][0]-q[0][0],q[1][1]-q[0][1]),Math.hypot(q[3][0]-q[0][0],q[3][1]-q[0][1]));if(N.some((p,i)=>Math.hypot(p[0]-q[i][0],p[1]-q[i][1])>sz*.12))return q;
+  return N.map(p=>[p[0]-.5,p[1]-.5])}
+let sGabTap=false;
+function gabTapSimple(z,p){let raw;try{raw=rawPix()}catch(_){toast('Photo indisponible');return}const{w,h,f,d}=raw,sx=Math.round(p.x*f),sy=Math.round(p.y*f);if(sx<0||sy<0||sx>=w||sy>=h)return;
+  let mr=0,mg=0,mb=0,n=0;for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){const x=sx+dx,y=sy+dy;if(x<0||y<0||x>=w||y>=h)continue;const j=(y*w+x)*4;mr+=d[j];mg+=d[j+1];mb+=d[j+2];n++}mr/=n;mg/=n;mb/=n;
+  const i0=sy*w+sx,seen=new Uint8Array(w*h),st=[i0],idx=[];seen[i0]=1;
+  while(st.length){const i=st.pop();idx.push(i);if(idx.length>w*h*.2)break;const x=i%w,y=(i-x)/w;for(const j of[x>0?i-1:-1,x<w-1?i+1:-1,y>0?i-w:-1,y<h-1?i+w:-1]){if(j<0||seen[j])continue;const k=j*4,a=d[k]-mr,b=d[k+1]-mg,c=d[k+2]-mb;if(a*a+b*b+c*c>55*55)continue;seen[j]=1;st.push(j)}}
+  if(idx.length<30||idx.length>w*h*.2){toast('Gabarit non reconnu à cet endroit : touchez bien le milieu de la feuille');sGabTap=true;syncSGab();return}
+  pushUndo();let qq=quadOf(idx,w);try{qq=fitQuadEdges(idx,w,qq)}catch(_){}const gq=gabApplyQ(z,qq,f);z.gabMiss=false;
+  const B=gq.box;z.windows=z.windows.filter(x=>{if(x.measured||x.w==null)return true;const cx=x.x+x.w/2,cy=x.y+x.h/2;const inside=cx>=B.x&&cx<=B.x+B.w&&cy>=B.y&&cy<=B.y+B.h;return!(inside&&x.w<B.w*2.5&&x.h<B.h*2.5)});
+  reEstimate(z);changed('win');draw();syncSGab();const k=z.windows.filter(x=>x.w!=null).length;
+  toast(k?`Gabarit ${gq.gw} × ${gq.gh} cm pris en compte : ${k} vitrage(s) coté(s) (en orange).${gq.skew?' Photo de biais : cotes moins précises.':''}`:'Gabarit pris en compte. Touchez une vitre pour la repérer.')}
 function gabQuadStrict(hue,w,h,col,gr){const N=w*h,m=new Uint8Array(N);for(let i=0;i<N;i++)m[i]=inHue(hue[i],col)?1:0;const seen=new Uint8Array(N);let best=null;
   for(let i0=0;i0<N;i0++){if(!m[i0]||seen[i0])continue;const st=[i0],idx=[];seen[i0]=1;while(st.length){const i=st.pop();idx.push(i);const x=i%w,y=(i-x)/w;for(const j of[x>0?i-1:-1,x<w-1?i+1:-1,y>0?i-w:-1,y<h-1?i+w:-1])if(j>=0&&m[j]&&!seen[j]){seen[j]=1;st.push(j)}}
     if(idx.length<N*.0005||idx.length>N*.06)continue;const q=quadOf(idx,w),area=polyArea(q);if(area<1)continue;const fill=idx.length/area;if(fill<.82||fill>1.18)continue;
     const L=k=>Math.hypot(q[(k+1)%4][0]-q[k][0],q[(k+1)%4][1]-q[k][1]),a=(L(0)+L(2))/2,b=(L(1)+L(3))/2,ar=Math.max(a,b)/Math.max(1,Math.min(a,b));if(Math.abs(ar/gr-1)>.3)continue;
-    if(Math.abs(L(0)-L(2))/a>.3||Math.abs(L(1)-L(3))/b>.3)continue;if(!best||idx.length>best.n)best={q,n:idx.length}}return best}
+    if(Math.abs(L(0)-L(2))/a>.3||Math.abs(L(1)-L(3))/b>.3)continue;if(!best||idx.length>best.n)best={q,n:idx.length,idx}}if(best){try{best.q=fitQuadEdges(best.idx,w,best.q)}catch(_){}delete best.idx}return best}
 function gabDummy(z,gq){const pad=.15,b=gq.box,dm={id:'__gab',label:'GAB',x:b.x-b.w*pad,y:b.y-b.h*pad,w:b.w*(1+2*pad),h:b.h*(1+2*pad),wcm:0,hcm:0,measured:false,qty:1};z.windows.push(dm);return dm}
 function syncRgGab(){const G=gabState();$('#rg-gab-on').checked=!!G.on;$('#rg-gab-w').value=G.w||'';$('#rg-gab-h').value=G.h||'';$('#rg-gab-col').value=G.color||'orange';$('#rg-gab-dims').hidden=!G.on}
 $('#rg-gab-on').onchange=e=>{gabState().on=e.target.checked;save();syncRgGab();try{renderGab()}catch(_){}};
+function syncSGab(){const G=gabState(),c=$('#s-gab-on');if(!c)return;c.checked=!!G.on;const col=($('#rg-gab-col option[value="'+(G.color||'orange')+'"]')||{}).textContent||'';$('#s-gab-info').textContent=G.on?`Feuille ${col.toLowerCase()} ${String(+G.w||0).replace('.',',')} × ${String(+G.h||0).replace('.',',')} cm · cotes automatiques`:'Désactivé';$('#s-gab-set').hidden=!G.on;const z=Z(),t=$('#s-gab-tap');if(t){t.hidden=!(G.on&&z&&z.photo);t.classList.toggle('miss',!!z.gabMiss&&!sGabTap);t.classList.toggle('on',sGabTap);t.textContent=sGabTap?'👆 Touchez la feuille sur la photo… (annuler)':z.gabMiss?'⚠ Gabarit non trouvé : touchez-le sur la photo':'👆 Toucher le gabarit sur la photo'}}
+$('#s-gab-tap').onclick=()=>{sGabTap=!sGabTap;syncSGab();if(sGabTap){toast('Touchez le milieu de la feuille de couleur sur la photo');const c=$('#cv')||document.querySelector('canvas');c&&c.scrollIntoView({block:'center',behavior:'smooth'})}};
+{const o=changed;changed=function(){const r=o.apply(this,arguments);try{syncSGab()}catch(_){}return r}}
+$('#s-gab-on').onchange=e=>{gabState().on=e.target.checked;save();try{syncRgGab()}catch(_){}try{renderGab()}catch(_){}syncSGab();toast(e.target.checked?(Z().photo?'Gabarit activé : reprenez la photo pour recalculer les cotes':'Gabarit activé pour la prochaine photo'):'Gabarit désactivé')};
+$('#s-gab-set').onclick=()=>{setTab('reglages');setTimeout(()=>{const e=$('#rg-photo');e&&e.scrollIntoView({block:'start'})},60)};
+['#rg-gab-on','#rg-gab-w','#rg-gab-h','#rg-gab-col','#gab-on','#gab-w','#gab-h','#gab-col'].forEach(i=>{const e=$(i);e&&e.addEventListener('change',()=>setTimeout(syncSGab,0))});
+{const o=setTab;setTab=function(t){o(t);if(S.tab==='vitrages'||S.tab==='photo')try{syncSGab()}catch(_){}}}
+syncSGab();
 $('#rg-gab-w').addEventListener('input',e=>{gabState().w=parseFloat(String(e.target.value).replace(',','.'))||0;save()});
 $('#rg-gab-h').addEventListener('input',e=>{gabState().h=parseFloat(String(e.target.value).replace(',','.'))||0;save()});
 $('#rg-gab-col').onchange=e=>{gabState().color=e.target.value;save()};
@@ -4186,18 +4278,19 @@ syncRgGab();{const o=setTab;setTab=function(t){o(t);if(S.tab==='reglages')syncRg
 /* ---------- micro du champ (saisie au doigt) ---------- */
 let WMIC=null;
 document.addEventListener('click',e=>{const b=e.target.closest('#w-mic');if(!b)return;const inp=$('#w-in');if(!inp)return;
-  if(WMIC){try{WMIC.stop()}catch(_){}return}
-  let r;try{r=new SRec()}catch(_){b.hidden=true;return}WMIC=r;r.lang='fr-FR';r.interimResults=true;r.continuous=false;r.maxAlternatives=4;b.classList.add('on');let last='',alts=[];
+  if(WMIC){WMIC._user=true;try{WMIC.stop()}catch(_){}return}
+  let tries=0;wakeOn();const go=()=>{
+  let r;try{r=new SRec()}catch(_){b.hidden=true;wakeOff();return}WMIC=r;r.lang='fr-FR';r.interimResults=true;r.continuous=false;r.maxAlternatives=4;b.classList.add('on');let last='',alts=[];
   r.onresult=ev=>{let t='';for(let i=0;i<ev.results.length;i++)t+=ev.results[i][0].transcript;last=t.trim();inp.value=last;const L=ev.results[ev.results.length-1];if(L&&L.isFinal){alts=[];for(let k=0;k<L.length;k++)alts.push(L[k].transcript)}};
   r.onerror=ev=>{if(ev.error==='not-allowed'||ev.error==='service-not-allowed'){micOff=true;b.hidden=true;toast('Micro refusé : utilisez le micro du clavier')}};
-  r.onend=()=>{WMIC=null;b.classList.remove('on');if(last){const v=bestAlt(last,alts);inp.value=v;setTimeout(()=>{if($('#w-in')===inp)answerQ(v)},350)}};
-  try{r.start()}catch(_){WMIC=null;b.classList.remove('on')}});
+  r.onend=()=>{WMIC=null;if(!last&&!r._user&&!micOff&&tries<2&&$('#w-in')===inp){tries++;setTimeout(go,250);return}b.classList.remove('on');wakeOff();if(last){const v=bestAlt(last,alts);inp.value=v;setTimeout(()=>{if($('#w-in')===inp)answerQ(v)},350)}};
+  try{r.start()}catch(_){WMIC=null;b.classList.remove('on');wakeOff()}};go()});
 /* ---------- cotes sur photo, mode simple : juste le lieu (champ + micro) ---------- */
 function zPristine(z){return z&&!z.photo&&!z.windows.length&&!z.parent}
-function micInto(btn,inp,done){if(btn._r){try{btn._r.stop()}catch(_){}return}let r;try{r=new SRec()}catch(_){btn.hidden=true;return}btn._r=r;r.lang='fr-FR';r.interimResults=true;r.continuous=false;btn.classList.add('on');let last='';
+function micInto(btn,inp,done,tries){if(btn._r){btn._r._user=true;try{btn._r.stop()}catch(_){}return}let r;try{r=new SRec()}catch(_){btn.hidden=true;return}if(!tries)wakeOn();btn._r=r;r.lang='fr-FR';r.interimResults=true;r.continuous=false;btn.classList.add('on');let last='';
   r.onresult=ev=>{let t='';for(let i=0;i<ev.results.length;i++)t+=ev.results[i][0].transcript;last=t.trim();inp.value=last};
   r.onerror=ev=>{if(ev.error==='not-allowed'||ev.error==='service-not-allowed'){micOff=true;btn.hidden=true;toast('Micro refusé : utilisez le micro du clavier')}};
-  r.onend=()=>{btn._r=null;btn.classList.remove('on');if(last){const v=last.charAt(0).toUpperCase()+last.slice(1);inp.value=v;setTimeout(()=>done(v),300)}};try{r.start()}catch(_){btn._r=null;btn.classList.remove('on')}}
+  r.onend=()=>{btn._r=null;if(!last&&!r._user&&!micOff&&(tries||0)<2){setTimeout(()=>micInto(btn,inp,done,(tries||0)+1),250);return}btn.classList.remove('on');wakeOff();if(last){const v=last.charAt(0).toUpperCase()+last.slice(1);inp.value=v;setTimeout(()=>done(v),300)}};try{r.start()}catch(_){btn._r=null;btn.classList.remove('on');wakeOff()}}
 $('#np-mic').onclick=()=>micInto($('#np-mic'),$('#np-free'),v=>npGo(v));
 function npSimple(){if(!NM())return;$('#np-title').textContent='Où sont les vitrages ?';$('#np-free').placeholder='Lieu';$('#np-mic').hidden=!(SRec&&!micOff);
   $('#np-open').textContent='＋ Autre lieu · nouvelle photo';const z=Z(),l=$('#s-cam-lab');if(l)l.textContent=z.photo?'📷 Reprendre la photo':'📷 Prendre la photo';
@@ -4211,7 +4304,7 @@ function renderPMList(){const el=$('#pm-list');if(!el)return;const z=Z();const L
   el.innerHTML=`<div class="row" style="justify-content:space-between;align-items:baseline"><h2 style="margin:0">Mesures · ${esc(z.nom)}</h2><span class="hint">${L.length} vitrage(s)</span></div>
   <p class="hint" style="margin:4px 0 8px">Cotes en cm, vantaux de gauche à droite. <b style="color:${COL.est}">Orange</b> = estimé d'après la photo, <b style="color:${COL.ok}">vert</b> = mesuré. Touchez une case pour corriger.</p>
   <div class="pml">${L.map(w=>{const E=(()=>{try{return vtEst(w,z)}catch(_){return[]}})(),n=vtN(w),col=winCol(w,z,need),ok=winHasMeasure(w);
-    return`<div class="pml-w${w.id===activeId?' cur':''}" data-pmw="${w.id}"><div class="pml-h"><span class="pml-lab" style="background:${col}">${esc(w.label)}</span><small>${n>1?n+' vantaux':'1 vantail'}${ok?' · mesuré':need.has(w.id)?' · à mesurer':' · estimé'}</small></div>`+
+    return`<div class="pml-w${w.id===activeId?' cur':''}" data-pmw="${w.id}"><div class="pml-h"><span class="pml-lab" style="background:${col}">${esc(w.label)}</span><small>${n>1?n+' vantaux':'1 vantail'}${ok?' · mesuré':need.has(w.id)?' · à mesurer':' · estimé'}</small><button type="button" class="pml-del" data-pmdel="${w.id}" aria-label="Supprimer ${esc(w.label)}" title="Supprimer ce vitrage">✕</button></div>`+
       Array.from({length:n},(_,i)=>{const m=w.vmSum&&w.vm&&w.vm[i],e=E[i]||{},vw=m&&m.w?m.w:(e.w?Math.round(e.w*2)/2:''),vh=m&&m.h?m.h:(e.h?Math.round(e.h*2)/2:''),est=!(m&&m.w);
         return`<div class="pml-v">${n>1?`<b>V${i+1}</b>`:'<b></b>'}<input class="${est?'est':''}" data-pli="${i}" data-d="w" inputmode="decimal" value="${vw}" placeholder="larg." aria-label="${esc(w.label)} V${i+1} largeur"><span>×</span><input class="${est?'est':''}" data-pli="${i}" data-d="h" inputmode="decimal" value="${vh}" placeholder="haut." aria-label="${esc(w.label)} V${i+1} hauteur"></div>`}).join('')+`</div>`}).join('')}</div>
   <div class="pml-btns"><button class="btn primary" type="button" id="pml-next">✓ Valider · photo suivante</button><button class="btn" type="button" id="pml-end">Fin →</button></div>`}
@@ -4220,6 +4313,9 @@ $('#pm-list').addEventListener('change',e=>{const i=e.target.dataset.pli;if(i==n
   const row=e.target.closest('.pml-v'),a=row.querySelector('[data-d="w"]'),b=row.querySelector('[data-d="h"]');const p=parsePair(a.value)||parsePair(b.value);const W=p?p[0]:nCm(a.value),H=p?p[1]:nCm(b.value);
   pushUndo();
   pmlSet(w,z,+i,W,H);vtSync(w,z);try{reEstimate(z)}catch(_){}activeId=w.id;changed('win');renderPM()});
+$('#pm-list').addEventListener('click',e=>{const d=e.target.closest('[data-pmdel]');if(!d)return;e.preventDefault();
+  if(!d.classList.contains('arm')){d.classList.add('arm');d.textContent='Supprimer ?';clearTimeout(d._t);d._t=setTimeout(()=>{d.classList.remove('arm');d.textContent='✕'},3000);return}
+  const z=Z(),w=z.windows.find(x=>x.id===d.dataset.pmdel);if(!w)return;pushUndo();z.windows=z.windows.filter(x=>x!==w);if(activeId===w.id)activeId=null;changed('win');try{draw()}catch(_){}toast(w.label+' supprimé · numéros remis dans l\'ordre. ↶ pour annuler')});
 $('#pm-list').addEventListener('focusin',e=>{const r=e.target.closest('[data-pmw]');if(!r||activeId===r.dataset.pmw)return;activeId=r.dataset.pmw;try{draw()}catch(_){}$$('#pm-list .pml-w').forEach(x=>x.classList.toggle('cur',x===r))});
 function pmlValidate(){const z=Z();let n=0;for(const w of z.windows){if(w.w==null)continue;const E=(()=>{try{return vtEst(w,z)}catch(_){return[]}})();const k=vtN(w);w.vm=Array.isArray(w.vm)&&w.vmSum?w.vm:[];
     for(let i=0;i<k;i++){if(w.vm[i]&&w.vm[i].w&&w.vm[i].h)continue;const e=E[i];if(e&&e.w&&e.h){w.vm[i]={w:Math.round(e.w*2)/2,h:Math.round(e.h*2)/2};n++}}if(w.vm.some(Boolean))vtSync(w,z)}
@@ -4297,37 +4393,7 @@ function mkSheet(){const{json}=tiimeExport();const C=json.client;let d=$('#mk-sh
     <p class="hint" style="margin:0">Le devis sera créé dans Tiime (client créé s'il n'existe pas). Il ne sera pas envoyé au client : vous le vérifiez et l'envoyez depuis Tiime.</p>
     <button class="btn primary" type="button" id="mk-go" style="min-height:54px;font-size:17px">Confirmer l'envoi à Tiime</button></div></div>`;d.hidden=false}
 $('#send-tiime').onclick=()=>{if(!mkOk()){toast('Réglez d\'abord l\'adresse Make (Réglages → Tiime)');return}const T=totals();if(!T.groups.length&&!T.extras.length){toast('Le devis est vide');return}if(!(S.client&&S.client.nom)){toast('Renseignez d\'abord le client');return}mkSheet()};
-/* ---------- Envoi vers Cockpit (uniquement sur appui + confirmation) ---------- */
-const CK_URL='https://xagdgnsjxbklyprfxpio.supabase.co/functions/v1/recevoir-metre';
-function ckUI(){const b=$('#send-cockpit');if(b)b.hidden=!(S.ckKey&&S.ckKey.length>10);const k=$('#rg-ck-key');if(k&&document.activeElement!==k)k.value=S.ckKey||'';const c=$('#rg-ck-co');if(c)c.value=S.ckCo||'solar-bat'}
-$('#rg-ck-key').addEventListener('change',e=>{S.ckKey=e.target.value.trim();save();ckUI();$('#rg-ck-info').textContent=S.ckKey?'✓ Clé enregistrée. Le bouton « Envoyer à Cockpit » est dans l\'onglet Devis.':''});
-$('#rg-ck-co').addEventListener('change',e=>{S.ckCo=e.target.value;save()});
-/* Calcule le devis d'un chantier enregistré avec le moteur de Métré (même calcul que l'écran Devis) */
-function ckItem(h){const bak={zones:S.zones,pose:S.pose,roll:S.roll,devis:S.devis};
-  try{S.zones=h.zones;if(h.pose)S.pose=h.pose;if(h.roll)S.roll=h.roll;S.devis=h.devis;
-    const T=totals(),D=h.devis,C=h.client||{},L=[],r2=v=>Math.round(v*100)/100,r4=v=>Math.round(v*10000)/10000;
-    T.groups.forEach(g=>g.lines.forEach(l=>{if(l.qte>0)L.push({label:l.lib+(g.z?` – ${letter(g.z)} · ${g.z.nom}`:''),qty:r4(l.qte),unit:l.u,unit_price:r2(l.pu),code:l.tc||''})}));
-    T.extras.forEach(l=>L.push({label:l.lib,qty:l.qte,unit:l.u,unit_price:l.pu,code:l.tc||''}));
-    const zones=h.zones.map(z=>{const ws=zSel(z);return{nom:z.nom,type:z.type==='int'?'Intérieur':'Extérieur',film:filmOf(z).nom,fenetres:ws.reduce((a,w)=>a+(w.qty||1),0),m2:r2(ws.reduce((a,w)=>a+w.wcm*w.hcm/1e4*(w.qty||1),0))}});
-    const st=h.status||{};
-    return{ref:String(D.num),client:String(C.nom||'').trim(),tel:String(C.tel||'').trim(),email:String(C.email||'').trim(),chantier:String(C.chantier||C.adresse||'').trim(),tva:+D.tva||0,remise:+D.remise||0,acompte:+D.acompte||0,
-      ht:r2(T.ht),ttc:r2(T.ttc),status:st.pose?'decoupe':st.valid?'valide':'devis',devis_date:D.date||'',surface_m2:r2(zones.reduce((a,z)=>a+z.m2,0)),windows:zones.reduce((a,z)=>a+z.fenetres,0),
-      source_updated_at:h.updatedAt?new Date(h.updatedAt).toISOString():null,zones,lines:L}}
-  finally{Object.assign(S,bak)}}
-$('#send-cockpit').onclick=async()=>{
-  const hs=histItems().map(x=>x.local||x.remote).filter(h=>h&&h.devis&&h.devis.num);
-  if(!hs.length){toast('Aucun devis enregistré à envoyer : enregistrez d\'abord un devis');return}
-  if(!confirm(`Envoyer ${hs.length} devis enregistré${hs.length>1?'s':''} à Cockpit ?\n\nChaque devis devient un devis, un client et un chantier dans Cockpit (un devis déjà envoyé est mis à jour).`))return;
-  const b=$('#send-cockpit');b.disabled=true;const t0=b.textContent;b.textContent='Envoi en cours…';
-  try{const items=[],bad=[];for(const h of hs){try{items.push(ckItem(h))}catch(e){bad.push(h.devis.num)}}
-    if(!items.length)throw new Error('Calcul impossible pour '+bad.join(', '));
-    const r=await fetch(CK_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({key:S.ckKey,company:S.ckCo||'solar-bat',items})});
-    let j=null;try{j=await r.json()}catch(_){}
-    if(!r.ok||!j||!j.ok)throw new Error(j&&j.error==='cle'?'clé refusée : recopiez la clé fournie par Cockpit':(j&&(j.detail||j.error))||('erreur '+r.status));
-    toast(`✓ ${j.importes} devis envoyé${j.importes>1?'s':''} à Cockpit (${items.map(i=>i.ref).join(', ')})`+(bad.length?` (${bad.length} ignoré${bad.length>1?'s':''} : ${bad.join(', ')})`:''))}
-  catch(e){toast('Envoi à Cockpit impossible : '+(/fetch|network|load/i.test(e.message)?'Cockpit injoignable (réseau)':e.message))}
-  b.disabled=false;b.textContent=t0};
-mkUI();ckUI();{const o=setTab;setTab=function(t){o(t);if(S.tab==='devis'||S.tab==='reglages'){mkUI();ckUI()}}}
+mkUI();{const o=setTab;setTab=function(t){o(t);if(S.tab==='devis'||S.tab==='reglages')mkUI()}}
 /* ---------- clients ---------- */
 const CLK=['nom','tel','adresse','chantier','email','type','nomFam','prenom','raison'];
 const CLT={part:'Particulier',ent:'Entreprise',coll:'Collectivité'};
@@ -4413,9 +4479,9 @@ async function xlsSave(name,sh){try{const b=await xlsBlob(sh);saveFile(name+'.xl
 function xlsAll(){xlsSave('Metre-Film-clients-stock-'+todayISO(),xlsSheets(true,true))}
 $('#st-exp').onclick=()=>xlsSave('Stock-films-'+todayISO(),xlsSheets(false,true));
 /* ---------- menu en tuiles ---------- */
-const TILES=[['home','📐','Métré & devis','Parler ou saisie au doigt','big'],['@save','💾','Sauvegarder','Tout, en un geste'],['@rest','♻️','Restaurer','Reprendre une sauvegarde'],['clients','👥','Clients','Fiches, devis, appeler'],['bilan','📋','Bilan','Vitrages relevés'],['devis','🧾','Devis','Créer, envoyer'],['gestion','✅','Suivi','Devis en cours'],['chantier','🏠','Pose','Fiche chantier'],['stock','📦','Stock','Rouleaux'],['coupe','✂️','Coupe','Plan de coupe'],['calepinage','🧩','Calepinage','Laizes'],['films','🎞️','Films','Base de films'],['reglages','⚙️','Réglages','Prix, marges…'],['notice','❓','Notice','Mode d\'emploi']];
+const TILES=[['clients','👥','Clients','Fiches, devis, appeler','',1],['home','📐','Métré','Parler ou saisie au doigt','big',2],['bilan','📋','Bilan','Vitrages relevés','',3],['devis','🧾','Devis','Créer, envoyer','',4],['gestion','✅','Suivi','Devis en cours','',5],['coupe','✂️','Coupe','Plan de coupe','',6],['calepinage','🧩','Calepinage','Laizes','',7],['stock','📦','Stock','Rouleaux','',8],['chantier','🏠','Pose','Fiche chantier','',9],['@save','💾','Sauvegarder','Tout, en un geste','tool'],['@rest','♻️','Restaurer','Reprendre une sauvegarde','tool'],['films','🎞️','Films','Base de films','tool'],['reglages','⚙️','Réglages','Prix, marges…','tool'],['notice','❓','Notice','Mode d\'emploi','tool']];
 const MTITLE={};TILES.forEach(t=>MTITLE[t[0]]=t[2]);
-$('#n-tiles').innerHTML=TILES.map(([g,i,t,d,c])=>`<button type="button" class="n-tile ${c||''}" ${g[0]==='@'?'data-tact="'+g.slice(1)+'"':'data-go="'+g+'"'}><span class="ti" aria-hidden="true">${i}</span><b>${t}</b>${d?`<small>${d}</small>`:''}</button>`).join('');
+$('#n-tiles').innerHTML=TILES.map(([g,i,t,d,c,n],k)=>(c==='tool'&&TILES[k-1]&&TILES[k-1][4]!=='tool'?'<p class="n-tsep">Outils</p>':'')+`<button type="button" class="n-tile ${c||''}" ${g[0]==='@'?'data-tact="'+g.slice(1)+'"':'data-go="'+g+'"'}>${n?`<span class="n-no" aria-hidden="true">${n}</span>`:''}<span class="ti" aria-hidden="true">${i}</span><b>${n?'<span class="sr">'+n+'. </span>':''}${t}</b>${d?`<small>${d}</small>`:''}</button>`).join('');
 $$('section.tab').forEach(sec=>{const id=sec.id.slice(2);if(['menu','chat','wiz','voice','accueil','client'].includes(id))return;const d=document.createElement('div');d.className='n-mbar nm-only';d.innerHTML=`<button type="button" data-go="menu" aria-label="Retour au menu"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Menu</button><b>${esc(MTITLE[id]||{photo:'Photo',vitrages:'Cotes sur photo',pose:'Pose'}[id]||'')}</b>`;sec.prepend(d)});
 function lastSaveTxt(){const d=Math.max(CS.last||0,S.pcLast||0,S.bkDate||0,S.drvLast||0);return d?'Dernière : '+new Date(d).toLocaleString('fr-FR',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}):'Aucune pour l\'instant'}
 async function menuSave(){const done=[];const b=$('[data-tact="save"] small');if(b)b.textContent='Sauvegarde…';
@@ -4444,7 +4510,7 @@ function gcalUrl(title,iso,details,hh){const t=(hh||'09:00').replace(':',''),e=S
 function mdOn(k){return k==='sd'?!!S.sdOn:!!S.stkOn}
 /* ---- tuiles du menu (cachées si le module est éteint) ---- */
 {const cl=$('#n-tiles [data-go="clients"]');const mk=(go,ic,t,d)=>{const b=document.createElement('button');b.type='button';b.className='n-tile';b.dataset.go=go;b.hidden=true;b.innerHTML=`<span class="ti" aria-hidden="true">${ic}</span><b>${t}</b><small>${d}</small><span class="md-badge" hidden></span>`;return b};
-  const a=mk('sdevis','📞','Suivi des devis','Relances'),b=mk('stocks','📦','Stocks','Articles, à commander');if(cl){cl.after(a);a.after(b)}else{$('#n-tiles').append(a,b)}}
+  const a=mk('sdevis','📞','Suivi des devis','Relances'),b=mk('stocks','📦','Stocks','Articles, à commander');const po=$('#n-tiles [data-go="chantier"]');if(po){po.after(a);a.after(b)}else{$('#n-tiles').append(a,b)}}
 $('#t-sdevis .n-mbar b')&&($('#t-sdevis .n-mbar b').textContent='Suivi des devis');$('#t-stocks .n-mbar b')&&($('#t-stocks .n-mbar b').textContent='Stocks');
 function mdTiles(){const due=sdDue().length,low=stkLow().length;const a=$('#n-tiles [data-go="sdevis"]'),b=$('#n-tiles [data-go="stocks"]');
   if(a){a.hidden=!S.sdOn;const g=a.querySelector('.md-badge');g.hidden=!(S.sdOn&&due);g.textContent=due+' à relancer'}
