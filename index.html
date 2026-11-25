@@ -4305,8 +4305,8 @@ $('#rg-ck-co').addEventListener('change',e=>{S.ckCo=e.target.value;save()});
 /* Calcule le devis d'un chantier enregistré avec le moteur de Métré (même calcul que l'écran Devis) */
 function ckItem(h){const bak={zones:S.zones,pose:S.pose,roll:S.roll,devis:S.devis};
   try{S.zones=h.zones;if(h.pose)S.pose=h.pose;if(h.roll)S.roll=h.roll;S.devis=h.devis;
-    const T=totals(),D=h.devis,C=h.client||{},L=[],r2=v=>Math.round(v*100)/100;
-    T.groups.forEach(g=>g.lines.forEach(l=>{if(l.qte>0)L.push({label:l.lib+(g.z?` – ${letter(g.z)} · ${g.z.nom}`:''),qty:r2(l.qte),unit:l.u,unit_price:r2(l.pu),code:l.tc||''})}));
+    const T=totals(),D=h.devis,C=h.client||{},L=[],r2=v=>Math.round(v*100)/100,r4=v=>Math.round(v*10000)/10000;
+    T.groups.forEach(g=>g.lines.forEach(l=>{if(l.qte>0)L.push({label:l.lib+(g.z?` – ${letter(g.z)} · ${g.z.nom}`:''),qty:r4(l.qte),unit:l.u,unit_price:r2(l.pu),code:l.tc||''})}));
     T.extras.forEach(l=>L.push({label:l.lib,qty:l.qte,unit:l.u,unit_price:l.pu,code:l.tc||''}));
     const zones=h.zones.map(z=>{const ws=zSel(z);return{nom:z.nom,type:z.type==='int'?'Intérieur':'Extérieur',film:filmOf(z).nom,fenetres:ws.reduce((a,w)=>a+(w.qty||1),0),m2:r2(ws.reduce((a,w)=>a+w.wcm*w.hcm/1e4*(w.qty||1),0))}});
     const st=h.status||{};
@@ -4324,7 +4324,7 @@ $('#send-cockpit').onclick=async()=>{
     const r=await fetch(CK_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({key:S.ckKey,company:S.ckCo||'solar-bat',items})});
     let j=null;try{j=await r.json()}catch(_){}
     if(!r.ok||!j||!j.ok)throw new Error(j&&j.error==='cle'?'clé refusée : recopiez la clé fournie par Cockpit':(j&&(j.detail||j.error))||('erreur '+r.status));
-    toast(`✓ ${j.importes} devis envoyé${j.importes>1?'s':''} à Cockpit`+(bad.length?` (${bad.length} ignoré${bad.length>1?'s':''} : ${bad.join(', ')})`:''))}
+    toast(`✓ ${j.importes} devis envoyé${j.importes>1?'s':''} à Cockpit (${items.map(i=>i.ref).join(', ')})`+(bad.length?` (${bad.length} ignoré${bad.length>1?'s':''} : ${bad.join(', ')})`:''))}
   catch(e){toast('Envoi à Cockpit impossible : '+(/fetch|network|load/i.test(e.message)?'Cockpit injoignable (réseau)':e.message))}
   b.disabled=false;b.textContent=t0};
 mkUI();ckUI();{const o=setTab;setTab=function(t){o(t);if(S.tab==='devis'||S.tab==='reglages'){mkUI();ckUI()}}}
