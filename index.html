@@ -181,7 +181,7 @@ input,select,textarea{max-width:100%}
  .deb-t td:nth-child(2),.deb-t th:nth-child(2),.deb-t td:nth-child(5),.deb-t th:nth-child(5){display:none}
  .ext-t input.w-sm,.ext-t input.w-xs{width:64px}
  #std-box .seg{width:100%}
- .notice b.k{white-space:normal!important;overflow-wrap:anywhere}.pl-body{padding:8px}.pl-body th{white-space:normal}.notice ul,.notice ol{padding-left:16px}.notice li{overflow-wrap:anywhere}.notice ul,.notice ol{grid-template-columns:minmax(0,1fr)}.notice li{min-width:0}.notice details{min-width:0;overflow:hidden}.ext-t input.w-sm,.ext-t input.w-xs{width:56px}
+ .notice b.k{white-space:normal!important;overflow-wrap:break-word}.pl-body{padding:8px}.pl-body th{white-space:normal}.notice ul,.notice ol{padding-left:16px}.notice li{overflow-wrap:break-word}.notice ul,.notice ol{grid-template-columns:minmax(0,1fr)}.notice li{min-width:0}.notice details{min-width:0;overflow:hidden}.ext-t input.w-sm,.ext-t input.w-xs{width:56px}
  .pl-body .chip{display:none}.pl-body small.hint{font-size:10px}.pl-body th{font-size:10px;letter-spacing:0}.pl-body input[type=checkbox]{width:20px!important;height:20px!important}.pl-body table td,.pl-body table th{padding:4px 2px}.pl-body .num{font-size:11.5px}
 }
 .q-m{display:none}
@@ -351,7 +351,7 @@ body.nm .n-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;ba
 #n-dict-host .panel{border-radius:18px}
 .n-mlist{margin:0;padding-left:18px;display:grid;gap:4px;font-size:14px}
 .n-chat{display:flex;flex-direction:column;gap:8px;min-height:36vh}
-.n-msg{scroll-margin-bottom:170px;max-width:88%;padding:11px 15px;border-radius:18px;font-size:17px;line-height:1.35;overflow-wrap:anywhere}
+.n-msg{scroll-margin-bottom:170px;max-width:88%;padding:11px 15px;border-radius:18px;font-size:17px;line-height:1.35;overflow-wrap:break-word}
 .n-msg small{color:var(--muted);font-size:13px}
 .n-msg.bot{background:var(--surface);border:1px solid var(--line);align-self:flex-start;border-bottom-left-radius:5px}
 .n-msg.me{background:var(--accent);color:var(--accent-ink);align-self:flex-end;border-bottom-right-radius:5px}
@@ -374,7 +374,7 @@ body.nm .n-nav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;ba
 .n-opts button.cur{border-color:var(--accent);background:var(--accent-soft)}
 .n-next{min-height:62px;font-size:19px;border-radius:16px;width:100%}
 .n-skip{width:100%}
-.n-err{color:var(--warn);font-weight:700;margin:0}
+.n-err{color:var(--warn);font-weight:700;margin:0}.n-err.ok{color:var(--ink);font-weight:600;background:var(--accent-soft);border-radius:12px;padding:10px 12px}
 .n-sheet{position:fixed;inset:0;z-index:120;background:rgba(5,15,18,.45);display:flex;align-items:flex-end;justify-content:center}
 .n-sheet>div{background:var(--surface);width:100%;max-width:560px;border-radius:22px 22px 0 0;padding:18px max(16px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:grid;gap:12px;max-height:92vh;overflow:auto;box-sizing:border-box}
 .n-sheet input{font-size:17px;min-height:48px}
@@ -507,14 +507,16 @@ input,select,textarea{border-radius:10px}
 @media (min-width:700px){.n-tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .n-tile{border-radius:20px;box-shadow:0 14px 26px -20px var(--shadow);padding:10px 8px;gap:8px;position:relative;min-width:0}
 .n-tile .ti{width:54px;height:54px;border-radius:16px;background:var(--accent-soft);display:grid;place-items:center;font-size:30px;line-height:1}
-.n-tile b{font-size:15px;font-weight:600;overflow-wrap:anywhere}.n-tile small{font-size:12px}
+.n-tile b{font-size:clamp(13px,3.7vw,16px);font-weight:600;overflow-wrap:normal;word-break:normal;hyphens:manual;white-space:nowrap;max-width:100%}.n-tile small{font-size:clamp(11px,3.1vw,13px);line-height:1.25}.n-tile{padding:10px 6px}
 .n-tile.big{grid-column:span 2;aspect-ratio:auto;min-height:0;background:linear-gradient(135deg,var(--accent),var(--accent2));color:var(--accent-ink);box-shadow:0 18px 30px -18px var(--accent)}.n-tile.big small{color:inherit!important;opacity:.85}
 .n-tile.big .ti{background:rgba(255,255,255,.22);width:64px;height:64px;font-size:38px}.n-tile.big b{font-family:var(--f-display);font-size:22px}
 .n-no{position:absolute;top:7px;left:7px;width:22px;height:22px;border-radius:999px;background:var(--ink);color:var(--surface);font:700 12px/22px var(--f-display);text-align:center}.n-tile .ti{margin-top:6px}
 .n-tile.big .n-no{background:rgba(255,255,255,.95);color:var(--accent)}
 .n-tile.tool{background:var(--sunk);box-shadow:none}.n-tile.tool .ti{background:var(--surface)}
-.n-tsep{grid-column:1/-1;margin:8px 2px -2px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:359px){.n-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}.brand h1{font-size:clamp(19px,6vw,24px)}.n-tsep{grid-column:1/-1;margin:8px 2px -2px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:600px){.ext-t thead{display:none}.ext-t,.ext-t tbody{display:block}.ext-t tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 48px;gap:8px;align-items:end;padding:10px 0;border-bottom:1px solid var(--line)}.ext-t td{display:block;padding:0;border:0;min-width:0}.ext-t td:first-child{grid-column:1/-1}.ext-t td[data-l]::before{content:attr(data-l);display:block;font-size:12px;color:var(--muted);margin:0 0 3px;text-align:left}.ext-t td input{width:100%!important;min-width:0}.ext-t td .btn{width:48px;min-height:44px;padding:0}}
+body.nm .n-input{bottom:0;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));box-shadow:0 -10px 14px -12px var(--shadow)}body.nm #t-chat{padding-bottom:12px}body.nm .n-hf{background:var(--surface);box-shadow:0 8px 18px -14px var(--shadow)}body.nm #n-chips{padding-bottom:6px}
 </style>
 
 <header class="top">
@@ -589,7 +591,7 @@ input,select,textarea{border-radius:10px}
   <div class="n-hf" id="n-hf-bar"><button type="button" class="n-hfbtn" id="n-hf" aria-label="Écoute automatique">🎤</button><div><b id="n-hf-st">Mains libres</b><span id="n-hf-txt">L'assistant parle, puis écoute votre réponse.</span></div></div>
   <div class="n-chat" id="n-chat" aria-live="polite"></div>
   <div class="n-chips" id="n-chips"></div>
-  <form class="n-input" id="n-form"><input id="n-in" autocomplete="off" placeholder="Votre réponse (micro du clavier 🎤)…" aria-label="Votre réponse"><button class="btn primary" type="submit">Envoyer</button></form>
+  <form class="n-input" id="n-form"><input id="n-in" autocomplete="off" placeholder="Votre réponse…" aria-label="Votre réponse"><button class="btn primary" type="submit">Envoyer</button></form>
 </section>
 <section class="tab" id="t-wiz" hidden>
   <div class="n-head"><button class="n-back" type="button" id="w-back" aria-label="Question précédente">←</button><h2 id="w-ctx">Au doigt</h2><span class="n-sp"></span><label class="n-ibtn" for="n-cam" title="Ajouter une photo du vitrage" aria-label="Ajouter une photo du vitrage"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></label><button class="n-ibtn" type="button" id="w-close" aria-label="Quitter">✕</button></div>
@@ -995,6 +997,7 @@ input,select,textarea{border-radius:10px}
     <p class="hint" style="margin:0">Questions posées pour chaque vitrage (le lieu, la largeur et la hauteur sont toujours demandés) :</p>
     <div id="q-cfg" style="display:grid;gap:8px"></div>
     <label class="row" style="gap:8px;flex-wrap:nowrap"><input type="checkbox" id="rg-tts" style="width:20px"> <span>Lire les questions de l'assistant à voix haute</span></label>
+    <label class="row" style="gap:8px;flex-wrap:nowrap"><input type="checkbox" id="rg-rb" style="width:20px"> <span>Relire les cotes après chaque fenêtre (pour corriger, dites ou écrivez « non 125 »)</span></label>
     <label class="row" style="gap:8px;flex-wrap:nowrap"><input type="checkbox" id="rg-askph" style="width:20px"> <span>Assistant : commencer chaque vitrage par sa photo, puis la pièce</span></label>
     <label class="row" style="gap:8px;flex-wrap:nowrap"><input type="checkbox" id="rg-snake" style="width:20px"> <span>Façades : numéroter les vitrages en serpent (en bas à gauche vers la droite, puis on remonte étage par étage)</span></label>
     <button class="btn" type="button" id="rg-snake-now" style="justify-self:start">Renuméroter la photo en cours en serpent</button>
@@ -1054,7 +1057,7 @@ input,select,textarea{border-radius:10px}
       <p class="hint" style="margin:0">Dans l'appli installée (GitHub), l'iPhone ouvre le menu de partage : choisissez « Enregistrer les images ». Dans claude.ai, les photos vont dans l'app Fichiers.</p>
     </div>
   </div>
-<p class="muted" id="app-ver" style="text-align:center;margin:18px 0 6px;font-size:13px">Métré Film · version 120</p>
+<p class="muted" id="app-ver" style="text-align:center;margin:18px 0 6px;font-size:13px">Métré Film · version 121</p>
 </section>
 
 <section class="tab" id="t-films" hidden>
@@ -1746,12 +1749,6 @@ function layout(f,items){
   let y=0;shelves.forEach((s,i)=>{s.y=y;y+=s.len+(i<shelves.length-1?gap:0)});
   const ml=y/100,rollM2=ml*L/100,useful=strips.reduce((a,s)=>a+s.across*s.len,0)/1e4;
   return{f,L,ml,rollM2,useful,waste:rollM2?1-useful/rollM2:0,rolls:ml/f.long,shelves,pieces}}
-// Chute selon le sens des bandes (vertical / horizontal) pour un film : aide à choisir le sens de coupe.
-function chuteSens(l){const items=[];for(const z of S.zones)for(const w of zSel(z)){if(filmOf(z).id===l.f.id)items.push({w,z})}
-  const old=S.roll.sens,out={};try{for(const sn of['vertical','horizontal']){S.roll.sens=sn;const r=layout(l.f,items);out[sn]={waste:r.waste*100,ml:r.ml}}}finally{S.roll.sens=old}
-  out.best=Math.abs(out.vertical.waste-out.horizontal.waste)<0.05?'':out.vertical.waste<out.horizontal.waste?'vertical':'horizontal';return out}
-function chuteBox(l){const c=chuteSens(l),f=x=>fmt(x.waste,1)+' % ('+fmt(x.ml,2)+' ml)';
-  return`<p class="hint" style="margin:8px 0 0"><b>Chute selon le sens :</b> bandes verticales ${f(c.vertical)} · bandes horizontales ${f(c.horizontal)}${c.best?' → moins de chute en bandes <b>'+(c.best==='vertical'?'verticales':'horizontales')+'</b>':' → même chute dans les deux sens'}${S.roll.sens==='auto'?' (le sens « auto » prend déjà le meilleur)':''}.</p>`}
 function layouts(){const g=new Map();for(const z of S.zones)for(const w of zSel(z)){const f=filmOf(z);if(!g.has(f.id))g.set(f.id,[]);g.get(f.id).push({w,z})}
   return[...g.entries()].map(([id,items])=>layout(filmById(id),items))}
 function totals(){const lays=layouts();const ratio={};lays.forEach(l=>ratio[l.f.id]=l.useful?l.rollM2/l.useful:1);
@@ -1832,7 +1829,8 @@ function clampV(){const{W,H}=dims();V.z=Math.min(8,Math.max(1,V.z));const q=ipc(
   V.x=vw>=W?(W-vw)/2:Math.min(Math.max(0,V.x),W-vw);V.y=vh>=H?(H-vh)/2:Math.min(Math.max(0,V.y),H-vh)}
 const viewKey=z=>z.id+'|'+(z.photo?z.photo.length:z.sampleKind);
 function cross(x,y,u,col){const L=12*u;ctx.lineCap='round';for(const[lw,c]of[[4.5*u,'#000000b0'],[2*u,col]]){ctx.lineWidth=lw;ctx.strokeStyle=c;ctx.beginPath();ctx.moveTo(x-L,y);ctx.lineTo(x+L,y);ctx.moveTo(x,y-L);ctx.lineTo(x,y+L);ctx.stroke()}}
-function badge(x,y,t,u,col){ctx.font=`700 ${12*u}px IBM Plex Sans, sans-serif`;ctx.beginPath();ctx.arc(x,y,9*u,0,7);ctx.fillStyle=col;ctx.fill();ctx.lineWidth=1.5*u;ctx.strokeStyle='#000000b0';ctx.stroke();
+function FK(){try{return NM()?1.35:1}catch(_){return 1}}
+function badge(x,y,t,u,col){ctx.font=`700 ${12*u*FK()}px Inter, system-ui, sans-serif`;ctx.beginPath();ctx.arc(x,y,9*u*FK(),0,7);ctx.fillStyle=col;ctx.fill();ctx.lineWidth=1.5*u;ctx.strokeStyle='#000000b0';ctx.stroke();
   ctx.fillStyle='#000';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(t,x,y+.5*u);ctx.textAlign='left';ctx.textBaseline='alphabetic'}
 const OFF=[[-1,-1],[1,-1],[1,1],[-1,1]];
 const corners=w=>[[w.x,w.y],[w.x+w.w,w.y],[w.x+w.w,w.y+w.h],[w.x,w.y+w.h]];
@@ -1840,29 +1838,29 @@ function draw(){const z=Z();const{W,H}=dims();if(V.key!==viewKey(z))V={z:1,x:0,y
   ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle=css('--viewer')||'#0B1114';ctx.fillRect(0,0,cv.width,cv.height);
   const k=(cv.width/(cv.clientWidth||1))/ipc();ctx.setTransform(k,0,0,k,-V.x*k,-V.y*k);ctx.drawImage(src(),0,0,W,H);
   const u=U();const acc=css(z.type==='int'?'--int':'--accent'),mark=css('--mark');
-  ctx.font=`600 ${13*u}px IBM Plex Sans, sans-serif`;
+  ctx.font=`600 ${13*u*FK()}px Inter, system-ui, sans-serif`;
   const path=w=>{const P=polyOf(w);ctx.beginPath();P.forEach((q,i)=>i?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]));ctx.closePath()};
   const NEED=NM()?winNeed(z):null;
   for(const w of z.windows){if(w.w==null)continue;ctx.lineWidth=(w.sel?(NEED?3.5:2.5):1.5)*u;path(w);
     if(w.sel){const ac=NEED?winCol(w,z,NEED):acc;ctx.fillStyle=ac+(NEED?'40':'55');ctx.fill();ctx.setLineDash([]);ctx.strokeStyle=ac}else{ctx.setLineDash([6*u,4*u]);ctx.strokeStyle='#ffffffcc'}
     ctx.stroke();ctx.setLineDash([]);
     {const n=Math.max(1,Math.min(6,parseInt(w.vt)||1));if(n>1){const P=polyOf(w),L=(a,b,t)=>[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t],FR=paneFracs(w);
-      ctx.font=`700 ${12*u}px IBM Plex Sans, sans-serif`;ctx.textAlign='center';
+      ctx.font=`700 ${12*u*FK()}px Inter, system-ui, sans-serif`;ctx.textAlign='center';
       FR.forEach(([t0,t1],i)=>{const q=[L(P[0],P[1],t0),L(P[0],P[1],t1),L(P[3],P[2],t1),L(P[3],P[2],t0)];const ins=2.5*u;
         ctx.beginPath();q.forEach((p,k)=>k?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();ctx.lineWidth=2*u;ctx.strokeStyle=w.sel?'#ffffff':'#ffffffaa';ctx.stroke();
         const pb=L(q[3],q[2],.5);ctx.fillStyle='#000000aa';ctx.fillRect(pb[0]-9*u,pb[1]-20*u,18*u,16*u);ctx.fillStyle='#fff';ctx.fillText(String(i+1),pb[0],pb[1]-7.5*u)});
       ctx.textAlign='left'}}
-    ctx.font=`600 ${13*u}px IBM Plex Sans, sans-serif`;
+    ctx.font=`600 ${13*u*FK()}px Inter, system-ui, sans-serif`;
     const t=w.label,tw=ctx.measureText(t).width+8*u,ly=w.pts?Math.max(w.pts[0][1],w.pts[1][1]):w.y;ctx.fillStyle=w.sel?acc:'#00000099';ctx.fillRect(w.x,ly,tw,18*u);ctx.fillStyle='#fff';ctx.fillText(t,w.x+4*u,ly+13.5*u)}
   const cl=pendingCalib||z.calib;if(cl&&(mode==='calib'||pendingCalib)){ctx.strokeStyle=mark;ctx.lineWidth=2*u;ctx.beginPath();ctx.moveTo(cl.x1,cl.y1);ctx.lineTo(cl.x2,cl.y2);ctx.stroke();
     cross(cl.x1,cl.y1,u,mark);cross(cl.x2,cl.y2,u,mark);
-    if(cl.cm&&!pendingCalib){ctx.font=`600 ${13*u}px IBM Plex Sans, sans-serif`;ctx.fillStyle=mark;ctx.fillText(fmt(cl.cm,0)+' cm',(cl.x1+cl.x2)/2+8*u,(cl.y1+cl.y2)/2-10*u)}}
+    if(cl.cm&&!pendingCalib){ctx.font=`600 ${13*u*FK()}px Inter, system-ui, sans-serif`;ctx.fillStyle=mark;ctx.fillText(fmt(cl.cm,0)+' cm',(cl.x1+cl.x2)/2+8*u,(cl.y1+cl.y2)/2-10*u)}}
   if(drag&&mode==='draw'){const r=normRect(drag);ctx.strokeStyle=mark;ctx.lineWidth=2*u;ctx.setLineDash([6*u,4*u]);ctx.strokeRect(r.x,r.y,r.w,r.h);ctx.setLineDash([])}
   const act=edOpen&&z.windows.find(w=>w.id===activeId&&w.w!=null);
   if(act&&['grid','draw','main'].includes(mode)){ctx.strokeStyle=mark;ctx.lineWidth=3*u;path(act);ctx.stroke();
     if(mode==='main'){const s=series(act);ctx.setLineDash([4*u,4*u]);ctx.lineWidth=1.5*u;ctx.strokeStyle=mark;for(const w of s)ctx.strokeRect(w.x,w.y,w.w,w.h);ctx.setLineDash([]);
-      const small=Math.min(act.w,act.h)/u<70;for(const[x,y]of hdl(act,small)){ctx.beginPath();ctx.arc(x,y,9*u,0,7);ctx.fillStyle='#ffffff';ctx.fill();ctx.lineWidth=3*u;ctx.strokeStyle=mark;ctx.stroke()}
-      if(z.scale){const t=`${fmt(act.w/z.scale,0)} × ${fmt(act.h/z.scale,0)} cm`;ctx.font=`700 ${14*u}px IBM Plex Sans, sans-serif`;const tw=ctx.measureText(t).width+12*u,tx=act.x+act.w/2-tw/2,ty=act.y+act.h+16*u;
+      const small=Math.min(act.w,act.h)/u<70;for(const[x,y]of hdl(act,small)){ctx.beginPath();ctx.arc(x,y,9*u*FK(),0,7);ctx.fillStyle='#ffffff';ctx.fill();ctx.lineWidth=3*u;ctx.strokeStyle=mark;ctx.stroke()}
+      if(z.scale){const t=`${fmt(act.w/z.scale,0)} × ${fmt(act.h/z.scale,0)} cm`;ctx.font=`700 ${14*u*FK()}px Inter, system-ui, sans-serif`;const tw=ctx.measureText(t).width+12*u,tx=act.x+act.w/2-tw/2,ty=act.y+act.h+16*u;
         ctx.fillStyle='#000000c0';ctx.fillRect(tx,ty,tw,22*u);ctx.fillStyle='#fff';ctx.fillText(t,tx+6*u,ty+16*u)}}}
   const ghostAct=z.windows.find(w=>w.id===activeId&&w.w!=null);
   if(mode==='grid'&&ghostAct&&ghost){ctx.strokeStyle=mark;ctx.lineWidth=1.5*u;ctx.setLineDash([5*u,4*u]);for(const r of gridRects(ghostAct,ghost))ctx.strokeRect(r.x,r.y,ghostAct.w,ghostAct.h);ctx.setLineDash([])}
@@ -3391,7 +3389,7 @@ function renderRoll(T){let tot=0,done=0;
     return`<div class="panel"><h3>${esc(l.f.nom)} <span class="hint">· laize ${l.L} cm · rouleau ${fmt(l.f.long,0)} m</span></h3>
   <p class="hint" style="margin:0 0 6px">Touchez une pièce sur le schéma quand elle est découpée (elle passe en gris ✓), ou cochez-la dans la liste dessous.</p>
   <div class="roll">${rollSvg(l,l)}</div>
-  <div class="kpis" style="margin-top:10px">${kpi(nd+' / '+items.length,'pièces découpées')+kpi(fmt(l.ml)+' ml','métrage linéaire')+kpi(fmt(l.rollM2)+' m²','film déroulé')+kpi(fmt(l.waste*100,1)+' %','chute')}</div>${chuteBox(l)}
+  <div class="kpis" style="margin-top:10px">${kpi(nd+' / '+items.length,'pièces découpées')+kpi(fmt(l.ml)+' ml','métrage linéaire')+kpi(fmt(l.rollM2)+' m²','film déroulé')+kpi(fmt(l.waste*100,1)+' %','chute')}</div>
   <h4 style="margin:12px 0 6px">Liste de coupe</h4>
   <div class="tablewrap"><table class="cut-t"><thead><tr><th>Fait</th><th>Pièce · position</th><th class="r">Laize × déroulé</th></tr></thead><tbody>
   ${items.map(it=>{const k=cutKey(l,it),c=isCut(l,it);return`<tr class="${c?'cut-done':''}"><td><input type="checkbox" data-cutk="${esc(k)}" ${c?'checked':''} aria-label="Pièce ${esc(it.lab)} découpée" style="width:24px;height:24px"></td><td><span style="display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px;background:hsl(${pieceHue(it.lab)},65%,55%)"></span><b>${esc(it.lab)}</b><div class="hint" style="font-size:12px;margin:2px 0 0">✂ ${fmt(it.cutAt/100,2)} m${it.x>0?` · à ${fmt(it.x,1)} cm du bord`:' · contre le bord'}</div></td><td class="r num" style="white-space:nowrap">${fmt(it.across,1)} × ${fmt(it.len,1)}</td></tr>`}).join('')}</tbody></table></div>
@@ -3419,7 +3417,7 @@ $('#add-film').onclick=()=>{S.films.push({id:uid(),nom:'Nouveau film',type:'',la
 
 /* ---------- Devis ---------- */
 function renderExtras(){$('#extra-body').innerHTML=S.devis.extras.map(x=>`<tr data-id="${x.id}"><td><input data-f="lib" value="${esc(x.lib)}" style="min-width:0;width:100%" aria-label="Désignation"></td>
-  <td class="r"><input class="w-xs num" type="number" step="0.5" data-f="qte" value="${x.qte}"></td><td class="r"><input class="w-sm num" type="number" step="0.5" data-f="pu" value="${x.pu}"></td>
+  <td class="r" data-l="Qté"><input class="w-xs num" type="number" step="0.5" data-f="qte" value="${x.qte}" aria-label="Quantité"></td><td class="r" data-l="PU HT €"><input class="w-sm num" type="number" step="0.5" data-f="pu" value="${x.pu}" aria-label="Prix unitaire HT"></td>
   <td><button class="btn ghost danger" data-del="${x.id}" aria-label="Supprimer">✕</button></td></tr>`).join('')}
 $('#extra-body').addEventListener('input',e=>{const tr=e.target.closest('tr');const x=S.devis.extras.find(y=>y.id===tr.dataset.id);const k=e.target.dataset.f;x[k]=k==='lib'?e.target.value:(parseFloat(e.target.value)||0);changed('soft')});
 $('#extra-body').addEventListener('click',e=>{const id=e.target.dataset?.del;if(id){S.devis.extras=S.devis.extras.filter(x=>x.id!==id);renderExtras();changed('soft')}});
@@ -3668,7 +3666,7 @@ $('#exp-hist').onclick=()=>{const items=histItems();if(!items.length){toast('Auc
     for(const z of d.zones||[])for(const w of z.windows||[])if(w.sel&&w.wcm>0&&w.hcm>0){const q2=w.qty||1;nv+=q2;sv+=w.wcm*w.hcm/1e4*(w.pts?(w.ratio||1):1)*q2}
     rows.push([q(d.devis.num),q(frDate(d.devis.date)),q(d.client.nom),q(d.client.chantier),nv,n(sv),n(d.ttc)].join(';'))}
   saveFile(`Historique-devis-${new Date().toISOString().slice(0,10)}.csv`,'﻿'+rows.join('\r\n'),'text/csv')};
-$('#new-devis').onclick=()=>{const keep={};for(const k of['company','films','history','pose','roll','filmId','std','stdList','stock','supplier','ui','hiRes','gabarit','detMerge','detEnh','recal','tab','defVt','qcfg','snake','askPhoto','clients','clHidden','drvV','tiimeCat','mkUrl','sdOn','sdList','sdDelay','stkOn','stkItems','stkMoves','pcAuth','pcHost','pcEmail','pcAuto','pcLast','nm','tts','phAuto','drvUrl','drvAuto','drvKey','drvLast','bkDate','detMergeV2','stdVer'])if(S[k]!==undefined)keep[k]=S[k];S=Object.assign(defaults(),keep);
+$('#new-devis').onclick=()=>{const keep={};for(const k of['company','films','history','pose','roll','filmId','std','stdList','stock','supplier','ui','hiRes','gabarit','detMerge','detEnh','recal','tab','defVt','qcfg','snake','askPhoto','clients','clHidden','drvV','tiimeCat','mkUrl','readBack','sdOn','sdList','sdDelay','stkOn','stkItems','stkMoves','pcAuth','pcHost','pcEmail','pcAuto','pcLast','nm','tts','phAuto','drvUrl','drvAuto','drvKey','drvLast','bkDate','detMergeV2','stdVer'])if(S[k]!==undefined)keep[k]=S[k];S=Object.assign(defaults(),keep);
   S.zoneId=S.zones[0].id;
   S.client={nom:'',tel:'',adresse:'',chantier:'',email:''};S.devis.num=nextNum();changed('all');setTab('client');toast('Nouveau devis prêt')};
 NEWDEV=$('#new-devis').onclick;$('#new-devis').onclick=()=>{setTab('client');$('#new-client').click()};
@@ -3896,7 +3894,7 @@ function filmOpts(){return S.films.map(f=>[f.id,f.nom])}
 function lieuChips(){const used=[...new Set(S.zones.filter(z=>z.windows.length||!z.unnamed).map(zBase))].filter(n=>n!=='Intérieur');const pop=['Salon','Séjour','Cuisine','Salle à manger','Chambre','Chambre 2','Bureau','Salle de bain','Entrée','Buanderie','Véranda (intérieur)','Façade principale'];
   return[...used,...pop.filter(p=>!used.includes(p))].slice(0,14).map(n=>[n,n])}
 function startQ(mode,ui,items){QS={mode,ui,phase:mode==='new'?(ui==='chat'&&!(S.client.nom||'').trim()?'cnom':'lieu'):'item',vi:0,cur:{},ai:0,hist:[],items:items||[],ii:0,steps:null,si:0,zoneAsked:{},pend:[],last:{},log:[],lastZ:null,count:0};QUI=ui;
-  (ui==='chat'?(f=>f()):ensureClient)(()=>{setTab(ui==='chat'?'chat':'wiz');if(ui==='chat'){QS.log=[];QS.intro=mode==='new'?`Bonjour. On relève les vitrages${S.client.nom?' de '+S.client.nom:''}, de gauche à droite.`:mode==='plan'?'On complète les vitrages de la photo, dans l\'ordre des numéros.':'Il manque quelques informations.';botSay(mode==='new'?`Bonjour ! On relève les vitrages${S.client.nom?' de '+S.client.nom:''}, toujours de gauche à droite (V1, V2…). Je pose les questions à voix haute et j'écoute vos réponses. Dites « retour » pour revenir, « passer » si vous ne savez pas, « pause » pour arrêter l'écoute, « terminer » quand c'est fini.`:mode==='plan'?`On complète les vitrages repérés sur la photo, dans l'ordre des numéros (en partant d'en bas à gauche). Dites « F7 » pour aller directement à un vitrage, « passer » pour garder l'estimation.`:`Il manque quelques informations. Je vous les demande une par une.`)}qRender()})}
+  (ui==='chat'?(f=>f()):ensureClient)(()=>{setTab(ui==='chat'?'chat':'wiz');if(ui==='chat'){QS.log=[];QS.intro=mode==='new'?`Bonjour. On relève les vitrages${S.client.nom?' de '+S.client.nom:''}, de gauche à droite.`:mode==='plan'?'On complète les vitrages de la photo, dans l\'ordre des numéros.':'Il manque quelques informations.';botSay(mode==='new'?`Bonjour ! On relève les vitrages${S.client.nom?' de '+S.client.nom:''}, toujours de gauche à droite (V1, V2…). Je pose les questions à voix haute et j'écoute vos réponses. Astuce : une phrase suffit pour une fenêtre, par exemple « salon, 2 vantaux, 120 par 135, 118 par 135, suivant ». Dites « retour » pour revenir, « passer » si vous ne savez pas, « pause » pour arrêter l'écoute, « terminer » quand c'est fini.`:mode==='plan'?`On complète les vitrages repérés sur la photo, dans l'ordre des numéros (en partant d'en bas à gauche). Dites « F7 » pour aller directement à un vitrage, « passer » pour garder l'estimation.`:`Il manque quelques informations. Je vous les demande une par une.`)}qRender()})}
 function buildSteps(){const it=QS.items[QS.ii];if(!it)return null;const z=zById(it.zid),w=wIn(z,it.wid);if(!z||!w){QS.ii++;return buildSteps()}const st=[];
   if(QS.mode==='plan'&&!QS.zoneAsked[z.id]){QS.zoneAsked[z.id]=1;for(const[k]of qAttrs())if(!z[k]&&!(k==='menui'&&z.menui)&&!(k==='joint'&&z.joint))st.push({t:'zattr',k})}
   const n=w.vt||1;if(!winDimsOk(w))for(let i=0;i<n;i++)if(!dimsOk(w,i)){st.push({t:'w',i},{t:'h',i})}
@@ -3906,7 +3904,7 @@ const COMPK=['menui','joint','verre','ouv'];
 function compOf(w,z){if(!w)return null;const c={vt:Math.max(1,parseInt(w.vt)||1)};for(const k of COMPK){const v=getAttr(w,z,k);if(v)c[k]=v}return c}
 function compTxt(c){return[(c.vt||1)>1?c.vt+' vantaux':'1 vantail',c.ouv&&OUVS[c.ouv],c.menui&&MENUI[c.menui],c.joint&&JOINTS[c.joint],c.verre&&VERRES[c.verre]].filter(Boolean).join(' · ')}
 function compSuggest(){const Q=QS;if(Q.lastComp)return{src:'prev',c:Q.lastComp};if(clType(S.client)==='part'&&!S.client.noPreset)return{src:'preset',c:{vt:2,ouv:'battant'}};return null}
-function compNext(z,w){const Q=QS;if(w)Q.lastComp=compOf(w,z);Q.plan=null;Q.compAsked=false}
+function compNext(z,w){const Q=QS;if(w){Q.lastComp=compOf(w,z);Q.lastWin={zid:z.id,wid:w.id};if(S.readBack!==false)Q.rbMsg='Noté. '+rbText(z,w)+'.'}Q.lastLieu=z&&z.nom;Q.plan=null;Q.compAsked=false}
 function attrQ(k,set,cur){const a=ATTR.find(x=>x[0]===k);const opts=a[2]();const last=QS.last[k];const chips=last&&last!==cur?[[last,'Comme le précédent ('+ATN[k][last]+')']]:[];return{key:k,text:a[1],kind:'choice',opts,chips,skip:true,cur,set}}
 function nextQ(){const Q=QS;if(!Q)return null;
   if(Q.mode==='new'){const z=zById(Q.zid),w=wIn(z,Q.wid);
@@ -3915,18 +3913,25 @@ function nextQ(){const Q=QS;if(!Q)return null;
     if(Q.phase==='cadr')return{key:'cadr',text:'Adresse du chantier ?',kind:'text',skip:true,set:v=>{if(v){S.client.adresse=S.client.adresse||String(v).trim();S.client.chantier=String(v).trim()}Q.phase='lieu';renderClientBars();bindFields&&bindFields();save()}};
     if(Q.phase==='lieu'&&S.askPhoto!==false&&!Q.photoDone)return{key:'photo',text:Q.count?'Photo du vitrage suivant ?':'Photo du vitrage ?',sub:'Touchez « Prendre la photo », ou dites « pas de photo ». Vous direz ensuite la pièce.',say:(Q.count?'Vitrage suivant. ':'')+'Prenez la photo du vitrage en touchant le bouton appareil photo, ou dites : pas de photo.',kind:'choice',opts:[['__cam','📷 Prendre la photo'],['non','Pas de photo']],
       set:v=>{if(v==='__cam')return'Touchez le bouton « Prendre la photo » à l\'écran, ou dites « pas de photo ».';Q.photoDone=true}};
-    if(Q.phase==='lieu')return{key:'lieu',text:Q.pend.length?'Où est ce vitrage ?':Q.count?'Vitrage suivant : où est-il ?':'Où est le vitrage ?',sub:'Touchez 🎤 et dites le lieu, ou écrivez-le.',say:Q.count?'Vitrage suivant : où est-il ?':'Où est le vitrage ?',kind:'text',thumb:Q.pend.length?{src:Q.pend[Q.pend.length-1]}:null,
+    if(Q.phase==='lieu')return{key:'lieu',chips:Q.count?[['terminer','✅ Terminer le relevé']]:[],text:Q.pend.length?'Où est ce vitrage ?':Q.count?'Vitrage suivant : où est-il ?':'Où est le vitrage ?',sub:'Touchez 🎤 et dites le lieu, ou écrivez-le.',say:Q.count?'Vitrage suivant : où est-il ?':'Où est le vitrage ?',kind:'text',thumb:Q.pend.length?{src:Q.pend[Q.pend.length-1]}:null,
       set:v=>{v=String(v).trim();if(!v)return'Donnez un nom de lieu (ex. Cuisine).';v=v.charAt(0).toUpperCase()+v.slice(1);Q.lieu=v;const ex=S.zones.find(x=>normTxt(zBase(x))===normTxt(v)&&!(x.unnamed&&!x.windows.length));
         if(ex){Q.zid=ex.id;Q.phase='w'}else{const blank=S.zones.find(x=>x.unnamed&&!x.windows.length&&!x.photo);Q.blank=blank?blank.id:null;Q.zid=null;Q.pose=(zById(Q.lastZ)||{}).type||S.defPose||'int';Q.phase=S.films.length>1?'film':'mkzone';if(S.films.length<=1)Q.film=S.filmId}Q.wid=null;Q.vi=0;Q.cur={}}};
     if(Q.phase==='pose')return{key:'pose',text:`${Q.lieu} : film posé à l'intérieur ou à l'extérieur ?`,kind:'choice',opts:[['int','Intérieur'],['ext','Extérieur']],set:v=>{Q.pose=v;Q.phase=S.films.length>1?'film':'mkzone';if(S.films.length<=1)Q.film=S.filmId}};
     if(Q.phase==='film')return{key:'film',text:'Quel film pour ce lieu ?',sub:'Vous pourrez le changer vitrage par vitrage dans le bilan.',kind:'choice',opts:filmOpts(),chips:[[S.filmId,'Film habituel ('+filmById(S.filmId).nom+')']],set:v=>{Q.film=v;Q.phase='mkzone'}};
     if(Q.phase==='mkzone'){let zz=Q.blank&&zById(Q.blank);if(zz){zz.nom=Q.lieu;delete zz.unnamed;zz.type=Q.pose;zz.filmId=Q.film}else{zz=newZone(uniqueZoneName(Q.lieu),Q.pose,Q.film);S.zones.push(zz)}zz.base=Q.lieu;Q.zid=zz.id;Q.phase='w';changed('zone');return nextQ()}
+    if(Q.rich&&Q.phase==='w'&&!w&&Q.vi===0&&!Q.compAsked){const R=Q.rich;Q.compAsked=true;const base=Q.lastComp?Object.assign({},Q.lastComp):(clType(S.client)==='part'&&!S.client.noPreset?{vt:2,ouv:'battant'}:{});if(R.vt)base.vt=R.vt;else if(R.dims.length>1)base.vt=R.dims.length;else if(!base.vt)base.vt=R.dims.length||1;if(R.ouv)base.ouv=R.ouv;Q.plan=base}
+    if(Q.rich&&Q.phase==='w'&&Q.rich.dims.length){const d=Q.rich.dims.shift();Q.cur={w:d[0],h:d[1]};commitV();return nextQ()}
+    if(Q.rich&&Q.phase==='next'){const R=Q.rich;if(R.dims.length){Q.vi++;Q.cur={};Q.phase='w';if(Q.plan)Q.plan.vt=Math.max(Q.plan.vt||1,Q.vi+R.dims.length);return nextQ()}Q.rich=null;
+      if(R.fin){compNext(z,w);Q.phase='done';return nextQ()}if(R.next||(Q.plan&&Q.vi+1>=Q.plan.vt)){compNext(z,w);Q.lastZ=Q.zid;Q.wid=null;Q.vi=0;Q.cur={};Q.lieu=null;Q.photoDone=false;Q.phase='lieu';return nextQ()}}
     if(Q.phase==='w'&&!w&&Q.vi===0&&!Q.compAsked){const sg=compSuggest();if(sg){const t=compTxt(sg.c);return{key:'comp',text:sg.src==='prev'?'Même composition que la fenêtre précédente ?':'Fenêtre à 2 vantaux battants ?',sub:`${z.nom} · ${nextLabel(z)} — ${t}`,say:sg.src==='prev'?'Même composition que la précédente : '+t+' ?':'Fenêtre à deux vantaux battants ?',kind:'choice',
         opts:[['same',sg.src==='prev'?'Oui, pareil ('+t+')':'Oui, 2 vantaux battants'],['aucun','Aucun : toutes les options']],set:v=>{Q.compAsked=true;Q.plan=v==='same'?Object.assign({},sg.c):null}}}Q.compAsked=true}
-    if(Q.phase==='w')return{key:'w',text:`Largeur${w||Q.vi?' du V'+(Q.vi+1):''} ?`,sub:`${z.nom} · ${w?w.label:nextLabel(z)} · V${Q.vi+1} — en cm (vous pouvez dire « 46 par 77 »)`,kind:'num',set:v=>{const p=parsePair(v);if(p){Q.cur={w:p[0],h:p[1]};return commitV()}const c=nCm(v);if(!c)return'Je n\'ai pas compris la largeur. Exemple : 46, 46 cm ou 1 m 20.';Q.cur.w=c;Q.phase='h'}};
+    if(Q.phase==='w'){const ch=[];const pv=w&&w.vm&&w.vm[Q.vi-1];if(pv)ch.push([fmt(pv.w,1)+' par '+fmt(pv.h,1),'= V'+Q.vi+' ('+fmt(pv.w,0)+' × '+fmt(pv.h,0)+')']);
+      else if(!w&&Q.lastWin){const lz=zById(Q.lastWin.zid),lw=lz&&wIn(lz,Q.lastWin.wid),lm=lw&&lw.vm&&lw.vm[0];if(lm)ch.push([fmt(lm.w,1)+' par '+fmt(lm.h,1),'= '+lw.label+' V1 ('+fmt(lm.w,0)+' × '+fmt(lm.h,0)+')'])}
+      Q._wch=ch}
+    if(Q.phase==='w')return{key:'w',chips:Q._wch,text:`Largeur${w||Q.vi?' du V'+(Q.vi+1):''} ?`,sub:`${z.nom} · ${w?w.label:nextLabel(z)} · V${Q.vi+1} — en cm (vous pouvez dire « 46 par 77 »)`,kind:'num',set:v=>{const p=parsePair(v);if(p){Q.cur={w:p[0],h:p[1]};return commitV()}const c=nCm(v);if(!c)return'Je n\'ai pas compris la largeur. Exemple : 46, 46 cm ou 1 m 20.';Q.cur.w=c;Q.phase='h'}};
     if(Q.phase==='h')return{key:'h',text:`Hauteur${w||Q.vi?' du V'+(Q.vi+1):''} ?`,sub:`${z.nom} · ${w?w.label:nextLabel(z)} · V${Q.vi+1} — largeur ${fmt(Q.cur.w,1)} cm`,kind:'num',set:v=>{const c=nCm(v);if(!c)return'Je n\'ai pas compris la hauteur. Exemple : 77 ou 1 m 35.';Q.cur.h=c;return commitV()}};
     if(Q.phase==='attr'){const A=qAttrs().filter(a=>!(Q.plan&&Q.plan[a[0]]));if(Q.ai>=A.length){Q.phase='next';return nextQ()}const k=A[Q.ai][0];return Object.assign(attrQ(k,v=>{if(v!=null){w[k]=v;Q.last[k]=v}Q.ai++},w[k]),{sub:`${z.nom} · ${w.label}`})}
-    if(Q.phase==='next'&&Q.plan&&Q.plan.vt>1&&!Q.planOff){if(Q.vi+1<Q.plan.vt){Q.vi++;Q.cur={};Q.phase='w';return nextQ()}}
+    if(Q.phase==='next'&&Q.plan&&!Q.planOff){if(Q.vi+1<(Q.plan.vt||1)){Q.vi++;Q.cur={};Q.phase='w';return nextQ()}compNext(z,w);Q.lastZ=Q.zid;Q.wid=null;Q.vi=0;Q.cur={};Q.lieu=null;Q.photoDone=false;Q.phase='lieu';return nextQ()}
     if(Q.phase==='next')return{key:'next',text:`Y a-t-il un V${Q.vi+2} sur cette fenêtre ?`,sub:`${z.nom} · ${w.label} : ${(w.vm||[]).filter(Boolean).map((m,i)=>'V'+(i+1)+' '+fmt(m.w,0)+'×'+fmt(m.h,0)).join(', ')}`,kind:'choice',opts:[['oui',`Oui, un V${Q.vi+2}`],['non','Non, vitrage suivant'],['fin','Terminer']],
       set:v=>{if(v==='oui'){Q.vi++;Q.cur={};Q.phase='w'}else if(v==='non'){compNext(z,w);Q.lastZ=Q.zid;Q.wid=null;Q.vi=0;Q.cur={};Q.lieu=null;Q.photoDone=false;Q.phase='lieu'}else Q.phase='done'}};
     return null}
@@ -3945,7 +3950,23 @@ function commitV(){const Q=QS,z=zById(Q.zid);let w=wIn(z,Q.wid);
   if(!w){w={id:uid(),label:nextLabel(z),x:null,y:null,w:null,h:null,wcm:0,hcm:0,measured:true,qty:1,sel:true,vt:1,vm:[]};z.windows.push(w);Q.wid=w.id;Q.count++;if(Q.pend.length){w.snaps=(w.snaps||[]).concat(Q.pend);w.snap=w.snaps[0];Q.pend=[]}}
   if(Q.plan&&Q.vi===0)for(const k of COMPK)if(Q.plan[k])w[k]=Q.plan[k];w.vm=Array.isArray(w.vm)?w.vm:[];w.vm[Q.vi]={w:Q.cur.w,h:Q.cur.h};w.vt=Math.max(parseInt(w.vt)||1,Q.vi+1);vtSync(w,z);Q.cur={};Q.ai=0;Q.phase=Q.vi===0?'attr':'next';changed('win')}
 function commitItem(z,w,i){w.vm=Array.isArray(w.vm)&&w.vmSum?w.vm:[];w.vm[i]={w:QS.cur.w,h:QS.cur.h};vtSync(w,z);try{reEstimate(z)}catch(_){}QS.cur={};changed('win')}
+/* « Une phrase = une fenêtre » : « salon, 2 vantaux battants, 120 par 135, 118 par 135, suivant » */
+function parseRich(txt){const t=numWords(String(txt)).toLowerCase(),n=normTxt(t);const out={dims:[]};
+  const re=/(\d+(?:[.,]\d+)?)\s*(?:cm)?\s*(?:par|x|×|sur|fois|\*)\s*(\d+(?:[.,]\d+)?)/g;let m;while((m=re.exec(t))){const a=nCm(m[1]),b=nCm(m[2]);if(a&&b)out.dims.push([a,b])}
+  const v=n.match(/(\d)\s*vantaux?\b/);if(v)out.vt=+v[1];else if(/\bun vantail\b|\b1 vantail\b/.test(n))out.vt=1;
+  for(const[k,re2]of[['battant',/battant/],['coulissant',/coulissant/],['oscillo',/oscillo/],['fixe',/\bfixes?\b/]])if(re2.test(n)&&OUVS[k]){out.ouv=k;break}
+  out.next=/\b(suivant|suivante|fenetre suivante|vitrage suivant|au suivant)\b/.test(n);out.fin=/\b(terminer|termine|c est fini|j ai fini)\b/.test(n);
+  const f=t.search(/\d|\bun vantail|vantaux|battant|coulissant|oscillo|\bfixe/);out.lieu=(f>0?txt.slice(0,f):'').replace(/[,;:.\s]+$/,'').trim();
+  out.ok=out.dims.length>=2||(out.dims.length>=1&&(out.vt||out.ouv||out.next||out.fin));return out}
+function rbText(z,w){return w.label+' : '+(w.vm||[]).filter(Boolean).map((m,i)=>((w.vm.filter(Boolean).length>1)?'V'+(i+1)+' ':'')+fmt(m.w,0)+' par '+fmt(m.h,0)).join(', ')}
+function rbCorrect(txt){const Q=QS;if(!Q||!Q.lastWin)return false;const n=normTxt(numWords(txt));if(!/^non\b/.test(n))return false;const z=zById(Q.lastWin.zid),w=z&&wIn(z,Q.lastWin.wid);if(!w||!(w.vm||[]).length)return false;
+  const p=parsePair(txt.replace(/^\s*non[ ,]*/i,''));const vi=w.vm.length-1;const vm=w.vm[vi];if(!vm)return false;
+  if(p){vm.w=p[0];vm.h=p[1]}else{const c=nCm(txt.replace(/^\s*non[ ,]*/i,''));if(!c)return false;if(Math.abs(c-vm.w)<=Math.abs(c-vm.h))vm.w=c;else vm.h=c}
+  vtSync(w,z);changed('win');Q.rbMsg='Corrigé. '+rbText(z,w)+'.';return true}
 function answerQ(raw,direct){if(!QS)return;const q=nextQ();if(!q)return finishQ();const txt=raw==null?'':String(raw).trim(),n=normTxt(txt);
+  if(!direct&&q.key==='lieu'&&/^(non|oui|suivant|suivante|ok|d accord)$/.test(n)){if(QUI==='chat')userSay(txt);return askAgain(q,'Dites la pièce du vitrage suivant, ou « terminer ».')}
+  if(!direct&&txt&&['lieu','comp','w','next'].includes(q.key)){if(/^non\b/.test(n)&&q.key!=='next'&&rbCorrect(txt)){if(QUI==='chat')userSay(txt);return qRender()}
+    const R=parseRich(txt);if(R.ok){if(QUI==='chat')userSay(txt);QS.hist.push(snapQ());QS.rich=R;if(q.key==='lieu'){const e=q.set(R.lieu||QS.lastLieu||'Vitrage');if(e){QS.hist.pop();QS.rich=null;return askAgain(q,e)}}else if(q.key==='next'){if(R.dims.length){QS.vi++;QS.cur={};QS.phase='w';if(QS.plan)QS.plan.vt=Math.max(QS.plan.vt||1,QS.vi+R.dims.length)}}save();return qRender()}}
   if(QUI==='chat'&&txt)userSay(direct&&q.opts?(q.opts.concat(q.chips||[]).find(o=>o[0]===raw)||[0,txt])[1]:txt);
   if(!direct&&/^(retour|precedent|revenir|en arriere)$/.test(n))return backQ();
   if(!direct&&/^(terminer|fin|stop|c est fini|j ai fini)$/.test(n)&&q.key!=='next'){QS.phase='done';QS.steps=[];QS.ii=QS.items.length;return finishQ()}
@@ -3962,12 +3983,12 @@ function finishQ(){const n=allWins().length,miss=allWins().filter(({z,w})=>missi
   if(QUI==='chat'){botSay(msg);const on=HF.on;hfStop();if(on||S.tts)speakThen(msg+' Vous pouvez voir le bilan à l\'écran.',null);hfSet('off','Terminé.');$('#n-chips').innerHTML='<button type="button" data-go="bilan">📋 Voir le bilan</button><button type="button" data-go="devis">🧾 Créer le devis</button>';$('#n-in').disabled=true}
   else{$('#w-card').innerHTML=`<h3 class="n-q">C'est fini</h3><p class="n-sub">${esc(msg)}</p><button class="btn primary n-next" data-go="bilan">📋 Voir le bilan</button><button class="btn n-next" data-go="devis">🧾 Créer le devis</button>`;$('#w-prog').style.width='100%'}
   QS=null;changed('all')}
-function qRender(noAsk){const q=nextQ();if(!q)return finishQ();if(QUI==='chat'){if(!noAsk){botSay(q.text+(q.sub?'\n'+q.sub:''),'',q.thumb);hfSay(qSay(q))}renderChips(q);$('#n-in').disabled=false;$('#n-in').value='';$('#n-in').placeholder=q.kind==='num'?'Ex. 46 ou 46 par 77…':'Votre réponse (micro du clavier 🎤)…';$('#n-in').setAttribute('inputmode',q.kind==='num'?'text':'text')}else wizShow(q)}
+function qRender(noAsk){const q=nextQ();if(!q)return finishQ();const rb=QS.rbMsg;QS.rbMsg=null;if(QUI==='chat'){if(rb)botSay(rb+' Dites « non » et la bonne cote pour corriger.','ok');if(!noAsk){botSay(q.text+(q.sub?'\n'+q.sub:''),'',q.thumb);hfSay((rb?rb+' ':'')+qSay(q))}renderChips(q);$('#n-in').disabled=false;$('#n-in').value='';$('#n-in').placeholder=q.kind==='num'?'Ex. 46 ou 46 par 77…':'Votre réponse (micro du clavier 🎤)…';$('#n-in').setAttribute('inputmode',q.kind==='num'?'text':'text')}else{wizShow(q);if(rb){const e=$('#w-err');if(e){e.textContent='✓ '+rb+' Écrivez « non 125 » pour corriger.';e.hidden=false;e.classList.add('ok')}}}}
 /* chat */
 function botSay(t,cls,thumb){QS&&QS.log.push({who:'bot',t,cls:cls||'',thumb:thumb||null});renderChat()}
 function userSay(t){QS&&QS.log.push({who:'me',t});renderChat()}
 function renderChat(){if(!QS)return;const el=$('#n-chat');let lt=-1;QS.log.forEach((m,i)=>{if(m.thumb)lt=i});el.innerHTML=QS.log.map((m,i)=>`<div class="n-msg ${m.who} ${m.cls||''}">${esc(m.t).replace(/\n/g,'<br><small>')}${m.t.includes('\n')?'</small>':''}${m.thumb&&i===lt?`<canvas class="n-thumb" data-th="${i}"></canvas>`:''}</div>`).join('');
-  el.querySelectorAll('canvas[data-th]').forEach(c=>drawThumb(c,QS.log[+c.dataset.th].thumb));requestAnimationFrame(()=>{const last=el.lastElementChild;last&&last.scrollIntoView({block:'end',behavior:'smooth'})})}
+  el.querySelectorAll('canvas[data-th]').forEach(c=>drawThumb(c,QS.log[+c.dataset.th].thumb));requestAnimationFrame(()=>{if(NM()){const f=$('#n-form'),c=$('#n-chips');if(f&&c){const y=c.getBoundingClientRect().bottom+scrollY+f.offsetHeight+10-innerHeight;window.scrollTo({top:Math.max(0,y),behavior:'smooth'});return}}const last=el.lastElementChild;last&&last.scrollIntoView({block:'end',behavior:'smooth'})})}
 function renderChips(q){const ch=(q.chips||[]).concat(q.kind==='choice'?q.opts:[]);const extra=[];if(q.skip)extra.push(['__skip','Passer / je ne sais pas']);if(QS&&QS.hist.length)extra.push(['__back','↩ Retour']);
   $('#n-chips').innerHTML=ch.map(([v,l])=>v==='__cam'?`<label for="n-cam" class="n-camchip">${esc(l)}</label>`:`<button type="button" data-qv="${esc(v)}" class="${q.cur===v?'cur':''}">${esc(l)}</button>`).join('')+extra.map(([v,l])=>`<button type="button" class="ghost" data-qv="${v}">${esc(l)}</button>`).join('')}
 function drawThumb(c,th){if(th.src){const im=new Image();im.onload=()=>{const W=320,r=W/im.naturalWidth;c.width=W;c.height=Math.round(im.naturalHeight*r);c.getContext('2d').drawImage(im,0,0,c.width,c.height)};im.onerror=()=>c.remove();im.src=th.src;return}const z=zById(th.zid);if(!z||!z.photo){c.remove();return}const im=zoneImg(z);if(!im||!im.naturalWidth){c.remove();return}const W=320,r=W/im.naturalWidth;c.width=W;c.height=Math.round(im.naturalHeight*r);const g=c.getContext('2d');g.drawImage(im,0,0,c.width,c.height);
@@ -4152,7 +4173,7 @@ placeNM();
 $('#q-cfg').innerHTML=ATTR.map(([k,,,lab])=>`<label class="row" style="gap:8px;flex-wrap:nowrap"><input type="checkbox" data-qc="${k}" ${S.qcfg[k]?'checked':''} style="width:20px"> <span>Demander : ${lab.toLowerCase()}</span></label>`).join('');
 $('#q-cfg').addEventListener('change',e=>{const k=e.target.dataset.qc;if(k){S.qcfg[k]=e.target.checked?1:0;save()}});
 $('#rg-askph').checked=S.askPhoto!==false;$('#rg-askph').onchange=e=>{S.askPhoto=e.target.checked;save()};$('#rg-snake').checked=S.snake!==false;$('#rg-snake').onchange=e=>{S.snake=e.target.checked;save()};
-$('#rg-tts').checked=!!S.tts;$('#rg-tts').onchange=e=>{S.tts=e.target.checked;save()};
+$('#rg-tts').checked=!!S.tts;$('#rg-tts').onchange=e=>{S.tts=e.target.checked;save()};$('#rg-rb').checked=S.readBack!==false;$('#rg-rb').onchange=e=>{S.readBack=e.target.checked;save()};
 $('#rg-expert').checked=S.nm===false;$('#rg-expert').onchange=e=>{S.nm=!e.target.checked;document.body.classList.toggle('nm',S.nm);placeNM();save();setTab(S.nm?'home':'accueil');toast(S.nm?'Interface simple':'Anciens écrans (mode expert) affichés')};
 $('#rg-snake-now').onclick=()=>{const z=Z();if(!z.windows.some(w=>w.w!=null)){toast('Aucun vitrage repéré sur la photo de cette zone');return}pushUndo();snakeNumber(z);changed('win');toast('Vitrages renumérotés en serpent dans « '+z.nom+' »')};
 renderClientBars();
