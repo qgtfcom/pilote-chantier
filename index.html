@@ -3994,14 +3994,14 @@ function renderChips(q){const ch=(q.chips||[]).concat(q.kind==='choice'?q.opts:[
 function drawThumb(c,th){if(th.src){const im=new Image();im.onload=()=>{const W=320,r=W/im.naturalWidth;c.width=W;c.height=Math.round(im.naturalHeight*r);c.getContext('2d').drawImage(im,0,0,c.width,c.height)};im.onerror=()=>c.remove();im.src=th.src;return}const z=zById(th.zid);if(!z||!z.photo){c.remove();return}const im=zoneImg(z);if(!im||!im.naturalWidth){c.remove();return}const W=320,r=W/im.naturalWidth;c.width=W;c.height=Math.round(im.naturalHeight*r);const g=c.getContext('2d');g.drawImage(im,0,0,c.width,c.height);
   for(const w of z.windows){if(w.w==null)continue;const P=polyOf(w).map(p=>[p[0]*r,p[1]*r]),on=th.wid===w.id;g.beginPath();P.forEach((p,k)=>k?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1]));g.closePath();g.lineWidth=on?3:1;g.strokeStyle=on?'#ff3b30':'rgba(255,255,255,.7)';if(on){g.fillStyle='rgba(255,59,48,.25)';g.fill()}g.stroke();
     g.font=`700 ${on?13:10}px sans-serif`;g.fillStyle=on?'#ff3b30':'rgba(255,255,255,.85)';g.fillText(w.label,P[0][0]+2,P[0][1]+(on?14:11))}}
-const HF={on:false,rec:null,state:'off',sil:0,got:false};
+const HF={on:false,rec:null,state:'off',sil:0,got:false,fail:0};
 const frVoice=()=>{try{const V=speechSynthesis.getVoices().filter(v=>/^fr/i.test(v.lang));return V.find(v=>/thomas|amelie|amélie|audrey|google/i.test(v.name))||V[0]||null}catch(_){return null}};
 function hfSet(st,txt){HF.state=st;const b=$('#n-hf');if(!b)return;b.className='n-hfbtn '+st;$('#n-hf-st').textContent={speak:'Je parle…',listen:'J\'écoute…',pause:'Écoute en pause',off:'Mains libres coupé'}[st]||'Mains libres';if(txt!=null)$('#n-hf-txt').textContent=txt}
 function aSess(t){try{if(navigator.audioSession&&navigator.audioSession.type!==t)navigator.audioSession.type=t}catch(_){}}
-function speakThen(t,cb){if(!('speechSynthesis'in window)){cb&&cb();return}let done=false;const t0=Date.now();
-  const fin=()=>{if(done)return;if(Date.now()-t0<1500&&speechSynthesis.speaking){setTimeout(fin,250);return}done=true;clearTimeout(HF.ttsT);setTimeout(()=>cb&&cb(),450)};
-  try{HF.recOff&&HF.recOff();aSess('playback');if(speechSynthesis.speaking||speechSynthesis.pending)speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';const v=frVoice();if(v)u.voice=v;u.rate=1;u.volume=1;u.pitch=1;u.onend=fin;u.onerror=fin;hfSet('speak',t);HF.utt=u;speechSynthesis.speak(u);
-    const chk=()=>{if(done)return;if(speechSynthesis.speaking||speechSynthesis.pending){HF.ttsT=setTimeout(chk,400)}else fin()};HF.ttsT=setTimeout(chk,1200+t.length*70)}catch(_){fin()}}
+function speakThen(t,cb){if(!('speechSynthesis'in window)){cb&&cb();return}let done=false;
+  const fin=()=>{if(done)return;done=true;clearTimeout(HF.ttsT);HF.utt=null;setTimeout(()=>cb&&cb(),350)};
+  try{HF.recOff&&HF.recOff();aSess('playback');if(speechSynthesis.speaking||speechSynthesis.pending)speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';const v=frVoice();if(v)u.voice=v;u.rate=.95;u.volume=1;u.pitch=1;u.onend=fin;u.onerror=fin;hfSet('speak',t);HF.utt=u;speechSynthesis.speak(u);
+    HF.ttsT=setTimeout(fin,Math.max(8000,Math.min(30000,1200+t.length*18)))}catch(_){fin()}}
 function hfSay(t){if(HF.on&&QS){speakThen(t,hfListen)}else if(S.tts)speakThen(t,null)}
 function hfStop(){HF.on=false;clearTimeout(HF.idleT);clearTimeout(HF.ttsT);try{HF.rec&&HF.rec.abort()}catch(_){}HF.rec=null;try{speechSynthesis.cancel()}catch(_){}}
 function bestAlt(t,alts){try{const q=nextQ();if(!q||!alts||alts.length<2)return t;const ok=a=>q.kind==='num'?!!(parsePair(a)||nCm(a)):q.kind==='choice'?!!matchOpt(a,q.opts||[]):true;if(ok(t))return t;const f=alts.find(a=>a&&ok(a));return f?f.trim():t}catch(_){return t}}
@@ -4014,10 +4014,34 @@ function hfListen(){if(!HF.on||!QS||S.tab!=='chat')return;if(!SRec||micOff){hfFa
     if(/^(photo|prendre une photo)$/.test(n)){speakThen('Touchez le bouton appareil photo à l\'écran.',hfListen);return}setTimeout(()=>answerQ(t),50)};
   r.onresult=e=>{let fin='',tmp='';for(let i=0;i<e.results.length;i++){const x=e.results[i][0].transcript;if(e.results[i].isFinal)fin+=x;else tmp+=x}last=(fin+tmp).trim();$('#n-hf-txt').textContent=last||'…';
     clearTimeout(HF.idleT);if(fin.trim()&&!tmp.trim()){try{const L=e.results[e.results.length-1];alts=[];for(let k=0;k<L.length;k++)alts.push(L[k].transcript)}catch(_){alts=[]}take(fin);return}HF.idleT=setTimeout(()=>take(last),1300)};
-  r.onerror=e=>{if(e.error==='not-allowed'||e.error==='service-not-allowed'||e.error==='audio-capture'){if(!HF.okOnce){micOff=true;hfFail()}return}};
-  r.onend=()=>{if(HF.rec!==r)return;HF.rec=null;if(HF.got||!HF.on)return;if(last){take(last);return}if((nextQ()||{}).key==='photo'){setTimeout(hfListen,300);return}HF.sil++;if(HF.sil>=3){hfPause('Je n\'entends rien. Touchez le micro pour reprendre.');speakThen('Je fais une pause. Touchez le micro pour reprendre.',null);return}speakThen(HF.sil===1?'Je vous écoute.':'Je répète : '+((nextQ()||{}).text||''),hfListen)};
-  r.onstart=()=>{HF.okOnce=true};
-  try{r.start();hfSet('listen','Parlez maintenant…')}catch(_){HF.rec=null;setTimeout(hfListen,500)}}
+  r.onerror=e=>{
+    if(e.error==='not-allowed'||e.error==='service-not-allowed'){micOff=true;hfFail();return}
+    r._retry=true;
+    HF.fail=(HF.fail||0)+1;
+    if(e.error==='audio-capture')hfSet('listen','Micro momentanément indisponible…');
+    else hfSet('listen','Reconnexion à la dictée…');
+  };
+  r.onend=()=>{
+    if(HF.rec!==r)return;
+    HF.rec=null;
+    if(HF.got||!HF.on)return;
+    if(last){take(last);return}
+    if((nextQ()||{}).key==='photo'){setTimeout(hfListen,300);return}
+    HF.sil++;
+    if(r._retry||HF.fail>=3){
+      HF.fail=Math.max(0,(HF.fail||0)-1);
+      setTimeout(hfListen,700);
+      return;
+    }
+    if(HF.sil>=8){
+      HF.sil=0;
+      speakThen('Je suis toujours à l’écoute. '+(((nextQ()||{}).text)||''),hfListen);
+      return;
+    }
+    setTimeout(hfListen,250);
+  };
+  r.onstart=()=>{HF.okOnce=true;HF.fail=0};
+  try{r.start();hfSet('listen','Parlez maintenant…')}catch(_){HF.rec=null;HF.fail=(HF.fail||0)+1;setTimeout(hfListen,500)}}
 HF.recOff=()=>{clearTimeout(HF.idleT);if(HF.rec){const o=HF.rec;HF.rec=null;try{o.abort()}catch(_){}}};
 function hfPause(msg){HF.on=false;try{HF.rec&&HF.rec.abort()}catch(_){}HF.rec=null;hfSet('pause',msg)}
 function hfFail(){HF.on=false;HF.rec=null;hfSet('off','L\'écoute automatique n\'est pas disponible ici (aperçu claude.ai). Ouvrez l\'appli installée sur l\'iPhone, ou répondez avec le micro du clavier. Les questions restent lues à voix haute.');S.tts=true}
